@@ -80,7 +80,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Masterdataadmin/ajax_list')?>",
+            "url": "<?php echo site_url('Masterwisata/ajax_list')?>",
             "type": "POST"
         },
 
@@ -99,17 +99,17 @@ $(document).ready(function() {
 
 
 
-function add_admin()
+function add_wisata()
 {
     save_method = 'add';
     $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Admin'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah Data Wisata'); // Set Title to Bootstrap modal title
 }
 
-function edit_admin(id)
+function edit_wisata(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
@@ -118,19 +118,27 @@ function edit_admin(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Masterdataadmin/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('Masterwisata/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
 
+            $('[name="id_wisata"]').val(data.id_wisata);
+            $('[name="nama_wisata"]').val(data.nama_wisata);
+            $('[name="alamat_wisata"]').val(data.alamat_wisata);
+            $('[name="kategori_wisata"]').val(data.kategori_wisata);
+            $('[name="gambar_wisata"]').val(data.gambar_wisata);
+            $('[name="lat_wisata"]').val(data.lat_wisata);
+            $('[name="long_wisata"]').val(data.long_wisata);
+            $('[name="ket_wisata"]').val(data.ket_wisata);
+            $('[name="komentar_wisata"]').val(data.komentar_wisata);
+            $('[name="harga_wisata"]').val(data.harga_wisata);
+            $('[name="notelp_wisata"]').val(data.notelp_wisata);
             $('[name="id_admin"]').val(data.id_admin);
-            $('[name="username"]').val(data.username);
-            $('[name="password"]').val(data.password);
-            $('[name="email"]').val(data.email);
-            $('[name="no_hp_admin"]').val(data.no_hp_admin);
+            $('[name="id_user"]').val(data.id_user);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Admin'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Edit Data Wisata'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
@@ -152,9 +160,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Masterdataadmin/ajax_add')?>";
+        url = "<?php echo site_url('Masterwisata/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Masterdataadmin/ajax_update')?>";
+        url = "<?php echo site_url('Masterwisata/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -187,13 +195,13 @@ function save()
     });
 }
 
-function delete_admin(id)
+function delete_wisata(id)
 {
     if(confirm('Are you sure delete this data?'))
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Masterdataadmin/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('Masterwisata/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -218,41 +226,113 @@ function delete_admin(id)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Form Kelola Admin</h3>
+                <h3 class="modal-title">Form Kelola Data Wisata</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id_admin"/>
+                    <input type="hidden" value="" name="id_wisata"/>
                     <div class="form-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Username</label>
-                                    <input type="text" class="form-control" name="username">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Email address</label>
-                                    <input type="email" class="form-control" name="email">
+                                    <label class="control-label">Nama Wisata</label>
+                                    <input type="text" class="form-control" name="nama_wisata">
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Password</label>
-                                    <input type="password" class="form-control" name="password">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Nomor Handphone</label>
-                                    <input type="text" class="form-control" name="no_hp_admin">
+                                    <label class="control-label">Alamat Wisata</label>
+                                    <input type="text" class="form-control" name="alamat_wisata">
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Kategori Wisata</label>
+                                  <select name="kategori_wisata" id="kategori_wisata" class="form-control">
+                                                          <option value="">----</option>
+                                                          <option value="Wisata Alam">Wisata Alam</option>
+                                                          <option value="Wisata Kuliner">Wisata Kuliner</option>
+                                                          <option value="Wisata Belanja">Wisata Belanja</option>
+                                                      </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Gambar Wisata</label>
+                                    <input type="text" class="form-control" name="gambar_wisata">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Latitude Wisata</label>
+                                    <input type="text" class="form-control" name="lat_wisata">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Longitude Wisata</label>
+                                    <input type="text" class="form-control" name="long_wisata">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Keterangan Wisata</label>
+                                    <input type="text" class="form-control" name="ket_wisata">
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" value="" name="komentar_wisata"/>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Harga Tiket Masuk</label>
+                                    <input type="text" class="form-control" name="harga_wisata">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Nomor Telepon Wisata</label>
+                                    <input type="text" class="form-control" name="notelp_wisata">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Tanggal Posting</label>
+                                    <input type="date" class="form-control" name="tanggal_post">
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" value="1" name="id_admin"/>
+
+                        <input type="hidden" value="1" name="id_user"/>
+
                     </div>
                 </form>
             </div>

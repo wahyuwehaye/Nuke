@@ -24,6 +24,7 @@ class Dashboard extends CI_Controller {
      parent::__construct();
      $this->load->model('m_login');
 	 $this->load->model(array('m_dashboard'));
+	 $this->load->model('m_admin');
      //session_start();
     }
 
@@ -31,7 +32,9 @@ class Dashboard extends CI_Controller {
 	{
         if(isset($_SESSION['logged_in']))
 		{
-			$this->load->view('main/headerD');
+			$data['active_menu']='dashboard';
+			$this->load->view('main/headerD',$data);
+			// $data['count'] = $this->m_dashboard->countAdmin()->result();
         	$this->load->view('v_dashboard');
 			$this->load->view('main/footerD');
         }else{
@@ -40,22 +43,80 @@ class Dashboard extends CI_Controller {
 	}
 
 	public function admin(){
-		$this->load->view('main/headerD');
+		$data['active_menu']='admin';
+		$this->load->view('main/headerD',$data);
 		$this->load->view('admin');
 		$this->load->view('main/footerD');
 	}
 
 	public function listadmin(){
-		$this->load->view('main/headerD');
-		$data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
-		$this->load->view('listadmin',$data);
+		$data['active_menu']='listadmin';
+		$this->load->view('main/headerD',$data);
+		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
+		// $this->load->view('listadmin',$data);
+		$this->load->view('listadmin');
 		$this->load->view('main/footerD');
 	}
 
 	public function listuser(){
-		$this->load->view('main/headerD');
-		$data['user'] = $this->m_dashboard->tampil_dataUser()->result();
-		$this->load->view('listuser',$data);
+		$data['active_menu']='listuser';
+		$this->load->view('main/headerD',$data);
+		// $data['user'] = $this->m_dashboard->tampil_dataUser()->result();
+		// $this->load->view('listuser',$data);
+		$this->load->view('listuser');
+		$this->load->view('main/footerD1');
+	}
+
+	public function user(){
+		$data['active_menu']='dashboard';
+		$this->load->view('main/headerD',$data);
+		$data['user'] = $this->m_dashboard->tampil_dataAdmin1()->result();
+		$this->load->view('user',$data);
+		$this->load->view('main/footerD');
+	}
+
+	public function wisata(){
+		$data['active_menu']='wisata';
+		$this->load->view('main/headerD',$data);
+		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
+		// $this->load->view('listadmin',$data);
+		$this->load->view('wisata');
+		$this->load->view('main/footerD2');
+	}
+
+	public function penginapan(){
+		$data['active_menu']='penginapan';
+		$this->load->view('main/headerD',$data);
+		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
+		// $this->load->view('listadmin',$data);
+		$this->load->view('v_penginapan');
+		$this->load->view('main/footerD3');
+	}
+
+	public function event(){
+		$data['active_menu']='event';
+		$this->load->view('main/headerD',$data);
+		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
+		// $this->load->view('listadmin',$data);
+		$this->load->view('event');
+		$this->load->view('main/footerD4');
+	}
+
+	public function berita(){
+		$data['active_menu']='berita';
+		$this->load->view('main/headerD',$data);
+		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
+		// $this->load->view('listadmin',$data);
+		$this->load->view('berita');
+		$this->load->view('main/footerD5');
+	}
+
+	public function notifikasi(){
+		$data['active_menu']='notifikasi';
+		$this->load->view('main/headerD',$data);
+		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
+		// $this->load->view('listadmin',$data);
+		$this->load->view('notifikasi');
 		$this->load->view('main/footerD');
 	}
 

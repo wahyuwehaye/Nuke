@@ -26,6 +26,10 @@ class m_dashboard extends CI_Model{
 		return $this->db->get('admin');
 	}
 
+    public function tampil_dataAdmin1(){
+		return $this->db->get_where('admin',array('username'=>($_SESSION['username'])));
+	}
+
     public function tampil_dataUser(){
 		return $this->db->get('user');
 	}

@@ -80,7 +80,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Masterdataadmin/ajax_list')?>",
+            "url": "<?php echo site_url('Masterpenginapan/ajax_list')?>",
             "type": "POST"
         },
 
@@ -99,17 +99,17 @@ $(document).ready(function() {
 
 
 
-function add_admin()
+function add_penginapan()
 {
     save_method = 'add';
     $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Admin'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah Data Penginapan'); // Set Title to Bootstrap modal title
 }
 
-function edit_admin(id)
+function edit_penginapan(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
@@ -118,19 +118,26 @@ function edit_admin(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Masterdataadmin/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('Masterpenginapan/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
 
+            $('[name="id_penginapan"]').val(data.id_penginapan);
+            $('[name="nama_penginapan"]').val(data.nama_penginapan);
+            $('[name="alamat_penginapan"]').val(data.alamat_penginapan);
+            $('[name="daerah_penginapan"]').val(data.daerah_penginapan);
+            $('[name="ket_penginapan"]').val(data.ket_penginapan);
+            $('[name="harga_penginapan"]').val(data.harga_penginapan);
+            $('[name="long_penginapan"]').val(data.long_penginapan);
+            $('[name="lat_penginapan"]').val(data.lat_penginapan);
+            $('[name="foto_penginapan"]').val(data.foto_penginapan);
+            $('[name="cp_penginapan"]').val(data.cp_penginapan);
             $('[name="id_admin"]').val(data.id_admin);
-            $('[name="username"]').val(data.username);
-            $('[name="password"]').val(data.password);
-            $('[name="email"]').val(data.email);
-            $('[name="no_hp_admin"]').val(data.no_hp_admin);
+            $('[name="id_user"]').val(data.id_user);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Admin'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Edit Data Penginapan'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
@@ -152,9 +159,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Masterdataadmin/ajax_add')?>";
+        url = "<?php echo site_url('Masterpenginapan/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Masterdataadmin/ajax_update')?>";
+        url = "<?php echo site_url('Masterpenginapan/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -187,13 +194,13 @@ function save()
     });
 }
 
-function delete_admin(id)
+function delete_penginapan(id)
 {
     if(confirm('Are you sure delete this data?'))
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Masterdataadmin/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('Masterpenginapan/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -218,41 +225,97 @@ function delete_admin(id)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Form Kelola Admin</h3>
+                <h3 class="modal-title">Form Kelola Data Penginapan</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id_admin"/>
+                    <input type="hidden" value="" name="id_penginapan"/>
                     <div class="form-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Username</label>
-                                    <input type="text" class="form-control" name="username">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Email address</label>
-                                    <input type="email" class="form-control" name="email">
+                                    <label class="control-label">Nama Penginapan</label>
+                                    <input type="text" class="form-control" name="nama_penginapan">
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Password</label>
-                                    <input type="password" class="form-control" name="password">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Nomor Handphone</label>
-                                    <input type="text" class="form-control" name="no_hp_admin">
+                                    <label class="control-label">Alamat Penginapan</label>
+                                    <input type="text" class="form-control" name="alamat_penginapan">
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Daerah Penginapan</label>
+                                    <input type="text" class="form-control" name="daerah_penginapan">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Keterangan Penginapan</label>
+                                    <input type="text" class="form-control" name="ket_penginapan">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Harga Penginapan</label>
+                                    <input type="text" class="form-control" name="harga_penginapan">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Longitude penginapan</label>
+                                    <input type="text" class="form-control" name="long_penginapan">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Latitude penginapan</label>
+                                    <input type="text" class="form-control" name="lat_penginapan">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Gambar penginapan</label>
+                                    <input type="text" class="form-control" name="foto_penginapan">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Nomor Telepon penginapan</label>
+                                    <input type="text" class="form-control" name="cp_penginapan">
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" value="1" name="id_admin"/>
+
+                        <input type="hidden" value="1" name="id_user"/>
+
                     </div>
                 </form>
             </div>

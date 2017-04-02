@@ -142,7 +142,7 @@ demo = {
     },
 
     initGoogleMaps: function(){
-        var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
+        var myLatlng = new google.maps.LatLng(107.632665, -6.973433);
         var mapOptions = {
           zoom: 13,
           center: myLatlng,
@@ -166,7 +166,7 @@ demo = {
 
     	$.notify({
         	icon: "notifications",
-        	message: "Welcome to <b>Material Dashboard</b> - a beautiful freebie for every web developer."
+        	message: "<b>Mohon Maaf</b> - anda tidak di Izinkan untuk melakukan penambahan Admin Baru"
 
         },{
             type: type[color],

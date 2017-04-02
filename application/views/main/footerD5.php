@@ -80,7 +80,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Masterdataadmin/ajax_list')?>",
+            "url": "<?php echo site_url('Masterberita/ajax_list')?>",
             "type": "POST"
         },
 
@@ -99,17 +99,17 @@ $(document).ready(function() {
 
 
 
-function add_admin()
+function add_berita()
 {
     save_method = 'add';
     $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Admin'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah Data Berita'); // Set Title to Bootstrap modal title
 }
 
-function edit_admin(id)
+function edit_berita(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
@@ -118,19 +118,24 @@ function edit_admin(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Masterdataadmin/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('Masterberita/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
 
+            $('[name="id_berita"]').val(data.id_berita);
+            $('[name="judul_berita"]').val(data.judul_berita);
+            $('[name="tgl_berita"]').val(data.tgl_berita);
+            $('[name="jenis_berita"]').val(data.jenis_berita);
+            $('[name="ket_berita"]').val(data.ket_berita);
+            $('[name="gambar_berita"]').val(data.gambar_berita);
+            $('[name="komentar_berita"]').val(data.komentar_berita);
+            $('[name="cp_berita"]').val(data.cp_berita);
             $('[name="id_admin"]').val(data.id_admin);
-            $('[name="username"]').val(data.username);
-            $('[name="password"]').val(data.password);
-            $('[name="email"]').val(data.email);
-            $('[name="no_hp_admin"]').val(data.no_hp_admin);
+            $('[name="id_user"]').val(data.id_user);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Admin'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Edit Data Berita'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
@@ -152,9 +157,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Masterdataadmin/ajax_add')?>";
+        url = "<?php echo site_url('Masterberita/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Masterdataadmin/ajax_update')?>";
+        url = "<?php echo site_url('Masterberita/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -187,13 +192,13 @@ function save()
     });
 }
 
-function delete_admin(id)
+function delete_berita(id)
 {
     if(confirm('Are you sure delete this data?'))
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Masterdataadmin/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('Masterberita/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -218,41 +223,77 @@ function delete_admin(id)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Form Kelola Admin</h3>
+                <h3 class="modal-title">Form Kelola Data Berita</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id_admin"/>
+                    <input type="hidden" value="" name="id_berita"/>
                     <div class="form-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Username</label>
-                                    <input type="text" class="form-control" name="username">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Email address</label>
-                                    <input type="email" class="form-control" name="email">
+                                    <label class="control-label">Judul berita</label>
+                                    <input type="text" class="form-control" name="judul_berita">
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Password</label>
-                                    <input type="password" class="form-control" name="password">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Nomor Handphone</label>
-                                    <input type="text" class="form-control" name="no_hp_admin">
+                                    <label class="control-label">Tanggal berita</label>
+                                    <input type="date" class="form-control" name="tgl_berita">
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Kategori berita</label>
+                                  <select name="jenis_berita" id="jenis_berita" class="form-control">
+                                                          <option value="">----</option>
+                                                          <option value="berita Politik">berita Politik</option>
+                                                          <option value="berita Kuliner">berita Kuliner</option>
+                                                          <option value="berita Belanja">berita Belanja</option>
+                                                      </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Keterangan berita</label>
+                                    <input type="text" class="form-control" name="ket_berita">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Gambar berita</label>
+                                    <input type="text" class="form-control" name="gambar_berita">
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" value="" name="komentar_berita"/>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Nomor Telepon berita</label>
+                                    <input type="text" class="form-control" name="cp_berita">
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" value="1" name="id_admin"/>
+
+                        <input type="hidden" value="1" name="id_user"/>
+
                     </div>
                 </form>
             </div>

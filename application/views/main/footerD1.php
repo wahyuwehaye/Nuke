@@ -80,7 +80,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Masterdataadmin/ajax_list')?>",
+            "url": "<?php echo site_url('Masterdatauser/ajax_list')?>",
             "type": "POST"
         },
 
@@ -99,17 +99,17 @@ $(document).ready(function() {
 
 
 
-function add_admin()
+function add_user()
 {
     save_method = 'add';
     $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
     $('#modal_form').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Tambah Admin'); // Set Title to Bootstrap modal title
+    $('.modal-title').text('Tambah Member'); // Set Title to Bootstrap modal title
 }
 
-function edit_admin(id)
+function edit_user(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
@@ -118,19 +118,23 @@ function edit_admin(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Masterdataadmin/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('Masterdatauser/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
-
             $('[name="id_admin"]').val(data.id_admin);
+            $('[name="nama_lengkap"]').val(data.nama_lengkap);
+            $('[name="email"]').val(data.email);
+            $('[name="domisili"]').val(data.domisili);
+            $('[name="asal_daerah"]').val(data.asal_daerah);
+            $('[name="no_hp_user"]').val(data.no_hp_user);
+            $('[name="role"]').val(data.role);
             $('[name="username"]').val(data.username);
             $('[name="password"]').val(data.password);
-            $('[name="email"]').val(data.email);
-            $('[name="no_hp_admin"]').val(data.no_hp_admin);
+            $('[name="jk"]').val(data.jk);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Admin'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Edit Member'); // Set title to Bootstrap modal title
 
         },
         error: function (jqXHR, textStatus, errorThrown)
@@ -152,9 +156,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Masterdataadmin/ajax_add')?>";
+        url = "<?php echo site_url('Masterdatauser/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Masterdataadmin/ajax_update')?>";
+        url = "<?php echo site_url('Masterdatauser/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -187,13 +191,13 @@ function save()
     });
 }
 
-function delete_admin(id)
+function delete_user(id)
 {
     if(confirm('Are you sure delete this data?'))
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Masterdataadmin/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('Masterdatauser/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -218,17 +222,17 @@ function delete_admin(id)
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Form Kelola Admin</h3>
+                <h3 class="modal-title">Form Kelola Member</h3>
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id_admin"/>
+                    <input type="hidden" value="" name="id_user"/>
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Username</label>
-                                    <input type="text" class="form-control" name="username">
+                                    <label class="control-label">Nama Lengkap</label>
+                                    <input type="text" class="form-control" name="nama_lengkap">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -242,14 +246,56 @@ function delete_admin(id)
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Password</label>
-                                    <input type="password" class="form-control" name="password">
+                                    <label class="control-label">Domisili</label>
+                                    <input type="text" class="form-control" name="domisili">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
+                                    <label class="control-label">Asal Daerah</label>
+                                    <input type="text" class="form-control" name="asal_daerah">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
                                     <label class="control-label">Nomor Handphone</label>
-                                    <input type="text" class="form-control" name="no_hp_admin">
+                                    <input type="text" class="form-control" name="no_hp_user">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Role</label>
+                                    <input type="text" class="form-control" name="role">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Username</label>
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Password</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Jenis Kelamin</label>
+                                  <select name="jk" id="jk" class="form-control">
+                                                          <option value="">----</option>
+                                                          <option value="Laki-Laki">Laki-Laki</option>
+                                                          <option value="Perempuan">Perempuan</option>
+                                                      </select>
                                 </div>
                             </div>
                         </div>
@@ -263,8 +309,6 @@ function delete_admin(id)
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<!-- End Bootstrap modal -->
-
-
+<!-- End Bootstrap modal-->
 </body>
 </html>
