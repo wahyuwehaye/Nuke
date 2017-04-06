@@ -25,6 +25,10 @@
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+
+	<!-- This is what you need -->
+    <script src="<?php echo base_url()?>sweetalert/dist/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="dist/sweetalert.css">
 </head>
 
 <body>
@@ -115,7 +119,7 @@
 		                    <span class="icon-bar"></span>
 		                    <span class="icon-bar"></span>
 		                </button>
-		                <a class="navbar-brand" href="#" onclick="demo.showNotification('top','right')"><?php if ($active_menu=="dashboard") {
+		                <a class="navbar-brand" href="#" ><?php if ($active_menu=="dashboard") {
 		                	echo "Dashboard";
 		                }elseif ($active_menu=="admin") {
 		                	echo "Tambah Admin";

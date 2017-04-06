@@ -33,5 +33,30 @@ class m_dashboard extends CI_Model{
     public function tampil_dataUser(){
 		return $this->db->get('user');
 	}
+
+    public function tampil_berita(){
+        return $this->db->get('berita_terbaru');
+    }
+
+    public function tampil_event(){
+        return $this->db->get('event');
+    }
+
+    public function tampil_penginapan(){
+        return $this->db->get('penginapan');
+    }
+
+    public function tampil_alam(){
+		return $this->db->get_where('tempat_wisata',array('kategori_wisata'=>'Wisata Alam'));
+	}
+
+    public function tampil_kuliner(){
+		return $this->db->get_where('tempat_wisata',array('kategori_wisata'=>'Wisata Kuliner'));
+	}
+
+    public function tampil_belanja(){
+		return $this->db->get_where('tempat_wisata',array('kategori_wisata'=>'Wisata Belanja'));
+	}
+
 }
 ?>

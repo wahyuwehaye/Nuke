@@ -56,19 +56,34 @@ class Masterberita extends CI_Controller {
 
 	public function ajax_add()
 	{
-		$data = array(
-				'judul_berita' => $this->input->post('judul_berita'),
-				'tgl_berita' => $this->input->post("tgl_berita"),
-                'jenis_berita' => $this->input->post('jenis_berita'),
-                'ket_berita' => $this->input->post('ket_berita'),
-                'gambar_berita' => $this->input->post('gambar_berita'),
-                'komentar_berita' => $this->input->post('komentar_berita'),
-                'cp_berita' => $this->input->post('cp_berita'),
-                'id_admin' => $this->input->post('id_admin'),
-                'id_user' => $this->input->post('id_user'),
-			);
-		$insert = $this->berita->save($data);
-		echo json_encode(array("status" => TRUE));
+		// $config['upload_path'] = './uploads/';
+		// $config['allowed_types'] = 'gif|jpg|png';
+		// $config['max_size']	= '5000'; //in kb
+		// $config['max_width']  = '1024';
+		// $config['max_height']  = '768';
+		//
+		// $this->upload->initialize($config);
+		//
+		// //if upload failed
+		// if ( ! $this->upload->do_upload('gambar_berita')){
+		//
+		// 	$data['message'] =  $this->upload->display_errors();
+		// 	$this->load->view('notification_view', $data);
+		// //if upload success
+		// }else{
+			$data = array(
+					'judul_berita' => $this->input->post('judul_berita'),
+					'tgl_berita' => $this->input->post("tgl_berita"),
+	                'jenis_berita' => $this->input->post('jenis_berita'),
+	                'ket_berita' => $this->input->post('ket_berita'),
+	                'gambar_berita' => $this->input->post('gambar_berita'),
+	                'cp_berita' => $this->input->post('cp_berita'),
+	                'id_admin' => $this->input->post('id_admin'),
+				);
+			// $this->db->insert('berita_terbaru', $data);
+			$insert = $this->berita->save($data);
+			echo json_encode(array("status" => TRUE));
+		// }
 	}
 
 	public function ajax_update()
@@ -79,10 +94,8 @@ class Masterberita extends CI_Controller {
             'jenis_berita' => $this->input->post('jenis_berita'),
             'ket_berita' => $this->input->post('ket_berita'),
             'gambar_berita' => $this->input->post('gambar_berita'),
-            'komentar_berita' => $this->input->post('komentar_berita'),
             'cp_berita' => $this->input->post('cp_berita'),
             'id_admin' => $this->input->post('id_admin'),
-            'id_user' => $this->input->post('id_user'),
 			);
 		$this->berita->update(array('id_berita' => $this->input->post('id_berita')), $data);
 		echo json_encode(array("status" => TRUE));

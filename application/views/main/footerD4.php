@@ -133,10 +133,8 @@ function edit_event(id)
             $('[name="waktu_event"]').val(data.waktu_event);
             $('[name="jenis_event"]').val(data.jenis_event);
             $('[name="cp_event"]').val(data.cp_event);
-            $('[name="komentar_event"]').val(data.komentar_event);
             $('[name="daerah_event"]').val(data.daerah_event);
             $('[name="id_admin"]').val(data.id_admin);
-            $('[name="id_user"]').val(data.id_user);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Data event'); // Set title to Bootstrap modal title
 
@@ -304,8 +302,6 @@ function delete_event(id)
                             </div>
                         </div>
 
-                        <input type="hidden" value="" name="komentar_event"/>
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
@@ -316,8 +312,6 @@ function delete_event(id)
                         </div>
 
                         <input type="hidden" value="1" name="id_admin"/>
-
-                        <input type="hidden" value="1" name="id_user"/>
 
                     </div>
                 </form>

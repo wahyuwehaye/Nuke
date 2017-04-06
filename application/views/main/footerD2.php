@@ -132,11 +132,9 @@ function edit_wisata(id)
             $('[name="lat_wisata"]').val(data.lat_wisata);
             $('[name="long_wisata"]').val(data.long_wisata);
             $('[name="ket_wisata"]').val(data.ket_wisata);
-            $('[name="komentar_wisata"]').val(data.komentar_wisata);
             $('[name="harga_wisata"]').val(data.harga_wisata);
             $('[name="notelp_wisata"]').val(data.notelp_wisata);
             $('[name="id_admin"]').val(data.id_admin);
-            $('[name="id_user"]').val(data.id_user);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Data Wisata'); // Set title to Bootstrap modal title
 
@@ -300,8 +298,6 @@ function delete_wisata(id)
                             </div>
                         </div>
 
-                        <input type="hidden" value="" name="komentar_wisata"/>
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
@@ -330,8 +326,6 @@ function delete_wisata(id)
                         </div>
 
                         <input type="hidden" value="1" name="id_admin"/>
-
-                        <input type="hidden" value="1" name="id_user"/>
 
                     </div>
                 </form>

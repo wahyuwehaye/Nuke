@@ -26,8 +26,11 @@ class Main extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->model('m_dashboard');
         $this->load->view('main/header');
-        $this->load->view('home');
+		$data['berita'] = $this->m_dashboard->tampil_berita()->result();
+		$data['event'] = $this->m_dashboard->tampil_event()->result();
+        $this->load->view('home',$data);
 		$this->load->view('main/footer');
 	}
 
@@ -54,29 +57,37 @@ class Main extends CI_Controller {
 
     public function alam()
 	{
+		$this->load->model('m_dashboard');
         $this->load->view('main/header1');
-        $this->load->view('alam');
+		$data['alam'] = $this->m_dashboard->tampil_alam()->result();
+        $this->load->view('alam',$data);
 		$this->load->view('main/footer');
 	}
 
     public function kuliner()
 	{
+		$this->load->model('m_dashboard');
         $this->load->view('main/header1');
-        $this->load->view('kuliner');
+		$data['kuliner'] = $this->m_dashboard->tampil_kuliner()->result();
+        $this->load->view('kuliner',$data);
 		$this->load->view('main/footer');
 	}
 
     public function belanja()
 	{
+		$this->load->model('m_dashboard');
         $this->load->view('main/header1');
-        $this->load->view('belanja');
+		$data['belanja'] = $this->m_dashboard->tampil_belanja()->result();
+        $this->load->view('belanja',$data);
 		$this->load->view('main/footer');
 	}
 
     public function penginapan()
 	{
+		$this->load->model('m_dashboard');
         $this->load->view('main/header1');
-        $this->load->view('penginapan');
+		$data['penginapan'] = $this->m_dashboard->tampil_penginapan()->result();
+        $this->load->view('penginapan',$data);
 		$this->load->view('main/footer');
 	}
 
@@ -87,5 +98,5 @@ class Main extends CI_Controller {
 		$this->load->view('main/footer');
 	}
 
-	
+
 }

@@ -64,12 +64,10 @@ class Masterwisata extends CI_Controller {
                 'lat_wisata' => $this->input->post('lat_wisata'),
                 'long_wisata' => $this->input->post('long_wisata'),
                 'ket_wisata' => $this->input->post('ket_wisata'),
-                'komentar_wisata' => $this->input->post('komentar_wisata'),
                 'harga_wisata' => $this->input->post('harga_wisata'),
                 'notelp_wisata' => $this->input->post('notelp_wisata'),
 				'tanggal_post' => $this->input->post('tanggal_post'),
                 'id_admin' => $this->input->post('id_admin'),
-                'id_user' => $this->input->post('id_user'),
 			);
 		$insert = $this->wisata->save($data);
 		echo json_encode(array("status" => TRUE));
@@ -85,12 +83,10 @@ class Masterwisata extends CI_Controller {
             'lat_wisata' => $this->input->post('lat_wisata'),
             'long_wisata' => $this->input->post('long_wisata'),
             'ket_wisata' => $this->input->post('ket_wisata'),
-            'komentar_wisata' => $this->input->post('komentar_wisata'),
             'harga_wisata' => $this->input->post('harga_wisata'),
             'notelp_wisata' => $this->input->post('notelp_wisata'),
 			'tanggal_post' => $this->input->post('tanggal_post'),
             'id_admin' => $this->input->post('id_admin'),
-            'id_user' => $this->input->post('id_user'),
 			);
 		$this->wisata->update(array('id_wisata' => $this->input->post('id_wisata')), $data);
 		echo json_encode(array("status" => TRUE));

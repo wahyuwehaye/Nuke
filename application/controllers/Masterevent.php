@@ -65,10 +65,8 @@ class Masterevent extends CI_Controller {
                 'waktu_event' => $this->input->post('waktu_event'),
                 'jenis_event' => $this->input->post('jenis_event'),
                 'cp_event' => $this->input->post('cp_event'),
-                'komentar_event' => $this->input->post('komentar_event'),
                 'daerah_event' => $this->input->post('daerah_event'),
                 'id_admin' => $this->input->post('id_admin'),
-                'id_user' => $this->input->post('id_user'),
 			);
 		$insert = $this->event->save($data);
 		echo json_encode(array("status" => TRUE));
@@ -85,10 +83,8 @@ class Masterevent extends CI_Controller {
             'waktu_event' => $this->input->post('waktu_event'),
             'jenis_event' => $this->input->post('jenis_event'),
             'cp_event' => $this->input->post('cp_event'),
-            'komentar_event' => $this->input->post('komentar_event'),
             'daerah_event' => $this->input->post('daerah_event'),
             'id_admin' => $this->input->post('id_admin'),
-            'id_user' => $this->input->post('id_user'),
 			);
 		$this->event->update(array('id_event' => $this->input->post('id_event')), $data);
 		echo json_encode(array("status" => TRUE));
