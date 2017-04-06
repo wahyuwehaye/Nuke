@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2017 at 03:05 PM
+-- Generation Time: Apr 06, 2017 at 08:53 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -56,19 +56,21 @@ CREATE TABLE `berita_terbaru` (
   `tgl_berita` date NOT NULL,
   `jenis_berita` varchar(50) NOT NULL,
   `ket_berita` varchar(200) NOT NULL,
-  `gambar_berita` varchar(100) NOT NULL,
-  `komentar_berita` varchar(1000) NOT NULL,
+  `gambar_berita` varchar(200) NOT NULL,
   `cp_berita` int(15) NOT NULL,
-  `id_admin` int(5) NOT NULL,
-  `id_user` int(5) NOT NULL
+  `id_admin` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `berita_terbaru`
 --
 
-INSERT INTO `berita_terbaru` (`id_berita`, `judul_berita`, `tgl_berita`, `jenis_berita`, `ket_berita`, `gambar_berita`, `komentar_berita`, `cp_berita`, `id_admin`, `id_user`) VALUES
-(1, 'Rossi Jadi Pembalap Tertua di MotoGP', '2017-04-02', 'berita Politik', 'menarik', 'belum ada', '', 2147483647, 1, 1);
+INSERT INTO `berita_terbaru` (`id_berita`, `judul_berita`, `tgl_berita`, `jenis_berita`, `ket_berita`, `gambar_berita`, `cp_berita`, `id_admin`) VALUES
+(1, 'Rossi Jadi Pembalap Tertua di MotoGP', '2017-04-02', 'berita Politik', 'menarik', 'belum ada', 2147483647, 1),
+(3, 'Bandung Tempat Sejuta Jenis Makanan', '2017-04-06', 'berita Kuliner', 'enak banget', 'belum ada', 2147483647, 1),
+(4, 'aadad', '0000-00-00', 'berita Politik', 'adad', 'ad', 131, 1),
+(5, 'sdads', '0000-00-00', 'berita Politik', '124eds', 'sfsdfds', 24423423, 1),
+(6, 'sdsfsdf', '0000-00-00', 'berita Politik', 'dfsdf', 'sfsd', 2342, 1);
 
 -- --------------------------------------------------------
 
@@ -81,23 +83,64 @@ CREATE TABLE `event` (
   `nama_event` varchar(150) NOT NULL,
   `tgl_event` date NOT NULL,
   `lokasi_event` varchar(100) NOT NULL,
-  `gambar_event` varchar(100) NOT NULL,
+  `gambar_event` varchar(200) NOT NULL,
   `ket_event` varchar(200) NOT NULL,
   `waktu_event` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `jenis_event` varchar(35) NOT NULL,
   `cp_event` varchar(15) NOT NULL,
-  `komentar_event` varchar(1000) NOT NULL,
   `daerah_event` varchar(150) NOT NULL,
-  `id_admin` int(5) NOT NULL,
-  `id_user` int(5) NOT NULL
+  `id_admin` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `event`
 --
 
-INSERT INTO `event` (`id_event`, `nama_event`, `tgl_event`, `lokasi_event`, `gambar_event`, `ket_event`, `waktu_event`, `jenis_event`, `cp_event`, `komentar_event`, `daerah_event`, `id_admin`, `id_user`) VALUES
-(1, 'Konser Justin Bieber', '2017-04-29', 'Bandung', 'belum ada', 'rame banget', '0000-00-00 00:00:00', 'Konser Musik', '081312777744', '', 'Lapangan Gasibu', 1, 1);
+INSERT INTO `event` (`id_event`, `nama_event`, `tgl_event`, `lokasi_event`, `gambar_event`, `ket_event`, `waktu_event`, `jenis_event`, `cp_event`, `daerah_event`, `id_admin`) VALUES
+(1, 'Konser Justin Bieber', '2017-04-29', 'Bandung', 'belum ada', 'rame banget', '0000-00-00 00:00:00', 'Konser Musik', '081312777744', 'Lapangan Gasibu', 1),
+(2, 'adadad', '2017-04-21', 'aas', 'adad', 'adad', '0000-00-00 00:00:00', 'dada', '13131', 'fsdfdsf', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `komentar_berita`
+--
+
+CREATE TABLE `komentar_berita` (
+  `id_komentar` int(10) NOT NULL,
+  `id_user` int(5) NOT NULL,
+  `komentar` text NOT NULL,
+  `tgl_komentar` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `id_berita` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `komentar_event`
+--
+
+CREATE TABLE `komentar_event` (
+  `id_komentar` int(10) NOT NULL,
+  `id_user` int(5) NOT NULL,
+  `komentar` text NOT NULL,
+  `tgl_komentar` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `id_event` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `komentar_wisata`
+--
+
+CREATE TABLE `komentar_wisata` (
+  `id_komentar` int(10) NOT NULL,
+  `id_user` int(5) NOT NULL,
+  `komentar` text NOT NULL,
+  `tgl_komentar` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `id_wisata` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -114,7 +157,7 @@ CREATE TABLE `penginapan` (
   `harga_penginapan` int(10) NOT NULL,
   `long_penginapan` varchar(100) NOT NULL,
   `lat_penginapan` varchar(100) NOT NULL,
-  `foto_penginapan` varchar(100) NOT NULL,
+  `foto_penginapan` varchar(200) NOT NULL,
   `cp_penginapan` varchar(15) NOT NULL,
   `id_admin` int(5) NOT NULL,
   `id_user` int(5) NOT NULL
@@ -125,7 +168,8 @@ CREATE TABLE `penginapan` (
 --
 
 INSERT INTO `penginapan` (`id_penginapan`, `nama_penginapan`, `alamat_penginapan`, `daerah_penginapan`, `ket_penginapan`, `harga_penginapan`, `long_penginapan`, `lat_penginapan`, `foto_penginapan`, `cp_penginapan`, `id_admin`, `id_user`) VALUES
-(1, 'Hotel Lingga', 'Bandung Jawa Barat', 'Jalan Soekarno Hatta', 'Nyaman dan bersih', 1000000, '10000', '9292929', 'belum ada', '081312777463', 1, 1);
+(1, 'Hotel Lingga', 'Bandung Jawa Barat', 'Jalan Soekarno Hatta', 'Nyaman dan bersih', 1000000, '10000', '9292929', 'belum ada', '081312777463', 1, 1),
+(2, 'adada', 'adad', 'adad', 'adad', 13131, '1313', '1313', '1313', '131313', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -138,26 +182,24 @@ CREATE TABLE `tempat_wisata` (
   `nama_wisata` varchar(100) NOT NULL,
   `alamat_wisata` varchar(250) NOT NULL,
   `kategori_wisata` varchar(50) NOT NULL,
-  `gambar_wisata` varchar(100) NOT NULL,
+  `gambar_wisata` varchar(200) NOT NULL,
   `lat_wisata` varchar(100) NOT NULL,
   `long_wisata` varchar(100) NOT NULL,
   `ket_wisata` varchar(300) NOT NULL,
-  `komentar_wisata` varchar(1000) NOT NULL,
   `harga_wisata` int(10) NOT NULL,
   `notelp_wisata` varchar(15) NOT NULL,
   `tanggal_post` date NOT NULL,
-  `id_admin` int(5) NOT NULL,
-  `id_user` int(5) NOT NULL
+  `id_admin` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tempat_wisata`
 --
 
-INSERT INTO `tempat_wisata` (`id_wisata`, `nama_wisata`, `alamat_wisata`, `kategori_wisata`, `gambar_wisata`, `lat_wisata`, `long_wisata`, `ket_wisata`, `komentar_wisata`, `harga_wisata`, `notelp_wisata`, `tanggal_post`, `id_admin`, `id_user`) VALUES
-(1, 'situ panjalu', 'ciamis jawa barat', 'Wisata Alam', 'gambar 1', '1000', '00001', 'danau', '', 100000, '081312777444', '0000-00-00', 1, 0),
-(3, 'situ patenggang', 'bandung', 'Wisata Alam', 'apa aja', '1213', '1212', 'bagus', '', 10000, '08138882121', '0000-00-00', 1, 0),
-(4, 'saung mang engking', 'bandung jawa barat', 'Wisata Kuliner', 'belum ada gambar', '121212', '121212', 'enak banget makanannya', '', 10000, '0811213312', '0000-00-00', 1, 0);
+INSERT INTO `tempat_wisata` (`id_wisata`, `nama_wisata`, `alamat_wisata`, `kategori_wisata`, `gambar_wisata`, `lat_wisata`, `long_wisata`, `ket_wisata`, `harga_wisata`, `notelp_wisata`, `tanggal_post`, `id_admin`) VALUES
+(1, 'situ panjalu', 'ciamis jawa barat', 'Wisata Alam', 'gambar 1', '1000', '00001', 'danau', 100000, '081312777444', '0000-00-00', 1),
+(3, 'situ patenggang', 'bandung', 'Wisata Alam', 'apa aja', '1213', '1212', 'bagus', 10000, '08138882121', '0000-00-00', 1),
+(4, 'saung mang engking', 'bandung jawa barat', 'Wisata Kuliner', 'belum ada gambar', '121212', '121212', 'enak banget makanannya', 10000, '0811213312', '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
@@ -211,16 +253,38 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `berita_terbaru`
   ADD PRIMARY KEY (`id_berita`),
-  ADD KEY `id_admin` (`id_admin`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_admin` (`id_admin`);
 
 --
 -- Indexes for table `event`
 --
 ALTER TABLE `event`
   ADD PRIMARY KEY (`id_event`),
-  ADD KEY `id_admin` (`id_admin`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_admin` (`id_admin`);
+
+--
+-- Indexes for table `komentar_berita`
+--
+ALTER TABLE `komentar_berita`
+  ADD PRIMARY KEY (`id_komentar`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_berita` (`id_berita`);
+
+--
+-- Indexes for table `komentar_event`
+--
+ALTER TABLE `komentar_event`
+  ADD PRIMARY KEY (`id_komentar`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_event` (`id_event`);
+
+--
+-- Indexes for table `komentar_wisata`
+--
+ALTER TABLE `komentar_wisata`
+  ADD PRIMARY KEY (`id_komentar`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_wisata` (`id_wisata`);
 
 --
 -- Indexes for table `penginapan`
@@ -235,8 +299,7 @@ ALTER TABLE `penginapan`
 --
 ALTER TABLE `tempat_wisata`
   ADD PRIMARY KEY (`id_wisata`),
-  ADD KEY `id_admin` (`id_admin`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_admin` (`id_admin`);
 
 --
 -- Indexes for table `user`
@@ -257,12 +320,27 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `berita_terbaru`
 --
 ALTER TABLE `berita_terbaru`
-  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
   MODIFY `id_event` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `komentar_berita`
+--
+ALTER TABLE `komentar_berita`
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `komentar_event`
+--
+ALTER TABLE `komentar_event`
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `komentar_wisata`
+--
+ALTER TABLE `komentar_wisata`
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `penginapan`
 --
