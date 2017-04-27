@@ -120,6 +120,34 @@ class Dashboard extends CI_Controller {
 		$this->load->view('main/footerD');
 	}
 
+	public function insertKomen(){
+	    $this->load->model('m_dashboard');
+	    $page = $this->input->post('id_berita');
+	    $data = array(
+	        'nama' => $this->input->post('nama'),
+	        'id_berita' => $this->input->post('id_berita'),
+			'komentar' => $this->input->post('komentar')
+	         );
+	    $data = $this->m_dashboard->insertKomen('komentar_berita', $data);
+	    redirect('detailberita/'.$page);
+		echo json_encode(array("status" => TRUE));
+		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
+	}
+
+	public function insertKomenEvent(){
+	    $this->load->model('m_dashboard');
+	    $page = $this->input->post('id_event');
+	    $data = array(
+	        'nama' => $this->input->post('nama'),
+	        'id_event' => $this->input->post('id_event'),
+			'komentar' => $this->input->post('komentar')
+	         );
+	    $data = $this->m_dashboard->insertKomen('komentar_event', $data);
+	    redirect('detailevent/'.$page);
+		echo json_encode(array("status" => TRUE));
+		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
+	}
+
     public function login()
 	{
         $this->load->view('login');

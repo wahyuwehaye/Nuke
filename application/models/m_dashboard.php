@@ -12,6 +12,11 @@ class m_dashboard extends CI_Model{
         return $res; // Kode ini digunakan untuk mengembalikan hasil $res
     }
 
+    public function InsertKomen($table,$data){
+        $res = $this->db->insert($table, $data); // Kode ini digunakan untuk memasukan record baru kedalam sebuah tabel
+        return $res; // Kode ini digunakan untuk mengembalikan hasil $res
+    }
+
     public function Update($table, $data, $where){
         $res = $this->db->update($table, $data, $where); // Kode ini digunakan untuk merubah record yang sudah ada dalam sebuah tabel
         return $res;
@@ -70,6 +75,23 @@ class m_dashboard extends CI_Model{
 
     function viewDetailBerita($id){
             $query = $this->db->query("SELECT * FROM berita_terbaru where id_berita='".$id."'");
+            return $query;
+    }
+
+    function viewDetailEvent($id){
+            $query = $this->db->query("SELECT * FROM event where id_event='".$id."'");
+            return $query;
+    }
+
+    function viewDetailKomenBerita($id){
+            // $query = $this->db->query("SELECT * FROM komentar_berita JOIN user USING ( id_user ) where id_berita='".$id."'");
+            $query = $this->db->query("SELECT * FROM komentar_berita where id_berita='".$id."'");
+            return $query;
+    }
+
+    function viewDetailKomenEvent($id){
+            // $query = $this->db->query("SELECT * FROM komentar_berita JOIN user USING ( id_user ) where id_berita='".$id."'");
+            $query = $this->db->query("SELECT * FROM komentar_event where id_event='".$id."'");
             return $query;
     }
 

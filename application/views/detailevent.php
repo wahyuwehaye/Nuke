@@ -2,14 +2,14 @@
 	<div class="single w3l-agileits">
 		<div class="container">
 			<div class="blog-pag page">
-			<?php $no=1; foreach($berita->result_array() as $row){ ?>
+			<?php $no=1; foreach($event->result_array() as $row){ ?>
 				<div class="blog-page-grids">
 					<div class="blog-page-grid">
-						<h3><?php echo $row['judul_berita'];?></h3>
-						<p>Published on<span> <?php echo $row['tgl_berita'];?></span></p>
+						<h3><?php echo $row['nama_event'];?></h3>
+						<p>Published on<span> <?php echo $row['tgl_event'];?></span></p>
 					</div>
 					<div class="blog-page-grid1">
-						<p><a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><?php echo $row['jenis_berita'];?></a></p>
+						<p><a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><?php echo $row['jenis_event'];?></a></p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -18,7 +18,7 @@
 						<img src="<?php echo base_url()?>assets/images/banner1.jpg" alt=" " class="img-responsive" />
 					</div>
 					<div class="blog-page-grids-bot1">
-						<p><?php echo $row['ket_berita'];?></p>
+						<p><?php echo $row['ket_event'];?></p>
 						<ul>
 							<li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i>User</a></li>
 							<li><a href="#"><i class="glyphicon glyphicon-eye-open" aria-hidden="true"></i>Porttitor</a></li>
@@ -32,11 +32,25 @@
 			<div class="com">
 				<h3>Comments</h3>
 				<ul class="media-list">
-				<?php $no=1; foreach($komen->result_array() as $row){ ?>
-				  <li class="media">
+				  <!-- <li class="media">
 					<div class="media-left">
 					  <a href="#">
 						<img class="media-object img-responsive" src="<?php echo base_url()?>assets/images/3.png" alt="" />
+					  </a>
+					</div>
+					<div class="media-body">
+					  <h4 class="media-heading">Simmy</h4>
+					  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus 
+					  scelerisque ante sollicitudin commodo. Cras purus odio, 
+					  vestibulum in vulputate at, tempus viverra turpis. 
+					  <a href="#">Reply</a>
+					</div>
+				  </li> -->
+				  <?php $no=1; foreach($komen->result_array() as $row){ ?>
+				  <li class="media">
+					<div class="media-left">
+					  <a href="#">
+						<img class="media-object img-responsive" src="<?php echo base_url()?>assets/images/4.png" alt="" />
 					  </a>
 					</div>
 					<div class="media-body">
@@ -47,20 +61,6 @@
 				  </li>
 				  <?php $no++; } ?>
 				  <!-- <li class="media">
-					<div class="media-left">
-					  <a href="#">
-						<img class="media-object img-responsive" src="<?php echo base_url()?>assets/images/4.png" alt="" />
-					  </a>
-					</div>
-					<div class="media-body">
-					  <h4 class="media-heading">Sandra Rickon</h4>
-					  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus 
-					  scelerisque ante sollicitudin commodo. Cras purus odio, 
-					  vestibulum in vulputate at, tempus viverra turpis. 
-					  <a href="#">Reply</a>
-					</div>
-				  </li>
-				  <li class="media">
 					<div class="media-left">
 					  <a href="#">
 						<img class="media-object img-responsive" src="<?php echo base_url()?>assets/images/5.png" alt="" />
@@ -78,10 +78,10 @@
 			</div>
 			<div class="in dfg">
 				<h3>Leave a Comments Here</h3>
-			    <form action="<?php echo base_url()?>index.php/dashboard/insertKomen" method="post">
-			    <?php $id_berita = $this->uri->segment(2, 0); ?>
+			    <form action="<?php echo base_url()?>index.php/dashboard/insertKomenEvent" method="post">
 					<!-- <input type="text" name="text" placeholder="Name" required=" "> -->
-					<input type="hidden" name="id_berita" value="<?php echo $id_berita; ?>">
+					<?php $id_event = $this->uri->segment(2, 0); ?>
+					<input type="hidden" name="id_event" value="<?php echo $id_event; ?>">
 					<input type="hidden" name="nama" value="<?php echo ($_SESSION['username']); ?>" required=" ">
 					<textarea name="komentar" placeholder="Meassage" required=" "></textarea>
 					<input type="submit" value="Leave A Comment">

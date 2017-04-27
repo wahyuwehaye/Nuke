@@ -47,7 +47,26 @@ class Main extends CI_Controller {
         $this->load->view('main/header1');
         $id=$this->uri->segment(2, 0);
 		$data['berita'] = $this->m_dashboard->viewDetailBerita($id);
+		$data['komen'] = $this->m_dashboard->viewDetailKomenBerita($id);
         $this->load->view('detailberita',$data);
+		$this->load->view('main/footer');
+	}
+
+	public function allevent(){
+		$this->load->model('m_dashboard');
+        $this->load->view('main/header1');
+		$data['event'] = $this->m_dashboard->tampil_event()->result();
+        $this->load->view('allevent',$data);
+		$this->load->view('main/footer');
+	}
+
+	public function detailevent(){
+		$this->load->model('m_dashboard');
+        $this->load->view('main/header1');
+        $id=$this->uri->segment(2, 0);
+		$data['event'] = $this->m_dashboard->viewDetailEvent($id);
+		$data['komen'] = $this->m_dashboard->viewDetailKomenEvent($id);
+        $this->load->view('detailevent',$data);
 		$this->load->view('main/footer');
 	}
 

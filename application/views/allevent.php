@@ -2,7 +2,7 @@
 	<div class="banner-bottom">
 		<div class="container">
 			<div class="banner-bottom-grids">
-				<?php $no=1; foreach($berita as $a){ ?>
+				<?php $no=1; foreach($event as $a){ ?>
 				<div class="col-md-3 banner-bottom-grid w3-agileits">
 					<img src="<?php echo base_url()?>assets/images/1.jpg" alt=" " class="img-responsive" />
 					<div class="banner-bottom-grid-info">
@@ -10,12 +10,12 @@
 							<p>NEW</p>
 						</div>
 						<div class="col-xs-8 banner-bottom-grid-infor">
-							<h3><?php echo $a->judul_berita; ?></h3>
+							<h3><?php echo $a->nama_event; ?></h3>
 						</div>
 						<div class="clearfix"> </div>
-						<p class="vel">Jenis Berita : <?php echo $a->jenis_berita; ?></p>
+						<p class="vel">Jenis Event : <?php echo $a->jenis_event; ?></p>
 							<div class="more">
-								<a href="<?php echo base_url()?>index.php/detailberita/<?php echo $a->id_berita; ?>">Learn More</a>
+								<a href="<?php echo base_url()?>index.php/detailevent/<?php echo $a->id_event; ?>">Learn More</a>
 							</div>
 							</br>
 					</div>

@@ -192,7 +192,7 @@
 						<div class="clearfix"> </div>
 						<p class="vel">Jenis Berita : <?php echo $a->jenis_event; ?></p>
 							<div class="more">
-								<a href="<?php echo base_url()?>index.php/detailberita/<?php echo $a->id_event; ?>">Learn More</a>
+								<a href="<?php echo base_url()?>index.php/detailevent/<?php echo $a->id_event; ?>">Learn More</a>
 							</div>
 					</div>
 				</div>
@@ -203,5 +203,7 @@
 			 	} ?>
 			</div>
 		</div>
+		</br>
+			<a href="<?php echo base_url()?>index.php/allevent" type="button" class="btn btn-block btn-primary">Lihat Semua Berita</a>
 	</div>
 <!-- //testimonials -->
