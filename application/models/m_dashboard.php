@@ -35,11 +35,16 @@ class m_dashboard extends CI_Model{
 	}
 
     public function tampil_berita(){
-        return $this->db->get('berita_terbaru');
+        // return $this->db->get('berita_terbaru');
+        // return $this->db->get('berita_terbaru')->order_by('id_berita', 'desc');
+        $query = $this->db->query("SELECT * FROM berita_terbaru order by id_berita desc");
+            return $query;
     }
 
     public function tampil_event(){
-        return $this->db->get('event');
+        // return $this->db->get('event');
+        $query = $this->db->query("SELECT * FROM event order by id_event desc");
+            return $query;
     }
 
     public function tampil_penginapan(){
@@ -57,6 +62,16 @@ class m_dashboard extends CI_Model{
     public function tampil_belanja(){
 		return $this->db->get_where('tempat_wisata',array('kategori_wisata'=>'Wisata Belanja'));
 	}
+
+    public function find($column,$id){
+              // $query = $this->db->get_where('berita_terbaru', array($column => $id));
+              // return $query->result_array();
+        }
+
+    function viewDetailBerita($id){
+            $query = $this->db->query("SELECT * FROM berita_terbaru where id_berita='".$id."'");
+            return $query;
+    }
 
 }
 ?>

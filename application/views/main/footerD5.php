@@ -301,6 +301,10 @@ function delete_berita(id)
 <!-- End Bootstrap modal -->
 <script>
 
+function alertname() {
+    swal("Oops...", "Something went wrong!", "error");
+}
+
 document.querySelector('button.download').onclick = function(){
 	$("html, body").animate({ scrollTop: $("#download-section").offset().top }, 1000);
 };

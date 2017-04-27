@@ -34,6 +34,23 @@ class Main extends CI_Controller {
 		$this->load->view('main/footer');
 	}
 
+	public function allberita(){
+		$this->load->model('m_dashboard');
+        $this->load->view('main/header1');
+		$data['berita'] = $this->m_dashboard->tampil_berita()->result();
+        $this->load->view('allberita',$data);
+		$this->load->view('main/footer');
+	}
+
+	public function detailberita(){
+		$this->load->model('m_dashboard');
+        $this->load->view('main/header1');
+        $id=$this->uri->segment(2, 0);
+		$data['berita'] = $this->m_dashboard->viewDetailBerita($id);
+        $this->load->view('detailberita',$data);
+		$this->load->view('main/footer');
+	}
+
     public function sejarah()
 	{
         $this->load->view('main/header1');

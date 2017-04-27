@@ -15,7 +15,7 @@
 						<div class="clearfix"> </div>
 						<p class="vel">Jenis Berita : <?php echo $a->jenis_berita; ?></p>
 							<div class="more">
-								<a href="<?php echo base_url()?>assets/single.html">Learn More</a>
+								<a href="<?php echo base_url()?>index.php/detailberita/<?php echo $a->id_berita; ?>">Learn More</a>
 							</div>
 					</div>
 				</div>
@@ -77,6 +77,8 @@
 				</div> -->
 				<div class="clearfix"> </div>
 			</div>
+			</br>
+			<a href="<?php echo base_url()?>index.php/allberita" type="button" class="btn btn-block btn-primary">Lihat Semua Berita</a>
 		</div>
 	</div>
 <!-- //banner-bottom -->
@@ -85,7 +87,7 @@
 		<div class="container">
 			<h3>Event dan Festifal</h3>
 			<div class="testimonials-grids">
-				<ul id="flexiselDemo1">
+				<!-- <ul id="flexiselDemo1">
 					<?php $no=1; foreach($event as $a){ ?>
 					<li>
 						<div class="testimonials-grid">
@@ -109,7 +111,7 @@
 					// if ($no>4) {
 					// 	break;
 					// }
-				 	} ?>
+				 	} ?> -->
 					<!-- <li>
 						<div class="testimonials-grid">
 							<div class="col-xs-5 testimonials-grid-left">
@@ -146,8 +148,9 @@
 							<div class="clearfix"> </div>
 						</div>
 					</li> -->
-				</ul>
-					<script type="text/javascript">
+				<!-- </ul> -->
+
+					<!-- <script type="text/javascript">
 							$(window).load(function() {
 								$("#flexiselDemo1").flexisel({
 									visibleItems: 3,
@@ -174,7 +177,30 @@
 
 							});
 					</script>
-					<script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery.flexisel.js"></script>
+					<script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery.flexisel.js"></script> -->
+
+					<?php $no=1; foreach($event as $a){ ?>
+				<div class="col-md-3 banner-bottom-grid w3-agileits">
+					<img src="<?php echo base_url()?>assets/images/1.jpg" alt=" " class="img-responsive" />
+					<div class="banner-bottom-grid-info">
+						<div class="col-xs-4 banner-bottom-grid-infol">
+							<p>NEW</p>
+						</div>
+						<div class="col-xs-8 banner-bottom-grid-infor">
+							<h3><?php echo $a->nama_event; ?></h3>
+						</div>
+						<div class="clearfix"> </div>
+						<p class="vel">Jenis Berita : <?php echo $a->jenis_event; ?></p>
+							<div class="more">
+								<a href="<?php echo base_url()?>index.php/detailberita/<?php echo $a->id_event; ?>">Learn More</a>
+							</div>
+					</div>
+				</div>
+				<?php $no++;
+				if ($no>4) {
+					break;
+				}
+			 	} ?>
 			</div>
 		</div>
 	</div>

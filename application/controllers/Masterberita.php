@@ -76,7 +76,6 @@ class Masterberita extends CI_Controller {
 					'tgl_berita' => $this->input->post("tgl_berita"),
 	                'jenis_berita' => $this->input->post('jenis_berita'),
 	                'ket_berita' => $this->input->post('ket_berita'),
-	                'gambar_berita' => $this->input->post('gambar_berita'),
 	                'cp_berita' => $this->input->post('cp_berita'),
 	                'id_admin' => $this->input->post('id_admin'),
 				);
@@ -93,7 +92,6 @@ class Masterberita extends CI_Controller {
             'tgl_berita' => $this->input->post("tgl_berita"),
             'jenis_berita' => $this->input->post('jenis_berita'),
             'ket_berita' => $this->input->post('ket_berita'),
-            'gambar_berita' => $this->input->post('gambar_berita'),
             'cp_berita' => $this->input->post('cp_berita'),
             'id_admin' => $this->input->post('id_admin'),
 			);
