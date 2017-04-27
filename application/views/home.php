@@ -178,7 +178,7 @@
 							});
 					</script>
 					<script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery.flexisel.js"></script> -->
-
+<!--  -->
 					<?php $no=1; foreach($event as $a){ ?>
 				<div class="col-md-3 banner-bottom-grid w3-agileits">
 					<img src="<?php echo base_url()?>assets/images/1.jpg" alt=" " class="img-responsive" />
