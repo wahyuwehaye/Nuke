@@ -132,7 +132,7 @@ function edit_penginapan(id)
             $('[name="harga_penginapan"]').val(data.harga_penginapan);
             $('[name="long_penginapan"]').val(data.long_penginapan);
             $('[name="lat_penginapan"]').val(data.lat_penginapan);
-            $('[name="foto_penginapan"]').val(data.foto_penginapan);
+            // $('[name="foto_penginapan"]').val(data.foto_penginapan);
             $('[name="cp_penginapan"]').val(data.cp_penginapan);
             $('[name="id_admin"]').val(data.id_admin);
             $('[name="id_user"]').val(data.id_user);
@@ -294,14 +294,14 @@ function delete_penginapan(id)
                             </div>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Gambar penginapan</label>
                                     <input type="text" class="form-control" name="foto_penginapan">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row">
                             <div class="col-md-12">

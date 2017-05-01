@@ -128,7 +128,7 @@ function edit_wisata(id)
             $('[name="nama_wisata"]').val(data.nama_wisata);
             $('[name="alamat_wisata"]').val(data.alamat_wisata);
             $('[name="kategori_wisata"]').val(data.kategori_wisata);
-            $('[name="gambar_wisata"]').val(data.gambar_wisata);
+            // $('[name="gambar_wisata"]').val(data.gambar_wisata);
             $('[name="lat_wisata"]').val(data.lat_wisata);
             $('[name="long_wisata"]').val(data.long_wisata);
             $('[name="ket_wisata"]').val(data.ket_wisata);
@@ -262,14 +262,14 @@ function delete_wisata(id)
                             </div>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Gambar Wisata</label>
                                     <input type="text" class="form-control" name="gambar_wisata">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row">
                             <div class="col-md-12">

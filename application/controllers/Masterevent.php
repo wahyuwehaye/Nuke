@@ -32,6 +32,9 @@ class Masterevent extends CI_Controller {
 			$row[] = '<td class="td-actions text-right"><a rel="tooltip" title="Edit" class="btn btn-primary btn-simple btn-xs" href="javascript:void(0)" onclick="edit_event('."'".$event->id_event."'".')">
                 <i class="material-icons">edit</i>
             </a>
+            <a rel="tooltip" title="Tambah Gambar" class="btn btn-success btn-simple btn-xs" href="uploadevent/'.$event->id_event.'">
+                <i class="material-icons">photo_library</i>
+            </a>
             <a rel="tooltip" title="Hapus" class="btn btn-danger btn-simple btn-xs" href="javascript:void(0)" onclick="delete_event('."'".$event->id_event."'".')">
                 <i class="material-icons">close</i>
             </a></td>';

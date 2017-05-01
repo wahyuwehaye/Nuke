@@ -84,6 +84,15 @@ class Dashboard extends CI_Controller {
 		$this->load->view('main/footerD2');
 	}
 
+	public function uploadwisata(){
+		$data['active_menu']='wisata';
+		$this->load->view('main/headerD1',$data);
+		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
+		// $this->load->view('listadmin',$data);
+		$this->load->view('u-gambarwisata');
+		$this->load->view('main/footerD6');
+	}
+
 	public function penginapan(){
 		$data['active_menu']='penginapan';
 		$this->load->view('main/headerD',$data);
@@ -91,6 +100,15 @@ class Dashboard extends CI_Controller {
 		// $this->load->view('listadmin',$data);
 		$this->load->view('v_penginapan');
 		$this->load->view('main/footerD3');
+	}
+
+	public function uploadpenginapan(){
+		$data['active_menu']='penginapan';
+		$this->load->view('main/headerD1',$data);
+		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
+		// $this->load->view('listadmin',$data);
+		$this->load->view('u-gambarpenginapan');
+		$this->load->view('main/footerD6');
 	}
 
 	public function event(){
@@ -102,6 +120,15 @@ class Dashboard extends CI_Controller {
 		$this->load->view('main/footerD4');
 	}
 
+	public function uploadevent(){
+		$data['active_menu']='event';
+		$this->load->view('main/headerD1',$data);
+		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
+		// $this->load->view('listadmin',$data);
+		$this->load->view('u-gambarevent');
+		$this->load->view('main/footerD6');
+	}
+
 	public function berita(){
 		$data['active_menu']='berita';
 		$this->load->view('main/headerD',$data);
@@ -111,12 +138,28 @@ class Dashboard extends CI_Controller {
 		$this->load->view('main/footerD5');
 	}
 
+	public function uploadberita(){
+		$data['active_menu']='berita';
+		$this->load->view('main/headerD1',$data);
+		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
+		// $this->load->view('listadmin',$data);
+		$this->load->view('u-gambarberita');
+		$this->load->view('main/footerD6');
+	}
+
 	public function notifikasi(){
 		$data['active_menu']='notifikasi';
 		$this->load->view('main/headerD',$data);
 		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
 		// $this->load->view('listadmin',$data);
 		$this->load->view('notifikasi');
+		$this->load->view('main/footerD');
+	}
+
+	public function inputlokasi(){
+		$data['active_menu']='inputlokasi';
+		$this->load->view('main/headerD',$data);
+		$this->load->view('inputlokasi');
 		$this->load->view('main/footerD');
 	}
 
@@ -144,6 +187,48 @@ class Dashboard extends CI_Controller {
 	         );
 	    $data = $this->m_dashboard->insertKomen('komentar_event', $data);
 	    redirect('detailevent/'.$page);
+		echo json_encode(array("status" => TRUE));
+		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
+	}
+
+	public function insertKomenWisata(){
+	    $this->load->model('m_dashboard');
+	    $page = $this->input->post('id_wisata');
+	    $data = array(
+	        'nama' => $this->input->post('nama'),
+	        'id_wisata' => $this->input->post('id_wisata'),
+			'komentar' => $this->input->post('komentar')
+	         );
+	    $data = $this->m_dashboard->insertKomen('komentar_wisata', $data);
+	    redirect('detailwisata/'.$page);
+		echo json_encode(array("status" => TRUE));
+		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
+	}
+
+	public function insertKomenPenginapan(){
+	    $this->load->model('m_dashboard');
+	    $page = $this->input->post('id_penginapan');
+	    $data = array(
+	        'nama' => $this->input->post('nama'),
+	        'id_penginapan' => $this->input->post('id_penginapan'),
+			'komentar' => $this->input->post('komentar')
+	         );
+	    $data = $this->m_dashboard->insertKomen('komentar_penginapan', $data);
+	    redirect('detailpenginapan/'.$page);
+		echo json_encode(array("status" => TRUE));
+		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
+	}
+
+	public function insertKomenTentang(){
+	    $this->load->model('m_dashboard');
+	    $page = $this->input->post('page');
+	    $data = array(
+	        'nama' => $this->input->post('nama'),
+	        'id_tentang' => $this->input->post('id_tentang'),
+			'komentar' => $this->input->post('komentar')
+	         );
+	    $data = $this->m_dashboard->insertKomen('komentar_tentang', $data);
+	    redirect($page);
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
 	}
@@ -203,6 +288,7 @@ class Dashboard extends CI_Controller {
 					//die();
 					redirect('main/index');
 				}else{
+					$_SESSION['error'] = '';
 					redirect('dashboard/login');
 				}
     }

@@ -83,6 +83,16 @@ class m_dashboard extends CI_Model{
             return $query;
     }
 
+    function viewDetailWisata($id){
+            $query = $this->db->query("SELECT * FROM tempat_wisata where id_wisata='".$id."'");
+            return $query;
+    }
+
+    function viewDetailPenginapan($id){
+            $query = $this->db->query("SELECT * FROM penginapan where id_penginapan='".$id."'");
+            return $query;
+    }
+
     function viewDetailKomenBerita($id){
             // $query = $this->db->query("SELECT * FROM komentar_berita JOIN user USING ( id_user ) where id_berita='".$id."'");
             $query = $this->db->query("SELECT * FROM komentar_berita where id_berita='".$id."'");
@@ -92,6 +102,24 @@ class m_dashboard extends CI_Model{
     function viewDetailKomenEvent($id){
             // $query = $this->db->query("SELECT * FROM komentar_berita JOIN user USING ( id_user ) where id_berita='".$id."'");
             $query = $this->db->query("SELECT * FROM komentar_event where id_event='".$id."'");
+            return $query;
+    }
+
+    function viewDetailKomenWisata($id){
+            // $query = $this->db->query("SELECT * FROM komentar_berita JOIN user USING ( id_user ) where id_berita='".$id."'");
+            $query = $this->db->query("SELECT * FROM komentar_wisata where id_wisata='".$id."'");
+            return $query;
+    }
+
+    function viewDetailKomenPenginapan($id){
+            // $query = $this->db->query("SELECT * FROM komentar_berita JOIN user USING ( id_user ) where id_berita='".$id."'");
+            $query = $this->db->query("SELECT * FROM komentar_penginapan where id_penginapan='".$id."'");
+            return $query;
+    }
+
+    function viewDetailKomenTentang($id){
+            // $query = $this->db->query("SELECT * FROM komentar_berita JOIN user USING ( id_user ) where id_berita='".$id."'");
+            $query = $this->db->query("SELECT * FROM komentar_tentang where id_tentang='".$id."'");
             return $query;
     }
 

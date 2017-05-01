@@ -1,8 +1,8 @@
-<div class="single w3l-agileits">
+<!-- <div class="single w3l-agileits">
     <div class="container">
     <div class="com">
     <h3>Kategori Wisata > Wisata Belanja</h3>
-    <ul class="media-list">
+    <ul class="media-list"> -->
       <!-- <li class="media">
         <div class="media-left">
           <a href="#">
@@ -17,7 +17,7 @@
           <a href="#">Lanjutkan Membaca...</a>
         </div>
       </li> -->
-      <?php $no=1; foreach($belanja as $a){ ?>
+     <!--  <?php $no=1; foreach($belanja as $a){ ?>
       <li class="media">
         <div class="media-left">
           <a href="#">
@@ -34,7 +34,7 @@
       // if ($no>4) {
       // 	break;
       // }
-      } ?>
+      } ?> -->
       <!-- <li class="media">
         <div class="media-left">
           <a href="#">
@@ -49,7 +49,64 @@
           <a href="#">Lanjutkan Membaca...</a>
         </div>
       </li> -->
-    </ul>
+<!--     </ul>
 </div>
 </div>
-</div>
+</div> -->
+
+
+<!-- Versi 2 -->
+
+<!-- about -->
+  <div class="about w3l-agileits">
+    <div class="container">
+      <h3>Kategori Wisata > Wisata Belanja</h3>
+      <?php $no=1; foreach($belanja as $a){ ?>
+      <div class="about-grids col-md-6">
+        <div class="about-grid">
+          <img src="<?php echo base_url()?>assets/images/2.jpg" alt=" " class="img-responsive" />
+          <div class="img-bottom">
+            <p><?php echo $a->nama_wisata; ?></p>
+          </div>
+        </div>
+        <!-- <div class="col-md-4 about-grid">
+          <img src="<?php echo base_url()?>assets/images/3.jpg" alt=" " class="img-responsive" />
+          <div class="img-bottom">
+            <p>accusamus et iusto odio malesuada</p>
+          </div>
+        </div>
+        <div class="col-md-4 about-grid">
+          <img src="<?php echo base_url()?>assets/images/9.jpg" alt=" " class="img-responsive" />
+          <div class="img-bottom">
+            <p>accusamus et iusto odio malesuada</p>
+          </div>
+        </div> -->
+        <div class="clearfix"> </div>
+      </div>
+      <div class="about-grids-bottom col-md-6">
+        <div class="about-us">
+          <h4>Keterangan</h4>
+          <p><?php echo $a->ket_wisata; ?></p>
+        </div>
+        <!-- <div class="col-md-4 about-us">
+          <h4>Who We Are</h4>
+          <p>Donec rutrum congue leo eget malesuada.Curabitur non nulla sit amet
+          nisl tempus convallis quis ac lactus.Sed porttitor lactus nibh.</p>
+        </div>
+        <div class="col-md-4 about-us">
+          <h4>Why We Do This</h4>
+          <p>Donec rutrum congue leo eget malesuada.Curabitur non nulla sit amet
+          nisl tempus convallis quis ac lactusnisl tempus convallis quis ac 
+          lactus.Sed porttitor lactus nibhSed porttitor lactus nibh.</p>
+        </div> -->
+        <a href="<?php echo base_url()?>index.php/detailwisata/<?php echo $a->id_wisata; ?>">Lanjutkan Membaca...</a>
+        <div class="clearfix"> </div>
+      </div>
+      <div class="col-md-12"></div>
+      <?php $no++;
+      // if ($no>4) {
+      //  break;
+      // }
+      } ?>
+    </div>
+  </div>

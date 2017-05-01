@@ -80,9 +80,17 @@
 				<h3>Leave a Comments Here</h3>
 			    <form action="<?php echo base_url()?>index.php/dashboard/insertKomen" method="post">
 			    <?php $id_berita = $this->uri->segment(2, 0); ?>
+			    <?php if(isset($_SESSION['logged_in']))
+					{ ?>
 					<!-- <input type="text" name="text" placeholder="Name" required=" "> -->
 					<input type="hidden" name="id_berita" value="<?php echo $id_berita; ?>">
 					<input type="hidden" name="nama" value="<?php echo ($_SESSION['username']); ?>" required=" ">
+				<?php }else{ ?>
+					<input type="text" name="nama" placeholder="Name" required=" ">
+					<input type="text" name="email" placeholder="Email" required=" ">
+					<input type="text" name="website" placeholder="Website" required=" ">
+					<input type="hidden" name="id_berita" value="<?php echo $id_berita; ?>">
+				<?php } ?>
 					<textarea name="komentar" placeholder="Meassage" required=" "></textarea>
 					<input type="submit" value="Leave A Comment">
 					<div class="clearfix"> </div>

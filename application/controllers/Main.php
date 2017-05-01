@@ -72,22 +72,31 @@ class Main extends CI_Controller {
 
     public function sejarah()
 	{
+		$this->load->model('m_dashboard');
         $this->load->view('main/header1');
-        $this->load->view('sejarah');
+        $id=1;
+        $data['komen'] = $this->m_dashboard->viewDetailKomenTentang($id);
+        $this->load->view('sejarah',$data);
 		$this->load->view('main/footer');
 	}
 
     public function warisan()
 	{
+        $this->load->model('m_dashboard');
         $this->load->view('main/header1');
-        $this->load->view('warisan');
+        $id=2;
+        $data['komen'] = $this->m_dashboard->viewDetailKomenTentang($id);
+        $this->load->view('warisan',$data);
 		$this->load->view('main/footer');
 	}
 
     public function sekilas()
 	{
+        $this->load->model('m_dashboard');
         $this->load->view('main/header1');
-        $this->load->view('sekilas');
+        $id=3;
+        $data['komen'] = $this->m_dashboard->viewDetailKomenTentang($id);
+        $this->load->view('sekilas',$data);
 		$this->load->view('main/footer');
 	}
 
@@ -97,6 +106,17 @@ class Main extends CI_Controller {
         $this->load->view('main/header1');
 		$data['alam'] = $this->m_dashboard->tampil_alam()->result();
         $this->load->view('alam',$data);
+		$this->load->view('main/footer');
+	}
+
+	public function detailwisata()
+	{
+		$this->load->model('m_dashboard');
+        $this->load->view('main/header1');
+        $id=$this->uri->segment(2, 0);
+		$data['wisata'] = $this->m_dashboard->viewDetailWisata($id);
+		$data['komen'] = $this->m_dashboard->viewDetailKomenWisata($id);
+        $this->load->view('detailwisata',$data);
 		$this->load->view('main/footer');
 	}
 
@@ -124,6 +144,17 @@ class Main extends CI_Controller {
         $this->load->view('main/header1');
 		$data['penginapan'] = $this->m_dashboard->tampil_penginapan()->result();
         $this->load->view('penginapan',$data);
+		$this->load->view('main/footer');
+	}
+
+	public function detailpenginapan()
+	{
+		$this->load->model('m_dashboard');
+        $this->load->view('main/header1');
+        $id=$this->uri->segment(2, 0);
+		$data['penginapan'] = $this->m_dashboard->viewDetailPenginapan($id);
+		$data['komen'] = $this->m_dashboard->viewDetailKomenPenginapan($id);
+        $this->load->view('detailpenginapan',$data);
 		$this->load->view('main/footer');
 	}
 

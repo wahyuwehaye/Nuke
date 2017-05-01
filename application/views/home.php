@@ -87,7 +87,7 @@
 		<div class="container">
 			<h3>Event dan Festifal</h3>
 			<div class="testimonials-grids">
-				<!-- <ul id="flexiselDemo1">
+				<ul id="flexiselDemo1">
 					<?php $no=1; foreach($event as $a){ ?>
 					<li>
 						<div class="testimonials-grid">
@@ -102,7 +102,16 @@
 									<span>☆</span>
 									<span>☆</span>
 								</div>
-								<p>Keterangan : <?php echo $a->ket_event; ?><span><?php echo $a->nama_event; ?></span></p>
+								<?php
+									$str="";
+									if(strlen($a->ket_event) > 40){
+										$str = substr($a->ket_event, 0, 38) . "...";
+									}else{
+										$str=$a->ket_event;
+									}
+								?>
+								<p>Keterangan : <?php echo $str; ?><span><?php echo $a->nama_event; ?></span></p>
+								<p><a href="<?php echo base_url()?>index.php/detailevent/<?php echo $a->id_event; ?>">Learn More</a></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -111,7 +120,7 @@
 					// if ($no>4) {
 					// 	break;
 					// }
-				 	} ?> -->
+				 	} ?>
 					<!-- <li>
 						<div class="testimonials-grid">
 							<div class="col-xs-5 testimonials-grid-left">
@@ -148,9 +157,9 @@
 							<div class="clearfix"> </div>
 						</div>
 					</li> -->
-				<!-- </ul> -->
+				</ul>
 
-					<!-- <script type="text/javascript">
+					<script type="text/javascript">
 							$(window).load(function() {
 								$("#flexiselDemo1").flexisel({
 									visibleItems: 3,
@@ -177,9 +186,9 @@
 
 							});
 					</script>
-					<script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery.flexisel.js"></script> -->
+					<script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery.flexisel.js"></script>
 <!--  -->
-					<?php $no=1; foreach($event as $a){ ?>
+				<!-- 	<?php $no=1; foreach($event as $a){ ?>
 				<div class="col-md-3 banner-bottom-grid w3-agileits">
 					<img src="<?php echo base_url()?>assets/images/1.jpg" alt=" " class="img-responsive" />
 					<div class="banner-bottom-grid-info">
@@ -200,10 +209,10 @@
 				if ($no>4) {
 					break;
 				}
-			 	} ?>
+			 	} ?> -->
 			</div>
 		</div>
 		</br>
-			<a href="<?php echo base_url()?>index.php/allevent" type="button" class="btn btn-block btn-primary">Lihat Semua Berita</a>
+			<a href="<?php echo base_url()?>index.php/allevent" type="button" class="btn btn-block btn-primary">Lihat Semua Event dan Festifal</a>
 	</div>
 <!-- //testimonials -->

@@ -20,19 +20,24 @@
 					<h3>Navigation</h3>
 					<ul class="b-nav">
 						<li><a href="<?php echo base_url()?>">Home</a></li>
-						<li><a href="<?php echo base_url()?>">Tentang Boyolali</a></li>
-						<li><a href="<?php echo base_url()?>">Kategori Wisata</a></li>
-						<li><a href="<?php echo base_url()?>">Penginapan</a></li>
-						<li><a href="<?php echo base_url()?>">Cari Lokasi</a></li>
-                        <li><a href="<?php echo base_url()?>">Registrasi</a></li>
+						<li><a href="<?php echo base_url()?>index.php/sejarah">Tentang Boyolali</a></li>
+						<li><a href="<?php echo base_url()?>index.php/alam">Kategori Wisata</a></li>
+						<li><a href="<?php echo base_url()?>index.php/penginapan">Penginapan</a></li>
+						<li><a href="<?php echo base_url()?>index.php/lokasi">Cari Lokasi</a></li>
+						<?php if(isset($_SESSION['logged_in']))
+							{ ?>
+                        <li><a href="<?php echo base_url()?>index.php/dashboard/logOut">Logout</a></li>
+                        <?php }else{ ?>
+                        <li><a href="<?php echo base_url()?>index.php/login">Registrasi</a></li>
+                        <?php } ?>
 					</ul>
 				</div>
 				<div class="col-md-2 footer-grids w3l-agileits">
 					<h3>Galeri Foto</h3>
 					<ul class="b-nav">
-						<li><a href="#">Photo Gallery</a></li>
-						<li><a href="#">Foto-foto</a></li>
-						<li><a href="#">lainnya</a></li>
+						<li><a href="http://bit.ly/2p2cU1E">Photo Gallery</a></li>
+						<li><a href="http://bit.ly/2p2cU1E">Foto-foto</a></li>
+						<li><a href="http://bit.ly/2p2cU1E">lainnya</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>

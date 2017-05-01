@@ -17,6 +17,7 @@
     <link href="<?php echo base_url()?>alert/css/plugins/morris.css" rel="stylesheet">
 
       <link rel="stylesheet" href="<?php echo base_url()?>uilogin/css/style.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>sweetalert/dist/sweetalert.css">
 
 
 </head>
@@ -181,6 +182,21 @@
     <script src="<?php echo base_url()?>alert/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url()?>alert/js/sb-admin-2.js"></script>
 
+<!-- //session untuk menampilkan pesan error -->
+<?php
+    if (isset($_SESSION['error'])) {
+?>
+    <body onload='swal({title: "Login Gagal!",
+                        text: "Silakan coba lagi",
+                        // timer: 3000,
+                        type: "error",
+                        showConfirmButton: true });'>
+                        <!-- sweetAlert("Oops...", "Something went wrong!", "error"); -->
+<?php
+    unset($_SESSION['error']);
+    }
+?>
+<script src="<?php echo base_url()?>sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
 function save()
 {

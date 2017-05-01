@@ -128,7 +128,7 @@ function edit_event(id)
             $('[name="nama_event"]').val(data.nama_event);
             $('[name="tgl_event"]').val(data.tgl_event);
             $('[name="lokasi_event"]').val(data.lokasi_event);
-            $('[name="gambar_event"]').val(data.gambar_event);
+            // $('[name="gambar_event"]').val(data.gambar_event);
             $('[name="ket_event"]').val(data.ket_event);
             $('[name="waktu_event"]').val(data.waktu_event);
             $('[name="jenis_event"]').val(data.jenis_event);
@@ -257,14 +257,14 @@ function delete_event(id)
                             </div>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Gambar Event</label>
                                     <input type="text" class="form-control" name="gambar_event">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row">
                             <div class="col-md-12">

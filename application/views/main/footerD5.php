@@ -129,7 +129,7 @@ function edit_berita(id)
             $('[name="tgl_berita"]').val(data.tgl_berita);
             $('[name="jenis_berita"]').val(data.jenis_berita);
             $('[name="ket_berita"]').val(data.ket_berita);
-            $('[name="gambar_berita"]').val(data.gambar_berita);
+            // $('[name="gambar_berita"]').val(data.gambar_berita);
             $('[name="cp_berita"]').val(data.cp_berita);
             $('[name="id_admin"]').val(data.id_admin);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
@@ -268,14 +268,14 @@ function delete_berita(id)
                             </div>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Gambar berita</label>
                                     <input type="text" class="form-control" name="gambar_berita">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row">
                             <div class="col-md-12">

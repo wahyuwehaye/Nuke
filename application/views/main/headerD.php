@@ -15,6 +15,9 @@
     <link href="<?php echo base_url()?>assets3/css/bootstrap.min.css" rel="stylesheet" />
 
 	<link href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
+	<!-- <link href="<?php echo base_url('assets/bootstrap-peta.css')?>" rel="stylesheet">
+	<link href="<?php echo base_url('assets/peta.css')?>" rel="stylesheet">
+	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script> -->
 
     <!--  Material Dashboard CSS    -->
     <link href="<?php echo base_url()?>assets3/css/material-dashboard.css" rel="stylesheet"/>
@@ -104,6 +107,12 @@
 	                    <a href="<?php echo base_url()?>index.php/notifikasi">
 	                        <i class="material-icons">notifications</i>
 	                        <p>Notifikasi</p>
+	                    </a>
+	                </li>
+	                <li class="<?php echo ($active_menu=="inputlokasi") ? "active" :""; ?> treeview">
+	                    <a href="<?php echo base_url()?>index.php/inputlokasi">
+	                        <i class="material-icons">location_on</i>
+	                        <p>Input Lokasi</p>
 	                    </a>
 	                </li>
 	            </ul>

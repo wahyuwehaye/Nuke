@@ -14,7 +14,8 @@
 						<img src="<?php echo base_url()?>assets/images/banner1.jpg" alt=" " class="img-responsive" />
 					</div>
 					<div class="blog-page-grids-bot1">
-						<p><?php echo $a->ket_penginapan; ?></p>
+						<p><?php echo $a->ket_penginapan; ?></p></br>
+				<a href="<?php echo base_url()?>index.php/detailpenginapan/<?php echo $a->id_penginapan; ?>">Lanjutkan Membaca...</a>
 					</div>
 				</div>
 			</div>
