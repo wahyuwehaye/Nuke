@@ -32,13 +32,18 @@ class Upload extends CI_Controller
 
 	function __construct(){
 		parent::__construct();
-		$this->load->database();
-		$this->load->helper(array('url','file'));
+		// $this->load->database();
+		// $this->load->helper(array('url','file'));
+		// $this->load->model('m_upload','upload');
 	}
 
-	// function index(){
-	// 	$this->load->view('u-gambarberita');
-	// }
+	function index(){
+		// $data['active_menu']='berita';
+		$this->load->view('uploadview');
+		// $this->load->view('u-gambarberita');
+		// $this->load->database();
+		// $this->load->helper(array('url','file'));
+	}
 
 
 	//Untuk proses upload foto
@@ -56,6 +61,7 @@ class Upload extends CI_Controller
 
 
 	}
+
 
 
 	//Untuk menghapus foto

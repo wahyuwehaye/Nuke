@@ -209,3 +209,160 @@ body{
 		            </div>
 		        </div>
 		    </nav>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header" data-background-color="purple">
+                            <h4 class="title">Upload Gambar Berita</h4>
+                            <p class="category">Untuk melengkapi informasi dari Berita</p>
+                        </div>
+                        <div class="card-content">
+                            <div class="dropzone">
+                        <?php $id_berita = $this->uri->segment(2, 0); ?>
+                              <div class="dz-message">
+                               <h3> Klik atau Drop gambar disini</h3>
+                               <input type="hidden" name="id_berita" value="<?php echo $id_berita; ?>">
+                              </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4">
+                    <div class="card card-profile">
+                        <div class="card-avatar">
+                            <a href="#pablo">
+                                <img class="img" src="<?php echo base_url()?>assets3/img/faces/marc.jpg" />
+                            </a>
+                        </div>
+
+                        <div class="content">
+                            <h6 class="category text-gray">CEO / Co-Founder</h6>
+                            <h4 class="card-title">Alec Thompson</h4>
+                            <p class="card-content">
+                                Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                            </p>
+                            <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="container-fluid">
+        <nav class="pull-left">
+            <ul>
+                <li>
+                    <a href="#">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Company
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Portfolio
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                       Blog
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <p class="copyright pull-right">
+            &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Wonderful Boyolali</a>, made with love for a better web
+        </p>
+    </div>
+</footer>
+</div>
+</div>
+
+<!--   Core JS Files   -->
+<script src="<?php echo base_url()?>assets3/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets3/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>assets3/js/material.min.js" type="text/javascript"></script>
+
+<!--  Charts Plugin -->
+<script src="<?php echo base_url()?>assets3/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="<?php echo base_url()?>assets3/js/bootstrap-notify.js"></script>
+
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+<!-- Material Dashboard javascript methods -->
+<script src="<?php echo base_url()?>assets3/js/material-dashboard.js"></script>
+
+<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+<script src="<?php echo base_url()?>assets3/js/demo.js"></script>
+
+<script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
+<script src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.js')?>"></script>
+
+
+<script type="text/javascript" src="<?php echo base_url()?>assetsupload/jquery.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assetsupload/dropzone.min.js"></script>
+
+<script type="text/javascript">
+
+
+</script>
+
+<script type="text/javascript">
+
+Dropzone.autoDiscover = false;
+
+var foto_upload= new Dropzone(".dropzone",{
+url: "<?php echo base_url('index.php/upload/proses_upload') ?>",
+maxFilesize: 2,
+method:"post",
+acceptedFiles:"image/*",
+paramName:"userfile",
+dictInvalidFileType:"Type file ini tidak dizinkan",
+addRemoveLinks:true,
+});
+
+
+//Event ketika Memulai mengupload
+foto_upload.on("sending",function(a,b,c){
+	a.token=Math.random();
+	c.append("token_foto",a.token); //Menmpersiapkan token untuk masing masing foto
+});
+
+
+//Event ketika foto dihapus
+foto_upload.on("removedfile",function(a){
+	var token=a.token;
+	$.ajax({
+		type:"post",
+		data:{token:token},
+		url:"<?php echo base_url('index.php/upload/remove_foto') ?>",
+		cache:false,
+		dataType: 'json',
+		success: function(){
+			console.log("Foto terhapus");
+		},
+		error: function(){
+			console.log("Error");
+
+		}
+	});
+});
+
+
+</script>
+
+
+
+</body>
+</html>

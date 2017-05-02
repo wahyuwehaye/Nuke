@@ -69,7 +69,7 @@
 Dropzone.autoDiscover = false;
 
 var foto_upload= new Dropzone(".dropzone",{
-url: "<?php echo base_url()?>index.php/dashboard/proses_uploadBerita",
+url: "<?php echo base_url()?>index.php/dashboard/proses_uploadPenginapan",
 maxFilesize: 2,
 method:"post",
 acceptedFiles:"image/*",
@@ -92,7 +92,7 @@ foto_upload.on("removedfile",function(a){
     $.ajax({
         type:"post",
         data:{token:token},
-        url:"<?php echo base_url()?>index.php/dashboard/remove_fotoBerita",
+        url:"<?php echo base_url()?>index.php/dashboard/remove_fotoPenginapan",
         cache:false,
         dataType: 'json',
         success: function(){

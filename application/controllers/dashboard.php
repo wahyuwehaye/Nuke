@@ -90,7 +90,7 @@ class Dashboard extends CI_Controller {
 		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
 		// $this->load->view('listadmin',$data);
 		$this->load->view('u-gambarwisata');
-		$this->load->view('main/footerD6');
+		$this->load->view('main/footerD9');
 	}
 
 	public function penginapan(){
@@ -108,7 +108,7 @@ class Dashboard extends CI_Controller {
 		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
 		// $this->load->view('listadmin',$data);
 		$this->load->view('u-gambarpenginapan');
-		$this->load->view('main/footerD6');
+		$this->load->view('main/footerD8');
 	}
 
 	public function event(){
@@ -126,7 +126,7 @@ class Dashboard extends CI_Controller {
 		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
 		// $this->load->view('listadmin',$data);
 		$this->load->view('u-gambarevent');
-		$this->load->view('main/footerD6');
+		$this->load->view('main/footerD7');
 	}
 
 	public function berita(){
@@ -162,6 +162,176 @@ class Dashboard extends CI_Controller {
 		$this->load->view('inputlokasi');
 		$this->load->view('main/footerD');
 	}
+
+	//Untuk proses upload foto
+	function proses_uploadBerita(){
+
+        $config['upload_path']   = FCPATH.'/upload-foto/';
+        $config['allowed_types'] = 'gif|jpg|png|ico';
+        $this->load->library('upload',$config);
+
+        if($this->upload->do_upload('userfile')){
+        	$token=$this->input->post('token_foto');
+        	$nama=$this->upload->data('file_name');
+        	$this->db->insert('gambar_berita',array('gambar'=>$nama,'token'=>$token));
+        }
+
+
+	}
+
+
+
+	//Untuk menghapus foto
+	function remove_fotoBerita(){
+
+		//Ambil token foto
+		$token=$this->input->post('token');
+
+		
+		$foto=$this->db->get_where('gambar_berita',array('token'=>$token));
+
+
+		if($foto->num_rows()>0){
+			$hasil=$foto->row();
+			$nama_foto=$hasil->nama_foto;
+			if(file_exists($file=FCPATH.'/upload-foto/'.$nama_foto)){
+				unlink($file);
+			}
+			$this->db->delete('gambar_berita',array('token'=>$token));
+
+		}
+
+
+		echo "{}";
+	}
+
+	//Untuk proses upload foto
+	function proses_uploadEvent(){
+
+        $config['upload_path']   = FCPATH.'/upload-foto/';
+        $config['allowed_types'] = 'gif|jpg|png|ico';
+        $this->load->library('upload',$config);
+
+        if($this->upload->do_upload('userfile')){
+        	$token=$this->input->post('token_foto');
+        	$nama=$this->upload->data('file_name');
+        	$this->db->insert('gambar_event',array('gambar'=>$nama,'token'=>$token));
+        }
+
+
+	}
+
+
+
+	//Untuk menghapus foto
+	function remove_fotoEvent(){
+
+		//Ambil token foto
+		$token=$this->input->post('token');
+
+		
+		$foto=$this->db->get_where('gambar_event',array('token'=>$token));
+
+
+		if($foto->num_rows()>0){
+			$hasil=$foto->row();
+			$nama_foto=$hasil->nama_foto;
+			if(file_exists($file=FCPATH.'/upload-foto/'.$nama_foto)){
+				unlink($file);
+			}
+			$this->db->delete('gambar_event',array('token'=>$token));
+
+		}
+
+
+		echo "{}";
+	}
+
+	//Untuk proses upload foto
+	function proses_uploadPenginapan(){
+
+        $config['upload_path']   = FCPATH.'/upload-foto/';
+        $config['allowed_types'] = 'gif|jpg|png|ico';
+        $this->load->library('upload',$config);
+
+        if($this->upload->do_upload('userfile')){
+        	$token=$this->input->post('token_foto');
+        	$nama=$this->upload->data('file_name');
+        	$this->db->insert('gambar_penginapan',array('gambar'=>$nama,'token'=>$token));
+        }
+
+
+	}
+
+
+
+	//Untuk menghapus foto
+	function remove_fotoPenginapan(){
+
+		//Ambil token foto
+		$token=$this->input->post('token');
+
+		
+		$foto=$this->db->get_where('gambar_penginapan',array('token'=>$token));
+
+
+		if($foto->num_rows()>0){
+			$hasil=$foto->row();
+			$nama_foto=$hasil->nama_foto;
+			if(file_exists($file=FCPATH.'/upload-foto/'.$nama_foto)){
+				unlink($file);
+			}
+			$this->db->delete('gambar_penginapan',array('token'=>$token));
+
+		}
+
+
+		echo "{}";
+	}
+
+	//Untuk proses upload foto
+	function proses_uploadWisata(){
+
+        $config['upload_path']   = FCPATH.'/upload-foto/';
+        $config['allowed_types'] = 'gif|jpg|png|ico';
+        $this->load->library('upload',$config);
+
+        if($this->upload->do_upload('userfile')){
+        	$token=$this->input->post('token_foto');
+        	$nama=$this->upload->data('file_name');
+        	$this->db->insert('gambar_wisata',array('gambar'=>$nama,'token'=>$token));
+        }
+
+
+	}
+
+
+
+	//Untuk menghapus foto
+	function remove_fotoWisata(){
+
+		//Ambil token foto
+		$token=$this->input->post('token');
+
+		
+		$foto=$this->db->get_where('gambar_wisata',array('token'=>$token));
+
+
+		if($foto->num_rows()>0){
+			$hasil=$foto->row();
+			$nama_foto=$hasil->nama_foto;
+			if(file_exists($file=FCPATH.'/upload-foto/'.$nama_foto)){
+				unlink($file);
+			}
+			$this->db->delete('gambar_wisata',array('token'=>$token));
+
+		}
+
+
+		echo "{}";
+	}
+
+
 
 	public function insertKomen(){
 	    $this->load->model('m_dashboard');

@@ -81,4 +81,5 @@ $route['event'] = 'dashboard/event';
 $route['uploadevent/:num'] = 'dashboard/uploadevent';
 $route['berita'] = 'dashboard/berita';
 $route['uploadberita/:num'] = 'dashboard/uploadberita';
+$route['upload'] = 'upload';
 $route['notifikasi'] = 'dashboard/notifikasi';
