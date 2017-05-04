@@ -123,7 +123,7 @@ function edit_user(id)
         dataType: "JSON",
         success: function(data)
         {
-            $('[name="id_admin"]').val(data.id_admin);
+            $('[name="id_user"]').val(data.id_user);
             $('[name="nama_lengkap"]').val(data.nama_lengkap);
             $('[name="email"]').val(data.email);
             $('[name="domisili"]').val(data.domisili);
