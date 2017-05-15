@@ -67,9 +67,9 @@
 <script type="text/javascript">
 
 Dropzone.autoDiscover = false;
-
+var id_penginapan = $("#id_penginapan").val();
 var foto_upload= new Dropzone(".dropzone",{
-url: "<?php echo base_url()?>index.php/dashboard/proses_uploadPenginapan",
+url: "<?php echo base_url()?>index.php/dashboard/proses_uploadPenginapan/"+id_penginapan,
 maxFilesize: 2,
 method:"post",
 acceptedFiles:"image/*",

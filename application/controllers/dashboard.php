@@ -164,7 +164,7 @@ class Dashboard extends CI_Controller {
 	}
 
 	//Untuk proses upload foto
-	function proses_uploadBerita(){
+	function proses_uploadBerita($id_berita){
 
         $config['upload_path']   = FCPATH.'/upload-foto/';
         $config['allowed_types'] = 'gif|jpg|png|ico';
@@ -173,7 +173,9 @@ class Dashboard extends CI_Controller {
         if($this->upload->do_upload('userfile')){
         	$token=$this->input->post('token_foto');
         	$nama=$this->upload->data('file_name');
-        	$this->db->insert('gambar_berita',array('gambar'=>$nama,'token'=>$token));
+        	$this->db->insert('gambar_berita',array('gambar'=>$nama,'token'=>$token,'id_berita'=>$id_berita));
+        	// $upd = $this->db->update('berita_terbaru',array('gambar'=>$nama,'token'=>$token),$id_berita);
+        	// return $upd;
         }
 
 
@@ -206,7 +208,7 @@ class Dashboard extends CI_Controller {
 	}
 
 	//Untuk proses upload foto
-	function proses_uploadEvent(){
+	function proses_uploadEvent($id_event){
 
         $config['upload_path']   = FCPATH.'/upload-foto/';
         $config['allowed_types'] = 'gif|jpg|png|ico';
@@ -215,7 +217,7 @@ class Dashboard extends CI_Controller {
         if($this->upload->do_upload('userfile')){
         	$token=$this->input->post('token_foto');
         	$nama=$this->upload->data('file_name');
-        	$this->db->insert('gambar_event',array('gambar'=>$nama,'token'=>$token));
+        	$this->db->insert('gambar_event',array('gambar'=>$nama,'token'=>$token,'id_event'=>$id_event));
         }
 
 
@@ -248,7 +250,7 @@ class Dashboard extends CI_Controller {
 	}
 
 	//Untuk proses upload foto
-	function proses_uploadPenginapan(){
+	function proses_uploadPenginapan($id_penginapan){
 
         $config['upload_path']   = FCPATH.'/upload-foto/';
         $config['allowed_types'] = 'gif|jpg|png|ico';
@@ -257,7 +259,7 @@ class Dashboard extends CI_Controller {
         if($this->upload->do_upload('userfile')){
         	$token=$this->input->post('token_foto');
         	$nama=$this->upload->data('file_name');
-        	$this->db->insert('gambar_penginapan',array('gambar'=>$nama,'token'=>$token));
+        	$this->db->insert('gambar_penginapan',array('gambar'=>$nama,'token'=>$token,'id_penginapan'=>$id_penginapan));
         }
 
 
@@ -290,7 +292,7 @@ class Dashboard extends CI_Controller {
 	}
 
 	//Untuk proses upload foto
-	function proses_uploadWisata(){
+	function proses_uploadWisata($id_wisata){
 
         $config['upload_path']   = FCPATH.'/upload-foto/';
         $config['allowed_types'] = 'gif|jpg|png|ico';
@@ -299,7 +301,7 @@ class Dashboard extends CI_Controller {
         if($this->upload->do_upload('userfile')){
         	$token=$this->input->post('token_foto');
         	$nama=$this->upload->data('file_name');
-        	$this->db->insert('gambar_wisata',array('gambar'=>$nama,'token'=>$token));
+        	$this->db->insert('gambar_wisata',array('gambar'=>$nama,'token'=>$token,'id_wisata'=>$id_wisata));
         }
 
 
@@ -480,6 +482,30 @@ class Dashboard extends CI_Controller {
 		$this->load->view('lockscreen');
 	}
 
+	public function cekUser(){
+		$this->load->library('session');
+		$this->load->model('m_login');
+				$data1=$this->m_login->checkLoginAdmin();
+				$data2=$this->m_login->checkLoginUser();
+				$data3=$this->m_login->cekEmailUser();
+				$data4=$this->m_login->cekEmailAdmin();
+				if($data1>0){
+					$_SESSION['adaadmin'] = '';
+					redirect('dashboard/login');
+				}elseif ($data2>0) {
+					$_SESSION['adauser'] = '';
+					redirect('dashboard/login');
+				}elseif ($data3>0) {
+					$_SESSION['adaemailuser'] = '';
+					redirect('dashboard/login');
+				}elseif ($data4) {
+					$_SESSION['adaemailadmin'] = '';
+					redirect('dashboard/login');
+				}else{
+					$this->insert();
+				}
+	}
+
 	public function insert(){
 	    $this->load->model('m_dashboard');
 	    $data = array(
@@ -494,9 +520,10 @@ class Dashboard extends CI_Controller {
 	        'nama_lengkap' => $this->input->post('nama_lengkap')
 	         );
 	    $data = $this->m_dashboard->Insert('user', $data);
+	    $_SESSION['suksesinput'] = '';
 	    redirect('dashboard/login');
-		echo json_encode(array("status" => TRUE));
-		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
+		// echo json_encode(array("status" => TRUE));
+		// echo '<script type="text/javascript">alert("Data has been submitted");</script>';
 	}
 
 	public function insertAdmin(){

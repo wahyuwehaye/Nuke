@@ -1,3 +1,7 @@
+<?php
+	$CI =& get_instance();
+	$CI->load->model('m_dashboard');
+?>
 <!-- about -->
 	<div class="about w3l-agileits">
 		<div class="container">
@@ -5,7 +9,26 @@
 			<h3><?php echo $row['kategori_wisata'];?></h3>
 			<div class="about-grids">
 				<div class="col-md-12 about-grid">
-					<img src="<?php echo base_url()?>assets/images/2.jpg" alt=" " class="img-responsive" />
+					<?php
+						$dapetgambarwisata = "";
+						$getgambar =$CI->db->query('select gambar from gambar_wisata where id_wisata="'.$row['id_wisata'].'"');
+						foreach ($getgambar->result() as $bar){
+						    $dapetgambarwisata = $bar->gambar;
+						    // break;
+						}
+					?>
+					<?php
+					if ($dapetgambarwisata=="") {
+						?>
+							<img src="<?php echo base_url()?>assets/images/tanya.png" alt=" " class="img-responsive" />
+						<?php
+					}else{
+						?>
+							<img src="<?php echo base_url()?>upload-foto/<?php echo $dapetgambarwisata; ?>" alt=" " class="img-responsive" />
+						<?php
+					}
+					?>
+					<!-- <img src="<?php echo base_url()?>assets/images/2.jpg" alt=" " class="img-responsive" /> -->
 					<div class="img-bottom">
 						<p><?php echo $row['nama_wisata'];?></p>
 					</div>

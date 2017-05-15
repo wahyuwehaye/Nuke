@@ -178,7 +178,6 @@ function save()
             $('#btnSave').text('save'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable
 
-
         },
         error: function (jqXHR, textStatus, errorThrown)
         {

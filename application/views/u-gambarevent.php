@@ -9,9 +9,10 @@
                         </div>
                         <div class="card-content">
                             <div class="dropzone">
-
+                            <?php $id_event = $this->uri->segment(2, 0); ?>
                               <div class="dz-message">
                                <h3> Klik atau Drop gambar disini</h3>
+                               <input type="hidden" id="id_event" name="id_event" value="<?php echo $id_event; ?>">
                               </div>
 
                             </div>

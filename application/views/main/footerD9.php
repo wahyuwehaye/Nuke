@@ -67,9 +67,9 @@
 <script type="text/javascript">
 
 Dropzone.autoDiscover = false;
-
+var id_wisata = $("#id_wisata").val();
 var foto_upload= new Dropzone(".dropzone",{
-url: "<?php echo base_url()?>index.php/dashboard/proses_uploadWisata",
+url: "<?php echo base_url()?>index.php/dashboard/proses_uploadWisata/"+id_wisata,
 maxFilesize: 2,
 method:"post",
 acceptedFiles:"image/*",

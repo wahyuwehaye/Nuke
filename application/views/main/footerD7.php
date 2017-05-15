@@ -67,9 +67,9 @@
 <script type="text/javascript">
 
 Dropzone.autoDiscover = false;
-
+var id_event = $("#id_event").val();
 var foto_upload= new Dropzone(".dropzone",{
-url: "<?php echo base_url()?>index.php/dashboard/proses_uploadEvent",
+url: "<?php echo base_url()?>index.php/dashboard/proses_uploadEvent/"+id_event,
 maxFilesize: 2,
 method:"post",
 acceptedFiles:"image/*",

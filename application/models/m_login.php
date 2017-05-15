@@ -34,6 +34,18 @@ class m_login extends CI_Model {
             return $query->num_rows();
     }
 
+    public function cekEmailUser(){
+            $email=$_POST['email'];
+            $query = $this->db->get_where('user', array('email'=> $email));
+            return $query->num_rows();
+    }
+
+    public function cekEmailAdmin(){
+            $email=$_POST['email'];
+            $query = $this->db->get_where('admin', array('email'=> $email));
+            return $query->num_rows();
+    }
+
     public function findByDynamicColumnAdmin($array){
             $query = $this->db->get_where('admin', $array);
             return $query->result_array();

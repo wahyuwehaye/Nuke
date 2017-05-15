@@ -1,10 +1,33 @@
+<?php
+	$CI =& get_instance();
+	$CI->load->model('m_dashboard');
+?>
 <!-- banner-bottom -->
 	<div class="banner-bottom">
 		<div class="container">
 			<div class="banner-bottom-grids">
 				<?php $no=1; foreach($event as $a){ ?>
 				<div class="col-md-3 banner-bottom-grid w3-agileits">
-					<img src="<?php echo base_url()?>assets/images/1.jpg" alt=" " class="img-responsive" />
+					<?php
+						$dapetgambarevent = "";
+						$getgambar =$CI->db->query('select gambar from gambar_event where id_event="'.$a->id_event.'"');
+						foreach ($getgambar->result() as $row){
+						    $dapetgambarevent = $row->gambar;
+						    // break;
+						}
+					?>
+					<?php
+					if ($dapetgambarevent=="") {
+						?>
+							<img src="<?php echo base_url()?>assets/images/tanya.png" alt=" " class="img-responsive" />
+						<?php
+					}else{
+						?>
+							<img src="<?php echo base_url()?>upload-foto/<?php echo $dapetgambarevent; ?>" alt=" " class="img-responsive" />
+						<?php
+					}
+					?>
+					<!-- <img src="<?php echo base_url()?>assets/images/1.jpg" alt=" " class="img-responsive" /> -->
 					<div class="banner-bottom-grid-info">
 						<div class="col-xs-4 banner-bottom-grid-infol">
 							<p>NEW</p>

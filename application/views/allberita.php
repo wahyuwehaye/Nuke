@@ -1,10 +1,33 @@
+<?php
+	$CI =& get_instance();
+	$CI->load->model('m_dashboard');
+?>
 <!-- banner-bottom -->
 	<div class="banner-bottom">
 		<div class="container">
 			<div class="banner-bottom-grids">
 				<?php $no=1; foreach($berita as $a){ ?>
 				<div class="col-md-3 banner-bottom-grid w3-agileits">
-					<img src="<?php echo base_url()?>assets/images/1.jpg" alt=" " class="img-responsive" />
+					<?php
+						$dapetgambarberita = "";
+						$getgambar =$CI->db->query('select gambar from gambar_berita where id_berita="'.$a->id_berita.'"');
+						foreach ($getgambar->result() as $row){
+						    $dapetgambarberita = $row->gambar;
+						    // break;
+						}
+					?>
+					<?php
+					if ($dapetgambarberita=="") {
+						?>
+							<img src="<?php echo base_url()?>assets/images/tanya.png" alt=" " class="img-responsive" />
+						<?php
+					}else{
+						?>
+							<img src="<?php echo base_url()?>upload-foto/<?php echo $dapetgambarberita; ?>" alt=" " class="img-responsive" />
+						<?php
+					}
+					?>
+					<!-- <img src="<?php echo base_url()?>assets/images/1.jpg" alt=" " class="img-responsive" /> -->
 					<div class="banner-bottom-grid-info">
 						<div class="col-xs-4 banner-bottom-grid-infol">
 							<p>NEW</p>

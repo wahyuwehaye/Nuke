@@ -1,10 +1,33 @@
+<?php
+	$CI =& get_instance();
+	$CI->load->model('m_dashboard');
+?>
 <!-- banner-bottom -->
 	<div class="banner-bottom">
 		<div class="container">
 			<div class="banner-bottom-grids">
 				<?php $no=1; foreach($berita as $a){ ?>
 				<div class="col-md-3 banner-bottom-grid w3-agileits">
-					<img src="<?php echo base_url()?>assets/images/1.jpg" alt=" " class="img-responsive" />
+					<?php
+						$dapetgambarberita = "";
+						$getgambar =$CI->db->query('select gambar from gambar_berita where id_berita="'.$a->id_berita.'"');
+						foreach ($getgambar->result() as $row){
+						    $dapetgambarberita = $row->gambar;
+						    // break;
+						}
+					?>
+					<?php
+						if ($dapetgambarberita=="") {
+							?>
+								<img src="<?php echo base_url()?>assets/images/tanya.png" alt=" " width="280" height="180" />
+							<?php
+						}else{
+							?>
+								<img src="<?php echo base_url()?>upload-foto/<?php echo $dapetgambarberita; ?>" alt=" " width="280" height="180" />
+							<?php
+						}
+					?>
+					<!-- <img src="<?php echo base_url()?>assets/images/1.jpg" alt=" " class="img-responsive" /> -->
 					<div class="banner-bottom-grid-info">
 						<div class="col-xs-4 banner-bottom-grid-infol">
 							<p>NEW</p>
@@ -92,7 +115,26 @@
 					<li>
 						<div class="testimonials-grid">
 							<div class="col-xs-5 testimonials-grid-left">
-								<img src="<?php echo base_url()?>assets/images/6.jpg" alt=" " class="img-responsive" />
+							<?php
+								$dapetgambarevent = "";
+								$getgambar =$CI->db->query('select gambar from gambar_event where id_event="'.$a->id_event.'"');
+								foreach ($getgambar->result() as $row){
+								    $dapetgambarevent = $row->gambar;
+								    // break;
+								}
+							?>
+							<?php
+								if ($dapetgambarevent=="") {
+									?>
+										<img src="<?php echo base_url()?>assets/images/tanya.png" alt=" " class="img-responsive" />
+									<?php
+								}else{
+									?>
+										<img src="<?php echo base_url()?>upload-foto/<?php echo $dapetgambarevent; ?>" alt=" " class="img-responsive" />
+									<?php
+								}
+							?>
+								
 							</div>
 							<div class="col-xs-7 testimonials-grid-right">
 								<div class="rating">
@@ -211,8 +253,9 @@
 				}
 			 	} ?> -->
 			</div>
-		</div>
-		</br>
+			</br>
 			<a href="<?php echo base_url()?>index.php/allevent" type="button" class="btn btn-block btn-primary">Lihat Semua Event dan Festifal</a>
+		</div>
+		
 	</div>
 <!-- //testimonials -->

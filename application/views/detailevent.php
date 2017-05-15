@@ -1,3 +1,7 @@
+<?php
+  $CI =& get_instance();
+  $CI->load->model('m_dashboard');
+?>
 <!-- single -->
 	<div class="single w3l-agileits">
 		<div class="container">
@@ -15,7 +19,26 @@
 				</div>
 				<div class="blog-page-grids-bottom">
 					<div class="blog-page-grids-bot">
-						<img src="<?php echo base_url()?>assets/images/banner1.jpg" alt=" " class="img-responsive" />
+					<?php
+						$dapetgambarevent = "";
+						$getgambar =$CI->db->query('select gambar from gambar_event where id_event="'.$row['id_event'].'"');
+						foreach ($getgambar->result() as $bar){
+						    $dapetgambarevent = $bar->gambar;
+						    // break;
+						}
+					?>
+					<?php
+					if ($dapetgambarevent=="") {
+						?>
+							<img src="<?php echo base_url()?>assets/images/tanya.png" alt=" " class="img-responsive" />
+						<?php
+					}else{
+						?>
+							<img src="<?php echo base_url()?>upload-foto/<?php echo $dapetgambarevent; ?>" alt=" " class="img-responsive" />
+						<?php
+					}
+					?>
+						<!-- <img src="<?php echo base_url()?>assets/images/banner1.jpg" alt=" " class="img-responsive" /> -->
 					</div>
 					<div class="blog-page-grids-bot1">
 						<p><?php echo $row['ket_event'];?></p>

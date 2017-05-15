@@ -1,5 +1,4 @@
     <div class="content">
-        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -12,7 +11,7 @@
                         <?php $id_berita = $this->uri->segment(2, 0); ?>
                               <div class="dz-message">
                                <h3> Klik atau Drop gambar disini</h3>
-                               <input type="hidden" name="id_berita" value="<?php echo $id_berita; ?>">
+                               <input type="hidden" id="id_berita" name="id_berita" value="<?php echo $id_berita; ?>">
                               </div>
 
                             </div>
@@ -38,6 +37,5 @@
                     </div>
                 </div> -->
             </div>
-        </div>
     </div>
 

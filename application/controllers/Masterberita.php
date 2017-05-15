@@ -100,6 +100,7 @@ class Masterberita extends CI_Controller {
 			);
 		$this->berita->update(array('id_berita' => $this->input->post('id_berita')), $data);
 		echo json_encode(array("status" => TRUE));
+
 	}
 
 	public function ajax_delete($id)

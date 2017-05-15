@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2017 at 04:25 AM
+-- Generation Time: May 15, 2017 at 02:15 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -72,7 +72,8 @@ INSERT INTO `berita_terbaru` (`id_berita`, `judul_berita`, `tgl_berita`, `jenis_
 (6, 'sdsfsdf', '0000-00-00', 'berita Politik', 'dfsdf', '2342333', 1),
 (7, 'ini berita baru', '2017-04-27', 'berita Kuliner', 'wenak tenan', '2147483647', 1),
 (8, 'berita yang paling terbaru', '2017-05-01', 'berita Kuliner', 'qwqerew', '23456789', 1),
-(9, 'ronaldo jadi pemain terbaik dunia saat ini', '2017-05-04', 'berita Politik', 'ini berita yang sangat menggembirakan buat gue', '081312555467', 1);
+(9, 'ronaldo jadi pemain terbaik dunia saat ini', '2017-05-04', 'berita Politik', 'ini berita yang sangat menggembirakan buat gue', '081312555467', 1),
+(10, 'indahnya berbagi cerita seru bersamamu', '2017-05-14', 'berita Kuliner', 'fdfsdfsd', '346578', 1);
 
 -- --------------------------------------------------------
 
@@ -100,7 +101,8 @@ CREATE TABLE `event` (
 INSERT INTO `event` (`id_event`, `nama_event`, `tgl_event`, `lokasi_event`, `ket_event`, `waktu_event`, `jenis_event`, `cp_event`, `daerah_event`, `id_admin`) VALUES
 (1, 'Konser Justin Bieber', '2017-04-29', 'Bandung', 'rame banget bikin merinding dan banyak orang yang suka akan semua ini yakin deh sama gue', '2017-05-01 06:44:03', 'Konser Musik', '081312777744', 'Lapangan Gasibu', 1),
 (2, 'adadad', '2017-04-21', 'aas', 'adad', '0000-00-00 00:00:00', 'dada', '13131', 'fsdfdsf', 1),
-(3, 'konser dijah yelow', '2017-04-13', 'sdsd', 'sdsd', '0000-00-00 00:00:00', 'cxcx', '2323', 'adsds', 1);
+(3, 'konser dijah yelow', '2017-04-13', 'sdsd', 'sdsd', '0000-00-00 00:00:00', 'cxcx', '2323', 'adsds', 1),
+(4, 'tablig akbar', '2017-05-28', 'dayeuhkolot', 'menjadi lebih indah', '0000-00-00 00:00:00', 'ceramah', '0987654321', 'bandung', 1);
 
 -- --------------------------------------------------------
 
@@ -121,7 +123,9 @@ CREATE TABLE `gambar_berita` (
 --
 
 INSERT INTO `gambar_berita` (`id_gambar`, `gambar`, `tgl_upload`, `id_berita`, `token`) VALUES
-(1, 'Screenshot_44.png', '2017-05-04 01:27:52', 0, '0.2246013481743896');
+(21, '3gs2.jpg', '2017-05-13 17:18:49', 9, '0.38389454204463225'),
+(22, '4.jpg', '2017-05-14 08:58:51', 10, '0.5810144941655628'),
+(23, 'Profil_LSN.jpg', '2017-05-14 08:59:20', 1, '0.06364253875619119');
 
 -- --------------------------------------------------------
 
@@ -137,6 +141,17 @@ CREATE TABLE `gambar_event` (
   `token` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `gambar_event`
+--
+
+INSERT INTO `gambar_event` (`id_gambar`, `gambar`, `tgl_upload`, `id_event`, `token`) VALUES
+(4, '3gs21.jpg', '2017-05-14 02:10:47', 2, '0.21722310590625504'),
+(5, '3gs1.jpg', '2017-05-14 02:11:21', 1, '0.5725341693845367'),
+(6, 'IMG-20150918-WA0070.jpg', '2017-05-14 08:59:57', 2, '0.3557245454662197'),
+(7, 'Foto_8BesarLigaSantri.jpg', '2017-05-14 09:00:16', 3, '0.06740568018338'),
+(8, '1.jpg', '2017-05-14 09:52:08', 4, '0.27657434850597395');
+
 -- --------------------------------------------------------
 
 --
@@ -151,6 +166,14 @@ CREATE TABLE `gambar_penginapan` (
   `token` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `gambar_penginapan`
+--
+
+INSERT INTO `gambar_penginapan` (`id_gambar`, `gambar`, `tgl_upload`, `id_penginapan`, `token`) VALUES
+(1, 'q10.png', '2017-05-14 09:01:11', 3, '0.3830494399429083'),
+(2, 'Said_Aqil.jpg', '2017-05-14 14:07:20', 1, '0.04146705769894843');
+
 -- --------------------------------------------------------
 
 --
@@ -164,6 +187,14 @@ CREATE TABLE `gambar_wisata` (
   `id_wisata` int(5) NOT NULL,
   `token` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `gambar_wisata`
+--
+
+INSERT INTO `gambar_wisata` (`id_gambar`, `gambar`, `tgl_upload`, `id_wisata`, `token`) VALUES
+(1, 'tweet7.JPG', '2017-05-14 08:57:15', 5, '0.3021180133243613'),
+(2, '6.jpg', '2017-05-14 08:58:27', 3, '0.4529448435595018');
 
 -- --------------------------------------------------------
 
@@ -194,7 +225,8 @@ INSERT INTO `komentar_berita` (`id_komentar`, `id_user`, `komentar`, `tgl_koment
 (8, 0, 'nunukeke', '2017-04-30 06:28:16', 7, 'nuke'),
 (9, 0, 'bagus yah', '2017-05-01 04:38:39', 7, 'nuke'),
 (10, 0, 'ini adalah yang terbaik', '2017-05-01 04:39:40', 7, 'saputra'),
-(11, 0, 'bagus yah', '2017-05-01 05:21:05', 5, 'drupadi');
+(11, 0, 'bagus yah', '2017-05-01 05:21:05', 5, 'drupadi'),
+(12, 0, 'ksgksfkdsjvblv djbdsgsfgsfg', '2017-05-14 09:56:44', 9, 'admin');
 
 -- --------------------------------------------------------
 
@@ -384,7 +416,11 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `role`, `email`, `domisil
 (11, 'nuke', '6c2bfbd89d74ef47595fe6328a142427', 'user', 'nuke@yahoo.com', 'bandung', 'bandung', '081312666473', 'Perempuan', 'nuke'),
 (17, 'ben', '7fe4771c008a22eb763df47d19e2c6aa', 'member', 'benjema@member.com', 'madrid', 'madrid', '081312888312', 'Laki-Laki', 'benjema'),
 (18, 'kemal', 'ce76d254d71c00b771b8b2013d0a1485', 'member', 'kemal@member.com', 'bandung', 'ciamis', '081312888444', 'Laki-Laki', 'kemal'),
-(19, 'dru', '01eb144a9f7fa82afe28627db3035532', 'user', 'dur@a.cs', 'Bandung', 'bandung', '081312555467', 'Perempuan', 'drupadi resi');
+(19, 'dru', '01eb144a9f7fa82afe28627db3035532', 'user', 'dur@a.cs', 'Bandung', 'bandung', '081312555467', 'Perempuan', 'drupadi resi'),
+(20, 'a', '0cc175b9c0f1b6a831c399e269772661', 'user', 'a@a', 'as', 'asa', '1', 'Laki-Laki', 'a'),
+(21, 'why', '531e70a6745d07a8befbd79e5cc7e4c1', 'user', 'why@w', 'why', 'why', '123', 'Laki-Laki', 'why'),
+(22, 'ws', '742523daef59db4b718409f46de05d0c', 'user', 'ws@w', 'ws', 'ws', '123', 'Laki-Laki', 'ws'),
+(23, 'apa', 'e03ae33ee8417ce2c9785274217636e0', 'user', 'apa@apa', 'apa', 'apa', '123', 'Laki-Laki', 'apa');
 
 --
 -- Indexes for dumped tables
@@ -509,37 +545,37 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `berita_terbaru`
 --
 ALTER TABLE `berita_terbaru`
-  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id_event` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_event` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `gambar_berita`
 --
 ALTER TABLE `gambar_berita`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `gambar_event`
 --
 ALTER TABLE `gambar_event`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `gambar_penginapan`
 --
 ALTER TABLE `gambar_penginapan`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `gambar_wisata`
 --
 ALTER TABLE `gambar_wisata`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `komentar_berita`
 --
 ALTER TABLE `komentar_berita`
-  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `komentar_event`
 --
@@ -574,7 +610,7 @@ ALTER TABLE `tempat_wisata`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- Constraints for dumped tables
 --
