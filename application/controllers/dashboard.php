@@ -34,8 +34,8 @@ class Dashboard extends CI_Controller {
 		{
 			$data['active_menu']='dashboard';
 			$this->load->view('main/headerD',$data);
-			// $data['count'] = $this->m_dashboard->countAdmin()->result();
-        	$this->load->view('v_dashboard');
+			$data['count'] = $this->m_dashboard->countAdmin()->result();
+        	$this->load->view('v_dashboard',$data);
 			$this->load->view('main/footerD');
         }else{
         redirect('dashboard/login');
@@ -161,6 +161,60 @@ class Dashboard extends CI_Controller {
 		$this->load->view('main/headerD',$data);
 		$this->load->view('inputlokasi');
 		$this->load->view('main/footerD');
+	}
+
+	public function sendemail(){
+		// // $config = Array(
+		// // 	'protocol' => 'smtp',
+		// // 	'smtp_host' => 'ssl://smtp.googlemail.com',
+		// // 	'smtp_port' => 465,
+		// // 	'smtp_user' => 'wehaye94@gmail.com',
+		// // 	'smtp_pass' => '14wahyus94'
+
+		// // );
+
+		// $config = Array(
+		//   'protocol' => 'smtp',
+		//   'smtp_host' => 'ssl://smtp.googlemail.com',
+		//   'smtp_port' => 465,
+		//   'smtp_user' => 'wehaye94@gmail.com', // change it to yours
+		//   'smtp_pass' => '14wahyus94', // change it to yours
+		//   'mailtype' => 'html',
+		//   'charset' => 'iso-8859-1',
+		//   'wordwrap' => TRUE
+		// );
+
+		// // $this->load->library('email', $config);
+		// // $this->email->set_newline("\r\n");
+
+		// // $this->email->from('wehaye94@gmail.com','Wahyu Saepuloh');
+		// // $this->email->to('wehaye94@gmail.com');
+		// // $this->email->subject('This is an email Test with me');
+		// // $this->email->message('It is working, Great!!!');
+
+		// // if($this->email->send()){
+		// // 	echo "Your Email was sent, Fool.";
+		// // }else{
+		// // 	show_error($this->email->print_debugger());
+		// // }
+
+		// 	$this->load->library('email', $config);
+		//   $this->email->set_newline("\r\n");
+		//   $this->email->from('wehaye94@gmail.com'); // change it to yours
+		//   $this->email->to('wehaye94@gmail.com'); // change it to yours
+		//   $this->email->subject('Email using Gmail.');
+		//   $this->email->message('Working fine ! !');
+		 
+		//   if($this->email->send())
+		//  {
+		//   echo 'Email sent.';
+		//  }
+		//  else
+		// {
+		//  show_error($this->email->print_debugger());
+		// }
+
+		mail('wehaye94@gmail.com','Sample Email Content','From: wahyusaepuloh1@gmail.com');
 	}
 
 	//Untuk proses upload foto

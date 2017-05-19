@@ -70,6 +70,7 @@ $route['login'] = 'dashboard/login';
 $route['dashboard'] = 'dashboard';
 $route['admin'] = 'dashboard/admin';
 $route['inputlokasi'] = 'dashboard/inputlokasi';
+$route['sendemail'] = 'dashboard/sendemail';
 $route['listadmin'] = 'dashboard/listadmin';
 $route['listuser'] = 'dashboard/listuser';
 $route['user'] = 'dashboard/user';
