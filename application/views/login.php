@@ -124,7 +124,7 @@
         <div id="login">
           <h1>Welcome Back!</h1>
 
-          <form action="<?php echo base_url()?>index.php/Dashboard/loginAdmin" method="post">
+          <form action="<?php echo base_url()?>index.php/Dashboard/cekLogin" method="post">
 
             <div class="field-wrap">
             <label>
@@ -140,7 +140,7 @@
             <input type="password"required autocomplete="off" name="password"/>
           </div>
 
-          <p class="forgot"><a href="#">Forgot Password?</a></p>
+          <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
 
           <button type="submit" class="button button-block"/>Log In</button>
 
@@ -194,6 +194,66 @@
                         <!-- sweetAlert("Oops...", "Something went wrong!", "error"); -->
 <?php
     unset($_SESSION['error']);
+    }
+?>
+
+<!-- //session untuk menampilkan pesan error ketika username admin salah -->
+<?php
+    if (isset($_SESSION['salahuseradmin'])) {
+?>
+    <body onload='swal({title: "Login Gagal!",
+                        text: "Username yang anda masukkan SALAH!!!",
+                        // timer: 3000,
+                        type: "error",
+                        showConfirmButton: true });'>
+                        <!-- sweetAlert("Oops...", "Something went wrong!", "error"); -->
+<?php
+    unset($_SESSION['salahuseradmin']);
+    }
+?>
+
+<!-- //session untuk menampilkan pesan error ketika username user salah -->
+<?php
+    if (isset($_SESSION['salahuseruser'])) {
+?>
+    <body onload='swal({title: "Login Gagal!",
+                        text: "Username yang anda masukkan SALAH!!!",
+                        // timer: 3000,
+                        type: "error",
+                        showConfirmButton: true });'>
+                        <!-- sweetAlert("Oops...", "Something went wrong!", "error"); -->
+<?php
+    unset($_SESSION['salahuseruser']);
+    }
+?>
+
+<!-- //session untuk menampilkan pesan error ketika passowrd admin salah -->
+<?php
+    if (isset($_SESSION['salahpassadmin'])) {
+?>
+    <body onload='swal({title: "Login Gagal!",
+                        text: "Password yang anda masukkan SALAH!!!",
+                        // timer: 3000,
+                        type: "error",
+                        showConfirmButton: true });'>
+                        <!-- sweetAlert("Oops...", "Something went wrong!", "error"); -->
+<?php
+    unset($_SESSION['salahpassadmin']);
+    }
+?>
+
+<!-- //session untuk menampilkan pesan error ketika passowrd user salah -->
+<?php
+    if (isset($_SESSION['salahpassuser'])) {
+?>
+    <body onload='swal({title: "Login Gagal!",
+                        text: "Password yang anda masukkan SALAH!!!",
+                        // timer: 3000,
+                        type: "error",
+                        showConfirmButton: true });'>
+                        <!-- sweetAlert("Oops...", "Something went wrong!", "error"); -->
+<?php
+    unset($_SESSION['salahpassuser']);
     }
 ?>
 

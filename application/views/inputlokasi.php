@@ -3,15 +3,45 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    <div class="card card-plain">
+                    <div class="card">
                         <div class="card-header" data-background-color="purple">
                             <h4 class="title">Input Lokasi</h4>
-                            <!-- <p class="category">Here is a subtitle for this table</p> -->
-                            <!-- <button class="btn btn-xs btn-success" onclick="add_berita()"><i class="material-icons">library_add</i></button>
-                            <button class="btn btn-xs btn-warning" onclick="reload_table()"><i class="material-icons">refresh</i></button> -->
+                            <p class="category">Klik pada Peta untuk mendapatkan Longitude dan Latitude</p>
                         </div>
                         <div class="card-content">
-						    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d506458.14088793925!2d110.3264427997159!3d-7.387004192883321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a73e2eb7ff211%3A0x3027a76e352bc80!2sKabupaten+Boyolali%2C+Jawa+Tengah!5e0!3m2!1sid!2sid!4v1493668720000" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+								<div id="mapa"></div>
+								<div class="eventtext">
+								<div>Lattitude: <span id="latspan"></span></div>
+
+								<div>Longitude: <span id="lngspan"></span></div>
+								<div>Lat Lng: <span id="latlong"></span></div>
+								<div>Lattitude on click:
+								<input type="text" id="Lattitudeclicked" style="width:300px; border:1px inset gray;"></span></div>
+								<div>Longitude on click:
+								<input type="text" id="Longitudeclicked" style="width:300px; border:1px inset gray;"></span></div>
+								</div>
+								<script type="text/javascript">
+								if (GBrowserIsCompatible())
+								{
+								map = new GMap2(document.getElementById("mapa"));
+								map.addControl(new GLargeMapControl());
+								map.addControl(new GMapTypeControl(3));
+								map.setCenter( new GLatLng(-7.4317773, 110.6883536), 11,0);
+
+								GEvent.addListener(map,'mousemove',function(point)
+								{
+								document.getElementById('latspan').innerHTML = point.lat()
+								document.getElementById('lngspan').innerHTML = point.lng()
+								document.getElementById('latlong').innerHTML = point.lat() + ', ' + point.lng()
+								});
+
+								GEvent.addListener(map,'click',function(overlay,point)
+								{
+								document.getElementById('Lattitudeclicked').value = point.lat()
+								document.getElementById('Longitudeclicked').value = point.lng()
+								});
+								}
+								</script>
 						</div>
 						<!-- <div id="map" style="width: 650px; height: 300px;"></div>
 

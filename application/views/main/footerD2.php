@@ -55,6 +55,9 @@
 <script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
 <script src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.js')?>"></script>
 
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <script src="https://apis.google.com/js/platform.js" async="" defer="" gapi_processed="true"></script>
+
 <script type="text/javascript">
 $(document).ready(function(){
 
@@ -211,11 +214,36 @@ function delete_wisata(id)
             error: function (jqXHR, textStatus, errorThrown)
             {
                 alert('Error deleting data');
-            }
+            },
         });
 
     }
 }
+
+// function getLatLong(){
+//     var address = $("#alamat_wisata").val();
+//     var longitude = "";
+//     var latitude = "";
+    
+//         //Formatted address
+//         $formattedAddr = str_replace(' ','+',$address);
+//         //Send request and receive json data by address
+//         $geocodeFromAddr = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address='.$formattedAddr.'&sensor=false'); 
+//         $output = json_decode($geocodeFromAddr);
+//         //Get latitude and longitute from json data
+//         // $data['latitude']  = $output->results[0]->geometry->location->lat; 
+//         // $data['longitude'] = $output->results[0]->geometry->location->lng;
+//         longitude = $output->results[0]->geometry->location->lat; 
+//         latitude = $output->results[0]->geometry->location->lng;
+//         //Return latitude and longitude of the given address
+//         $.ajax({
+//             success:function(){
+//                 $(longitude).val(data.long_wisata);
+//                 $(latitude).val(data.lat_wisata);
+//             }
+//         });
+    
+// }
 
 </script>
 <!-- Bootstrap modal -->
@@ -243,7 +271,7 @@ function delete_wisata(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Alamat Wisata</label>
-                                    <input type="text" class="form-control" name="alamat_wisata">
+                                    <input type="text" class="form-control" name="alamat_wisata" id="alamat_wisata" onkeyup="getLatLong()">
                                 </div>
                             </div>
                         </div>
@@ -275,7 +303,7 @@ function delete_wisata(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Latitude Wisata</label>
-                                    <input type="text" class="form-control" name="lat_wisata">
+                                    <input type="text" class="form-control" name="lat_wisata" id="lat_wisata">
                                 </div>
                             </div>
                         </div>
@@ -284,7 +312,7 @@ function delete_wisata(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Longitude Wisata</label>
-                                    <input type="text" class="form-control" name="long_wisata">
+                                    <input type="text" class="form-control" name="long_wisata" id="long_wisata">
                                 </div>
                             </div>
                         </div>

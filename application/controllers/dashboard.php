@@ -158,9 +158,9 @@ class Dashboard extends CI_Controller {
 
 	public function inputlokasi(){
 		$data['active_menu']='inputlokasi';
-		$this->load->view('main/headerD',$data);
+		$this->load->view('main/headerPeta',$data);
 		$this->load->view('inputlokasi');
-		$this->load->view('main/footerD');
+		$this->load->view('main/footerPeta');
 	}
 
 	public function sendemail(){
@@ -552,11 +552,29 @@ class Dashboard extends CI_Controller {
 				}elseif ($data3>0) {
 					$_SESSION['adaemailuser'] = '';
 					redirect('dashboard/login');
-				}elseif ($data4) {
+				}elseif ($data4>0) {
 					$_SESSION['adaemailadmin'] = '';
 					redirect('dashboard/login');
 				}else{
 					$this->insert();
+				}
+	}
+
+	function cekLogin(){
+		$this->load->library('session');
+		$this->load->model('m_login');
+				$data1=$this->m_login->checkUserAdmin();
+				$data2=$this->m_login->checkPassAdmin();
+				$data3=$this->m_login->cekUserUser();
+				$data4=$this->m_login->cekPassUser();
+				if(($data1<1) && ($data3<1)){
+					$_SESSION['salahuseradmin'] = '';
+					redirect('dashboard/login');
+				}elseif (($data2<1) && ($data4<1)) {
+					$_SESSION['salahpassadmin'] = '';
+					redirect('dashboard/login');
+				}else{
+					$this->loginAdmin();
 				}
 	}
 

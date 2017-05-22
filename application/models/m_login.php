@@ -46,6 +46,30 @@ class m_login extends CI_Model {
             return $query->num_rows();
     }
 
+    public function checkUserAdmin(){
+            $username=$_POST['username'];
+            $query = $this->db->get_where('admin', array('username'=> $username));
+            return $query->num_rows();
+    }
+
+    public function cekUserUser(){
+            $username=$_POST['username'];
+            $query = $this->db->get_where('user', array('username'=> $username));
+            return $query->num_rows();
+    }
+
+    public function checkPassAdmin(){
+            $password= md5($_POST['password']);
+            $query = $this->db->get_where('admin', array('password'=>$password));
+            return $query->num_rows();
+    }
+
+    public function cekPassUser(){
+            $password= md5($_POST['password']);
+            $query = $this->db->get_where('user', array('password'=>$password));
+            return $query->num_rows();
+    }
+
     public function findByDynamicColumnAdmin($array){
             $query = $this->db->get_where('admin', $array);
             return $query->result_array();
