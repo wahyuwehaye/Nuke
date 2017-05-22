@@ -20,16 +20,18 @@
 								<input type="text" id="Longitudeclicked" style="width:300px; border:1px inset gray;"></span></div> -->
 
 								<!-- form start -->
-					            <form role="form">
+					            <form action="<?php echo base_url()?>index.php/Masterwisata/updatelonglatwisata" method="post">
 					              <div class="box-body">
 					                <div class="form-group">
 					                  <label for="Lattitudeclicked">Latitude</label>
-					                  <input type="text" class="form-control" id="Lattitudeclicked" placeholder="Enter Latitude">
+					                  <input type="text" class="form-control" id="Lattitudeclicked" name="lat_wisata" placeholder="Enter Latitude">
 					                </div>
 					                <div class="form-group">
 					                  <label for="Longitudeclicked">Longitude</label>
-					                  <input type="text" class="form-control" id="Longitudeclicked" placeholder="Enter Longitude">
+					                  <input type="text" class="form-control" id="Longitudeclicked" name="long_wisata" placeholder="Enter Longitude">
 					                </div>
+					                <?php $id_wisata = $this->uri->segment(2, 0); ?>
+					                <input type="hidden" id="id_wisata" name="id_wisata" value="<?php echo $id_wisata; ?>">
 					              </div>
 					              <!-- /.box-body -->
 
@@ -109,3 +111,18 @@
             </div>
         </div>
     </div>
+
+    <!-- //session untuk menampilkan pesan ketika Sukses Input-->
+<?php
+    if (isset($_SESSION['sukseslonglat'])) {
+?>
+    <body onload='swal({title: "Sukses Input Data",
+                        text: "Selamat! Longitude dan Latitude Berhasil Ditambahkan",
+                        // timer: 3000,
+                        type: "success",
+                        showConfirmButton: true });'>
+                        <!-- sweetAlert("Oops...", "Something went wrong!", "error"); -->
+<?php
+    unset($_SESSION['sukseslonglat']);
+    }
+?>

@@ -32,6 +32,9 @@ class Masterpenginapan extends CI_Controller {
 			$row[] = '<td class="td-actions text-right"><a rel="tooltip" title="Edit" class="btn btn-primary btn-simple btn-xs" href="javascript:void(0)" onclick="edit_penginapan('."'".$penginapan->id_penginapan."'".')">
                 <i class="material-icons">edit</i>
             </a>
+            <a rel="tooltip" title="Latitude Longitude" class="btn btn-info btn-simple btn-xs" href="longlatpenginapan/'.$penginapan->id_penginapan.'">
+                <i class="material-icons">add_location</i>
+            </a>
             <a rel="tooltip" title="Tambah Gambar" class="btn btn-success btn-simple btn-xs" href="uploadpenginapan/'.$penginapan->id_penginapan.'">
                 <i class="material-icons">photo_library</i>
             </a>
@@ -91,6 +94,18 @@ class Masterpenginapan extends CI_Controller {
 			);
 		$this->penginapan->update(array('id_penginapan' => $this->input->post('id_penginapan')), $data);
 		echo json_encode(array("status" => TRUE));
+	}
+
+	public function updatelonglatpenginapan()
+	{
+		$id = $this->input->post('id_penginapan');
+		$data = array(
+            'long_penginapan' => $this->input->post('long_penginapan'),
+            'lat_penginapan' => $this->input->post('lat_penginapan'),
+			);
+		$this->penginapan->update(array('id_penginapan' => $this->input->post('id_penginapan')), $data);
+		$_SESSION['sukseslonglat'] = '';
+		redirect('longlatpenginapan/'.$id);
 	}
 
 	public function ajax_delete($id)

@@ -93,6 +93,13 @@ class Dashboard extends CI_Controller {
 		$this->load->view('main/footerD9');
 	}
 
+	public function longlatwisata(){
+		$data['active_menu']='wisata';
+		$this->load->view('main/headerPeta',$data);
+		$this->load->view('longlatwisata');
+		$this->load->view('main/footerPeta');
+	}
+
 	public function penginapan(){
 		$data['active_menu']='penginapan';
 		$this->load->view('main/headerD',$data);
@@ -109,6 +116,13 @@ class Dashboard extends CI_Controller {
 		// $this->load->view('listadmin',$data);
 		$this->load->view('u-gambarpenginapan');
 		$this->load->view('main/footerD8');
+	}
+
+	public function longlatpenginapan(){
+		$data['active_menu']='penginapan';
+		$this->load->view('main/headerPeta',$data);
+		$this->load->view('longlatpenginapan');
+		$this->load->view('main/footerPeta');
 	}
 
 	public function event(){

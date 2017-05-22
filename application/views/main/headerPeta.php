@@ -29,6 +29,11 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 
+    <!-- This is what you need -->
+  <script src="<?php echo base_url()?>sweetalert/dist/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="<?php echo base_url()?>sweetalert/dist/sweetalert.css">
+  <!--.......................-->
+
 	<!-- This is what you need -->
     <script src="<?php echo base_url()?>sweetalert/dist/sweetalert-dev.js"></script>
     <link rel="stylesheet" href="dist/sweetalert.css">
@@ -36,16 +41,9 @@
     <script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyBN1xK6HGm-o8Abc3q1EoljrMYDo44h9xo" type="text/javascript"></script>
 
 	<style type="text/css">
-	body {font:10pt arial; }
-	.main { text-align:center; font:12pt Arial; width:100%; height:auto; }
-	.eventtext {width:100%; margin-top:20px; font:10pt Arial; text-align:left; line-height:25px; background-color:#EDF4F8;
-	padding:5px; border:1px dashed #C2DAE7;}
+	
 	#mapa {width:100%; height:340px; border:5px solid #DEEBF2;}
 	ul {font:10pt arial; margin-left:0px; padding:5px;}
-	li {margin-left:0px; padding:5px; list-style-type:decimal;}
-	.code {border:1px dashed #cecece; background-color:#F7F7F7; padding:5px;}
-	.small {font:9pt arial; color:gray; padding:2px; }
-	.jimi { margin:0px;}
 	</style>
 </head>
 

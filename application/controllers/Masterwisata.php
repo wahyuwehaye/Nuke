@@ -32,6 +32,9 @@ class Masterwisata extends CI_Controller {
 			$row[] = '<td class="td-actions text-right"><a rel="tooltip" title="Edit" class="btn btn-primary btn-simple btn-xs" href="javascript:void(0)" onclick="edit_wisata('."'".$wisata->id_wisata."'".')">
                 <i class="material-icons">edit</i>
             </a>
+            <a rel="tooltip" title="Latitude Longitude" class="btn btn-info btn-simple btn-xs" href="longlatwisata/'.$wisata->id_wisata.'">
+                <i class="material-icons">add_location</i>
+            </a>
             <a rel="tooltip" title="Tambah Gambar" class="btn btn-success btn-simple btn-xs" href="uploadwisata/'.$wisata->id_wisata.'">
                 <i class="material-icons">photo_library</i>
             </a>
@@ -91,6 +94,18 @@ class Masterwisata extends CI_Controller {
 			);
 		$this->wisata->update(array('id_wisata' => $this->input->post('id_wisata')), $data);
 		echo json_encode(array("status" => TRUE));
+	}
+
+	public function updatelonglatwisata()
+	{
+		$id = $this->input->post('id_wisata');
+		$data = array(
+            'lat_wisata' => $this->input->post('lat_wisata'),
+            'long_wisata' => $this->input->post('long_wisata'),
+			);
+		$this->wisata->update(array('id_wisata' => $this->input->post('id_wisata')), $data);
+		$_SESSION['sukseslonglat'] = '';
+		redirect('longlatwisata/'.$id);
 	}
 
 	public function ajax_delete($id)

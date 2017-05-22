@@ -31,11 +31,18 @@
 </footer>
 </div>
 </div>
-
+<script src="<?php echo base_url()?>sweetalert/dist/sweetalert.min.js"></script>
 <!--   Core JS Files   -->
 <script src="<?php echo base_url()?>assets3/js/jquery-3.1.0.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url()?>assets3/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url()?>assets3/js/material.min.js" type="text/javascript"></script>
+
+<!--  Charts Plugin -->
+<script src="<?php echo base_url()?>assets3/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="<?php echo base_url()?>assets3/js/bootstrap-notify.js"></script>
+
 
 
 <!-- Material Dashboard javascript methods -->

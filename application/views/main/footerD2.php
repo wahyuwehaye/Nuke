@@ -271,7 +271,7 @@ function delete_wisata(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Alamat Wisata</label>
-                                    <input type="text" class="form-control" name="alamat_wisata" id="alamat_wisata" onkeyup="getLatLong()">
+                                    <input type="text" class="form-control" name="alamat_wisata" id="alamat_wisata">
                                 </div>
                             </div>
                         </div>
@@ -299,23 +299,23 @@ function delete_wisata(id)
                             </div>
                         </div> -->
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Latitude Wisata</label>
-                                    <input type="text" class="form-control" name="lat_wisata" id="lat_wisata">
-                                </div>
+                                    <label class="control-label">Latitude Wisata</label> -->
+                                    <input type="hidden" value="" name="lat_wisata" id="lat_wisata">
+                                <!-- </div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Longitude Wisata</label>
-                                    <input type="text" class="form-control" name="long_wisata" id="long_wisata">
-                                </div>
+                                    <label clas s="control-label">Longitude Wisata</label>-->
+                                    <input type="hidden" value="" name="long_wisata" id="long_wisata">
+                                <!-- </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row">
                             <div class="col-md-12">
