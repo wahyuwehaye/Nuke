@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2017 at 02:15 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 7.0.13
+-- Generation Time: 31 Mei 2017 pada 07.44
+-- Versi Server: 10.1.9-MariaDB
+-- PHP Version: 5.5.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -35,19 +35,17 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`, `email`, `no_hp_admin`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@boyolali.com', '081312555467'),
-(2, 'wehaye', 'cf99498437151ff0398a005ade70be12', 'wehaye94@gmail.com', '081312555467'),
-(4, 'angga', '3d54aec411d6708d96adeb1e929b5e2a', 'anggaras@admin.comia', '086001200'),
-(6, 'kurnia', '13677642758b594260372191e227d3c9', 'kurniamega@admin.com', '827312111');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@gmail.com', '089601651519'),
+(2, 'nukepangestu', '6c2bfbd89d74ef47595fe6328a142427', 'nukepangestu14@gmall.com', '082240205900');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `berita_terbaru`
+-- Struktur dari tabel `berita_terbaru`
 --
 
 CREATE TABLE `berita_terbaru` (
@@ -55,30 +53,22 @@ CREATE TABLE `berita_terbaru` (
   `judul_berita` varchar(100) NOT NULL,
   `tgl_berita` date NOT NULL,
   `jenis_berita` varchar(50) NOT NULL,
-  `ket_berita` varchar(200) NOT NULL,
+  `ket_berita` text NOT NULL,
   `cp_berita` varchar(15) NOT NULL,
   `id_admin` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `berita_terbaru`
+-- Dumping data untuk tabel `berita_terbaru`
 --
 
 INSERT INTO `berita_terbaru` (`id_berita`, `judul_berita`, `tgl_berita`, `jenis_berita`, `ket_berita`, `cp_berita`, `id_admin`) VALUES
-(1, 'Rossi Jadi Pembalap Tertua di MotoGP', '2017-04-02', 'berita Politik', 'menarik', '2147483647', 1),
-(3, 'Bandung Tempat Sejuta Jenis Makanan', '2017-04-06', 'berita Kuliner', 'enak banget', '2147483647', 1),
-(4, 'aadad', '2017-05-01', 'berita Politik', 'adad', '1', 1),
-(5, 'sdads', '0000-00-00', 'berita Politik', '124eds', '24423423', 1),
-(6, 'sdsfsdf', '0000-00-00', 'berita Politik', 'dfsdf', '2342333', 1),
-(7, 'ini berita baru', '2017-04-27', 'berita Kuliner', 'wenak tenan', '2147483647', 1),
-(8, 'berita yang paling terbaru', '2017-05-01', 'berita Kuliner', 'qwqerew', '23456789', 1),
-(9, 'ronaldo jadi pemain terbaik dunia saat ini', '2017-05-04', 'berita Politik', 'ini berita yang sangat menggembirakan buat gue', '081312555467', 1),
-(10, 'indahnya berbagi cerita seru bersamamu', '2017-05-14', 'berita Kuliner', 'fdfsdfsd', '346578', 1);
+(3, 'Tahun Ini Boyolali Kuliahkan 30 Pelajar Ke Luar Negeri', '2017-05-23', 'berita Politik', 'Sebanyak 30 pelajar Boyolali akan dibiayai kuliahnya ke luar negeri tahun ini oleh Pemkab Boyolali. Mereka terdiri dari 20 pelajar dengan jenjang pendidikan S1 dan 10 orang dengan jenjang pendidikan S2. Proses seleksi untuk pelajar yang akan dikirimkan untuk kuliah S1 di Nanjing University, Tiongkok, tahun ini sudah selesai dilakukan oleh panitia seleksi. Saat ini menurut Kepala Dinas Pendidikan dan Kebudayaan (Disdikbud) Boyolali, Darmanto, para pelajar yang terpilih tinggal menunggu teknis pemberangkatan. Disebutkan Darmanto, animo pelajar Boyolali untuk kuliah ke luar negeri cukup tinggi. Setidaknya terdapat 60 pelajar yang ikut seleksi. Mereka kemudian diuji, mulai dari seleksi administrative, akademik, hingga wawasan kebangsaan. Pengiriman mahasiswa ke Tiongkok tersebut menurut Darmanto, menyusul pengiriman 10 siswa ke universitas yang sama tahun kemarin. “Dari 60 peserta, sudah terseleksi 20 orang yang saat ini tinggal teknis pemberangkatan,” ungkap Darmanto, Selasa (23/5). Selain beasiswa jenjang pendidikan S1, tahun ini Pemkab Boyolali menurut Darmanto juga memberikan beasiswa untuk jenjang pendidikan S2 dengan tujuan Universitas di London, Inggris. Beasiswa ini diberikan bagi warga Boyolali yang sudah menyandang gelar pendidikan S1. Sedangkan jurusan yang dipilih yakni jurusan Akuntansi dan Manajemen. Untuk seleksi beasiswa S2 ini, menurut Darmanto saat ini tengah proses persiapan. Menurut dia, beasiswa ini diperuntukkan secara bebas bagi warga Boyolali, baik PNS maupun umum. Sementara itu untuk alokasi anggaran beasiswa kuliah ke luar negeri tahun ini, menurut Darmanto dialokasikan anggaran senilai Rp 10,6 miliar. Nantinya meski mereka tidak ada ikatan apapun dengan Pemkab Boyolali, namun mereka diminta untuk serius dalam menimba ilmu di luar negeri. “Tidak ada ikatan dinas, hanya saja mereka wajib membuat laporan pertanggungjawaban setelah lulus,” imbuh Darmanto.', '', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `event`
+-- Struktur dari tabel `event`
 --
 
 CREATE TABLE `event` (
@@ -86,7 +76,7 @@ CREATE TABLE `event` (
   `nama_event` varchar(150) NOT NULL,
   `tgl_event` date NOT NULL,
   `lokasi_event` varchar(100) NOT NULL,
-  `ket_event` varchar(200) NOT NULL,
+  `ket_event` text NOT NULL,
   `waktu_event` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `jenis_event` varchar(35) NOT NULL,
   `cp_event` varchar(15) NOT NULL,
@@ -95,19 +85,16 @@ CREATE TABLE `event` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `event`
+-- Dumping data untuk tabel `event`
 --
 
 INSERT INTO `event` (`id_event`, `nama_event`, `tgl_event`, `lokasi_event`, `ket_event`, `waktu_event`, `jenis_event`, `cp_event`, `daerah_event`, `id_admin`) VALUES
-(1, 'Konser Justin Bieber', '2017-04-29', 'Bandung', 'rame banget bikin merinding dan banyak orang yang suka akan semua ini yakin deh sama gue', '2017-05-01 06:44:03', 'Konser Musik', '081312777744', 'Lapangan Gasibu', 1),
-(2, 'adadad', '2017-04-21', 'aas', 'adad', '0000-00-00 00:00:00', 'dada', '13131', 'fsdfdsf', 1),
-(3, 'konser dijah yelow', '2017-04-13', 'sdsd', 'sdsd', '0000-00-00 00:00:00', 'cxcx', '2323', 'adsds', 1),
-(4, 'tablig akbar', '2017-05-28', 'dayeuhkolot', 'menjadi lebih indah', '0000-00-00 00:00:00', 'ceramah', '0987654321', 'bandung', 1);
+(4, 'Peringati Hari Tari Sedunia', '2017-05-28', 'Alun-alun Kabupaten Boyolali', ' Sebanyak 1.728 penari ikut meramaikan event bertemakan “Bojalali Ekspresi Gerak Boyolali” itu. Tak hanya penari lokal, dalam kegiatan tersebut juga terdapat sejumlah penari mancanegara yang turut ambil bagian. Mereka di antaranya dari China, Jerman, Timor Leste, Singapura, serta sejumlah penari dari kota-kota sekitar Boyolali. Kegiatan Boyolali menari 24 jam nonstop tersebut diselenggarakan Disdikbud bekerjasama dengan Ketholeng Institute dan Ireng Putih Production. Kegiatan menari tersebut diawali dengan tari kolosal jaran kepang, yang dipentaskan oleh 500 pelajar SMP dan SMA Boyolali dengan lokasi Pendapa Alit rumah dinas (Rumdin) bupati mulai pukul 07.00 WIB. Kegiatan menari tersebut berlangsung hingga pukul 12.00 WIB dengan disambung tari-tarian yang dipentaskan siswa PAUD, TK, dan SD. Selepas itu, kegiatan menari dilanjutkan ke Gelanggang Anuraga, yang dipentaskan oleh para pelajar SMP dan SMA di Boyolali. Petang harinya, kegiatan menari itu kembali bergeser ke kawasan Simpang Lima Siaga yang berlangsung hingga tengah malam.', '0000-00-00 00:00:00', 'Event Tari', '', 'Kabupaten Boyolali', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gambar_berita`
+-- Struktur dari tabel `gambar_berita`
 --
 
 CREATE TABLE `gambar_berita` (
@@ -119,18 +106,16 @@ CREATE TABLE `gambar_berita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `gambar_berita`
+-- Dumping data untuk tabel `gambar_berita`
 --
 
 INSERT INTO `gambar_berita` (`id_gambar`, `gambar`, `tgl_upload`, `id_berita`, `token`) VALUES
-(21, '3gs2.jpg', '2017-05-13 17:18:49', 9, '0.38389454204463225'),
-(22, '4.jpg', '2017-05-14 08:58:51', 10, '0.5810144941655628'),
-(23, 'Profil_LSN.jpg', '2017-05-14 08:59:20', 1, '0.06364253875619119');
+(24, 'BEASISWA.jpg', '2017-05-24 01:54:49', 3, '0.3521839590539675');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gambar_event`
+-- Struktur dari tabel `gambar_event`
 --
 
 CREATE TABLE `gambar_event` (
@@ -142,20 +127,18 @@ CREATE TABLE `gambar_event` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `gambar_event`
+-- Dumping data untuk tabel `gambar_event`
 --
 
 INSERT INTO `gambar_event` (`id_gambar`, `gambar`, `tgl_upload`, `id_event`, `token`) VALUES
-(4, '3gs21.jpg', '2017-05-14 02:10:47', 2, '0.21722310590625504'),
-(5, '3gs1.jpg', '2017-05-14 02:11:21', 1, '0.5725341693845367'),
-(6, 'IMG-20150918-WA0070.jpg', '2017-05-14 08:59:57', 2, '0.3557245454662197'),
-(7, 'Foto_8BesarLigaSantri.jpg', '2017-05-14 09:00:16', 3, '0.06740568018338'),
-(8, '1.jpg', '2017-05-14 09:52:08', 4, '0.27657434850597395');
+(9, 'Hari-Tari-Jensud-Solo-3.jpg', '2017-05-24 01:49:12', 4, '0.15532512245143304'),
+(10, 'PERINGATI-HARI-TARI-SEDUNIA-BOYOLALI-MENARI-24-JAM-DIGELAR-2.jpg', '2017-05-24 01:49:12', 4, '0.6372971222716257'),
+(11, 'tari-massal_20160429_172727.jpg', '2017-05-24 01:49:12', 4, '0.05186641764969613');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gambar_penginapan`
+-- Struktur dari tabel `gambar_penginapan`
 --
 
 CREATE TABLE `gambar_penginapan` (
@@ -167,17 +150,18 @@ CREATE TABLE `gambar_penginapan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `gambar_penginapan`
+-- Dumping data untuk tabel `gambar_penginapan`
 --
 
 INSERT INTO `gambar_penginapan` (`id_gambar`, `gambar`, `tgl_upload`, `id_penginapan`, `token`) VALUES
-(1, 'q10.png', '2017-05-14 09:01:11', 3, '0.3830494399429083'),
-(2, 'Said_Aqil.jpg', '2017-05-14 14:07:20', 1, '0.04146705769894843');
+(3, 'boyolaliindah.jpg', '2017-05-24 01:42:12', 1, '0.5362940711537175'),
+(4, 'hotelpondokasri.jpg', '2017-05-24 01:42:24', 2, '0.4768578053662118'),
+(5, 'pondok_indah_boyolali.jpg', '2017-05-24 01:43:45', 3, '0.41079702282243546');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gambar_wisata`
+-- Struktur dari tabel `gambar_wisata`
 --
 
 CREATE TABLE `gambar_wisata` (
@@ -189,17 +173,26 @@ CREATE TABLE `gambar_wisata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `gambar_wisata`
+-- Dumping data untuk tabel `gambar_wisata`
 --
 
 INSERT INTO `gambar_wisata` (`id_gambar`, `gambar`, `tgl_upload`, `id_wisata`, `token`) VALUES
 (1, 'tweet7.JPG', '2017-05-14 08:57:15', 5, '0.3021180133243613'),
-(2, '6.jpg', '2017-05-14 08:58:27', 3, '0.4529448435595018');
+(2, '6.jpg', '2017-05-14 08:58:27', 3, '0.4529448435595018'),
+(3, '11.jpg', '2017-05-24 01:27:07', 1, '0.5608781504248882'),
+(4, '2.jpg', '2017-05-24 01:27:07', 1, '0.5930720452866396'),
+(5, '41.jpg', '2017-05-24 01:27:08', 1, '0.5209403831516076'),
+(6, '3.jpg', '2017-05-24 01:27:08', 1, '0.32839534947290594'),
+(7, '9367.jpg', '2017-05-24 01:30:34', 3, '0.6011271832211551'),
+(8, '9370.jpg', '2017-05-24 01:30:34', 3, '0.01762911000863221'),
+(9, '9371.jpg', '2017-05-24 01:30:34', 3, '0.09661462442670354'),
+(10, '06_-Amigo-Sukoharjo.jpg', '2017-05-24 01:32:14', 4, '0.5070616151759396'),
+(11, '07_-Amigo-Boyolali-Lama.jpg', '2017-05-24 01:32:14', 4, '0.36787209929822884');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komentar_berita`
+-- Struktur dari tabel `komentar_berita`
 --
 
 CREATE TABLE `komentar_berita` (
@@ -211,27 +204,10 @@ CREATE TABLE `komentar_berita` (
   `nama` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `komentar_berita`
---
-
-INSERT INTO `komentar_berita` (`id_komentar`, `id_user`, `komentar`, `tgl_komentar`, `id_berita`, `nama`) VALUES
-(1, 5, 'berita yang sangat bagus banget', '2017-04-27 04:45:28', 7, 'saepuloh'),
-(3, 0, 'berita yang cukup menegangkan', '2017-04-27 05:54:57', 7, 'admin'),
-(4, 0, 'kurang begitu menarik ah', '2017-04-27 05:55:10', 7, 'admin'),
-(5, 0, 'ini baru namanya berita atuh', '2017-04-27 05:57:31', 7, 'admin'),
-(6, 0, 'ah ini mah udah pernah baca', '2017-04-27 05:59:42', 7, 'kemal'),
-(7, 0, 'baru nih beritanya', '2017-04-27 06:00:00', 6, 'kemal'),
-(8, 0, 'nunukeke', '2017-04-30 06:28:16', 7, 'nuke'),
-(9, 0, 'bagus yah', '2017-05-01 04:38:39', 7, 'nuke'),
-(10, 0, 'ini adalah yang terbaik', '2017-05-01 04:39:40', 7, 'saputra'),
-(11, 0, 'bagus yah', '2017-05-01 05:21:05', 5, 'drupadi'),
-(12, 0, 'ksgksfkdsjvblv djbdsgsfgsfg', '2017-05-14 09:56:44', 9, 'admin');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komentar_event`
+-- Struktur dari tabel `komentar_event`
 --
 
 CREATE TABLE `komentar_event` (
@@ -243,19 +219,10 @@ CREATE TABLE `komentar_event` (
   `nama` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `komentar_event`
---
-
-INSERT INTO `komentar_event` (`id_komentar`, `id_user`, `komentar`, `tgl_komentar`, `id_event`, `nama`) VALUES
-(1, 0, 'aku paling suka ini', '2017-04-27 06:14:08', 2, 'kemal'),
-(2, 0, 'ini paling seru deh', '2017-05-01 05:26:15', 2, 'reza saputra'),
-(3, 0, 'asudahlah', '2017-05-01 06:42:37', 1, 'admin');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komentar_penginapan`
+-- Struktur dari tabel `komentar_penginapan`
 --
 
 CREATE TABLE `komentar_penginapan` (
@@ -267,18 +234,10 @@ CREATE TABLE `komentar_penginapan` (
   `nama` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `komentar_penginapan`
---
-
-INSERT INTO `komentar_penginapan` (`id_komentar`, `id_user`, `komentar`, `tgl_komentar`, `id_penginapan`, `nama`) VALUES
-(1, 0, 'ini mah saya udah pernah nyoba nginep disini dan tempatnya emang bagus dan nyaman', '2017-05-01 14:10:53', 1, 'Wahyu Saepuloh'),
-(2, 0, 'ini pasti bagus dan nyaman kalo ditempatin', '2017-05-01 14:15:41', 2, 'Drupadi');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komentar_tentang`
+-- Struktur dari tabel `komentar_tentang`
 --
 
 CREATE TABLE `komentar_tentang` (
@@ -289,20 +248,10 @@ CREATE TABLE `komentar_tentang` (
   `nama` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `komentar_tentang`
---
-
-INSERT INTO `komentar_tentang` (`id_komentar`, `komentar`, `tgl_komentar`, `id_tentang`, `nama`) VALUES
-(1, 'iydwbdskbfds cds,f sdljfldsfldskf dsf', '2017-05-01 15:12:20', 1, 'Wahyu Saepuloh'),
-(2, 'inidadmsnfkjds dsjfbds fdksjfsdkf dsf of asfk sdkf sdkf ', '2017-05-01 15:24:48', 1, 'Nuke Kardiansyah'),
-(3, 'fskjdfbsk. fasfajskf askf asf asm fiqufbwqf iuewbf view f vid v', '2017-05-01 15:26:15', 3, 'Wahyu Saepuloh'),
-(4, 'sfjbsdfkdsb  fkhsdfk dsfqwwiqgrueiurf dilwf q32h 52358y9382r fu3253925y32oi3250y320tnfew', '2017-05-01 15:43:34', 2, 'Wahyu Saepuloh');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komentar_wisata`
+-- Struktur dari tabel `komentar_wisata`
 --
 
 CREATE TABLE `komentar_wisata` (
@@ -314,20 +263,10 @@ CREATE TABLE `komentar_wisata` (
   `nama` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `komentar_wisata`
---
-
-INSERT INTO `komentar_wisata` (`id_komentar`, `id_user`, `komentar`, `tgl_komentar`, `id_wisata`, `nama`) VALUES
-(1, 0, 'ini wisata yang sangat bagus deh pokoknya', '2017-05-01 13:18:29', 3, 'Wahyu Saepuloh'),
-(2, 0, 'ini mah enak banget deh wisata disini', '2017-05-01 13:19:17', 1, 'Jaenab'),
-(3, 0, 'kuliner disini TOP BGT deh, bikin ketagihan dan nambah lagi nih', '2017-05-01 13:20:18', 4, 'Wahyu Saepuloh'),
-(4, 0, 'jadi pengen belanja terus disini, lengap dan komplit ada semua disini dan juga murah', '2017-05-01 13:21:14', 5, 'Wahyu Saepuloh');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penginapan`
+-- Struktur dari tabel `penginapan`
 --
 
 CREATE TABLE `penginapan` (
@@ -335,7 +274,7 @@ CREATE TABLE `penginapan` (
   `nama_penginapan` varchar(100) NOT NULL,
   `alamat_penginapan` varchar(150) NOT NULL,
   `daerah_penginapan` varchar(150) NOT NULL,
-  `ket_penginapan` varchar(150) NOT NULL,
+  `ket_penginapan` text NOT NULL,
   `harga_penginapan` int(10) NOT NULL,
   `long_penginapan` varchar(100) NOT NULL,
   `lat_penginapan` varchar(100) NOT NULL,
@@ -345,18 +284,18 @@ CREATE TABLE `penginapan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `penginapan`
+-- Dumping data untuk tabel `penginapan`
 --
 
 INSERT INTO `penginapan` (`id_penginapan`, `nama_penginapan`, `alamat_penginapan`, `daerah_penginapan`, `ket_penginapan`, `harga_penginapan`, `long_penginapan`, `lat_penginapan`, `cp_penginapan`, `id_admin`, `id_user`) VALUES
-(1, 'Hotel Lingga', 'Bandung Jawa Barat', 'Jalan Soekarno Hatta', 'Nyaman dan bersih', 1000000, '10000', '9292929', '081312777463', 1, 1),
-(2, 'adada', 'adad', 'adad', 'adad', 13131, '1313', '1313', '131313', 1, 1),
-(3, 'rumah kosong', 'gdgdff', 'wtertr', 'hfgfhc bfgrgeg', 333333331, '4535', '34534534', '11111', 1, 1);
+(1, 'Hotel Boyolali Indah', 'Jl. Solo - Boyolali RT01/RW09', 'Kabupaten Boyolali', 'Hotel yang menyediakan 12 kamar dengan kisaran harga antara Rp. 110.000 sampai dengan Rp. 500.000', 110000, '', '', '0276325660', 1, 1),
+(2, 'Penginapan Pondok Asri', 'Jl. Perintis Kemerdekaan No. 9', 'Kabupaten Boyolali', 'Hotel yang menyediakan 16 kamar dengan tarif Rp 60.000 sampai dengan Rp 250.000', 150000, '', '', '0276323760', 1, 1),
+(3, 'Penginapan Pondok Indah', 'Jl. Merapi No.27, Pulisen, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah', 'Pulisen', 'Menyediakan 26 jumlah kamar dengan fasilitas sesuai dengan harga yang tersedia. Nyaman, bersih dan juga dekat dengan jalur transportasi umum.', 165000, '', '', '0276321497', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tempat_wisata`
+-- Struktur dari tabel `tempat_wisata`
 --
 
 CREATE TABLE `tempat_wisata` (
@@ -366,7 +305,7 @@ CREATE TABLE `tempat_wisata` (
   `kategori_wisata` varchar(50) NOT NULL,
   `lat_wisata` varchar(100) NOT NULL,
   `long_wisata` varchar(100) NOT NULL,
-  `ket_wisata` varchar(300) NOT NULL,
+  `ket_wisata` text NOT NULL,
   `harga_wisata` int(10) NOT NULL,
   `notelp_wisata` varchar(15) NOT NULL,
   `tanggal_post` date NOT NULL,
@@ -374,19 +313,19 @@ CREATE TABLE `tempat_wisata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tempat_wisata`
+-- Dumping data untuk tabel `tempat_wisata`
 --
 
 INSERT INTO `tempat_wisata` (`id_wisata`, `nama_wisata`, `alamat_wisata`, `kategori_wisata`, `lat_wisata`, `long_wisata`, `ket_wisata`, `harga_wisata`, `notelp_wisata`, `tanggal_post`, `id_admin`) VALUES
-(1, 'situ panjalu', 'ciamis jawa barat', 'Wisata Alam', '1000', '00001', 'danau', 100000, '081312777444', '0000-00-00', 1),
-(3, 'situ patenggang', 'bandung', 'Wisata Alam', '1213', '1212', 'bagus', 10000, '08138882121', '0000-00-00', 1),
-(4, 'saung mang engking', 'bandung jawa barat', 'Wisata Kuliner', '121212', '121212', 'enak banget makanannya', 10000, '0811213312', '0000-00-00', 1),
-(5, 'daskjdsakjdn', 'sadjlndlasndla', 'Wisata Belanja', '', '', 'ksagdksa sjdbaskjd asdbskajd asjdbjaks', 100000001, '08131266663', '0000-00-00', 1);
+(1, 'Gunung Merbabu', 'Jl. Merbabu No.136 Kabupaten Boyolali, Jawa Tengah', 'Wisata Alam', '', '', 'Gunung Merbabu adalah gunung api yang bertipe Strato (lihat Gunung Berapi) yang terletak secara geografis pada 7,5° LS dan 110,4° BT. Secara administratif gunung ini berada di wilayah Kabupaten Magelang di lereng sebelah barat dan Kabupaten Boyolali di lereng sebelah timur dan selatan, Kabupaten Semarang di lereng sebelah utara, Provinsi Jawa Tengah.  Gunung Merbabu dikenal melalui naskah-naskah masa pra-Islam sebagai Gunung Damalung atau Gunung Pam(a)rihan. Di lerengnya pernah terdapat pertapaan terkenal dan pernah disinggahi oleh Bujangga Manik pada abad ke-15. Menurut etimologi, "merbabu" berasal dari gabungan kata "meru" (gunung) dan "abu" (abu). Nama ini baru muncul pada catatan-catatan Belanda.  Gunung ini pernah meletus pada tahun 1560 dan 1797. Dilaporkan juga pada tahun 1570 pernah meletus, akan tetapi belum dilakukan konfirmasi dan penelitian lebih lanjut. Puncak gunung Merbabu berada pada ketinggian 3.145 meter di atas permukaan air laut.  Gunung Merbabu mempunyai kawasan Hutan Dipterokarp Bukit, Hutan Dipterokarp Atas, Hutan Montane, dan hutan Ericaceous atau hutan gunung.', 10000, '02763293341', '0000-00-00', 1),
+(3, 'Ini Baru Steak', 'Jl. Pandanaran No. 301, Banaran, Kabupaten Boyolali', 'Wisata Kuliner', '', '', 'Merupakan tempat wisata kuliner yang menyediakan berbagai menu steak dan dessert.', 2000, '02763280035', '0000-00-00', 1),
+(4, 'Amigo Boyolali', 'Jl. Pandanaran No. 105A, Kabupaten Boyoalali', 'Wisata Belanja', '', '', 'Amigo Group adalah toko retail fashion and shoes yang terletak di karesidenan Surakarta dan DIY. Ada 9 toko yang tersebar di kabupaten Klaten, Sukoharjo, Boyolali, Gunung Kidul dan Karanganyar.', 2000, ' 087834888324', '0000-00-00', 1),
+(5, 'Gunung Merapi', 'Selo Boyolali', 'Wisata Alam', '-63829.2321', '3297313', 'wisata gunung merapi', 100000, '08939244', '2017-05-23', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -403,24 +342,15 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `role`, `email`, `domisili`, `asal_daerah`, `no_hp_user`, `jk`, `nama_lengkap`) VALUES
-(3, 'budi', '00dfc53ee86af02e742515cdcf075ed3', 'user', 'budi@budi.com', 'surabaya', 'bandung', '12345678', 'Laki-Laki', 'budi'),
-(4, 'alex', '534b44a19bf18d20b71ecc4eb77c572f', 'user', 'alex@rudiat.com', 'bangka', 'blitung', '081312777483', 'Laki-Laki', 'alex'),
-(5, 'wahyu', '32c9e71e866ecdbc93e497482aa6779f', 'user', 'wahyu@saepuloh.com', 'bandung', 'ciamis', '0813121222131', 'Laki-Laki', 'wahyu'),
-(6, 'andi', 'ce0e5bf55e4f71749eade7a8b95c4e46', 'user', 'andi@yahoo.com', 'sukabumi', 'bogor', '00912221213', 'Laki-Laki', 'andi'),
-(7, 'sarah', '9e9d7a08e048e9d604b79460b54969c3', 'user', 'sarah@008.com', 'kayangan', 'alam hayal', '081123337741', 'Perempuan', 'sarah'),
-(8, 'ayu', '29c65f781a1068a41f735e1b092546de', 'user', 'ayu@ayu.com', 'bandung', 'bandung', '081312666473', 'Perempuan', 'ayu'),
-(11, 'nuke', '6c2bfbd89d74ef47595fe6328a142427', 'user', 'nuke@yahoo.com', 'bandung', 'bandung', '081312666473', 'Perempuan', 'nuke'),
-(17, 'ben', '7fe4771c008a22eb763df47d19e2c6aa', 'member', 'benjema@member.com', 'madrid', 'madrid', '081312888312', 'Laki-Laki', 'benjema'),
-(18, 'kemal', 'ce76d254d71c00b771b8b2013d0a1485', 'member', 'kemal@member.com', 'bandung', 'ciamis', '081312888444', 'Laki-Laki', 'kemal'),
-(19, 'dru', '01eb144a9f7fa82afe28627db3035532', 'user', 'dur@a.cs', 'Bandung', 'bandung', '081312555467', 'Perempuan', 'drupadi resi'),
-(20, 'a', '0cc175b9c0f1b6a831c399e269772661', 'user', 'a@a', 'as', 'asa', '1', 'Laki-Laki', 'a'),
-(21, 'why', '531e70a6745d07a8befbd79e5cc7e4c1', 'user', 'why@w', 'why', 'why', '123', 'Laki-Laki', 'why'),
-(22, 'ws', '742523daef59db4b718409f46de05d0c', 'user', 'ws@w', 'ws', 'ws', '123', 'Laki-Laki', 'ws'),
-(23, 'apa', 'e03ae33ee8417ce2c9785274217636e0', 'user', 'apa@apa', 'apa', 'apa', '123', 'Laki-Laki', 'apa');
+(20, 'ajengpursita', '43317d3fd0d3344a7152250b9fd0dc2f', 'User', 'pursitasariajeng2@gmail.com', 'Bandung', 'Bekasi', '082240206708', 'Perempuan', 'Ajeng Pursitasari'),
+(21, 'ivo', '20e04899c46cd16355f0f2ca77fa83b9', 'User', 'ivo@gmail.com', 'Bandung', 'Cirebon', '081222287583', 'Perempuan', 'Ivo Auliannisa S S'),
+(22, 'sanah', '138d3ab7fedb3af29c9fa9dca7bcf8da', 'user', 'sanahsiz@gmail.com', 'Bandung', 'Jambi', '082374123515', 'Perempuan', 'Nurhasanah'),
+(23, 'dimaspp', '2d1f04d16999e6831a24401efedda1d2', 'User', 'dimaspp@gmail.com', 'Bandung', 'Bekasi', '082240207809', 'Laki-Laki', 'Dimas Putra Pamungkas'),
+(24, 'hafiya', '49ca10e1c37672a136ab1d89417fb77b', 'User', 'hafiya@gmail.com', 'Bandung', 'Bandung', '08936823632', 'Perempuan', 'Hafiya');
 
 --
 -- Indexes for dumped tables
@@ -540,12 +470,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_admin` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `berita_terbaru`
 --
 ALTER TABLE `berita_terbaru`
-  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `event`
 --
@@ -555,47 +485,47 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT for table `gambar_berita`
 --
 ALTER TABLE `gambar_berita`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `gambar_event`
 --
 ALTER TABLE `gambar_event`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `gambar_penginapan`
 --
 ALTER TABLE `gambar_penginapan`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `gambar_wisata`
 --
 ALTER TABLE `gambar_wisata`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `komentar_berita`
 --
 ALTER TABLE `komentar_berita`
-  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `komentar_event`
 --
 ALTER TABLE `komentar_event`
-  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `komentar_penginapan`
 --
 ALTER TABLE `komentar_penginapan`
-  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `komentar_tentang`
 --
 ALTER TABLE `komentar_tentang`
-  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `komentar_wisata`
 --
 ALTER TABLE `komentar_wisata`
-  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `penginapan`
 --
@@ -610,31 +540,31 @@ ALTER TABLE `tempat_wisata`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `berita_terbaru`
+-- Ketidakleluasaan untuk tabel `berita_terbaru`
 --
 ALTER TABLE `berita_terbaru`
   ADD CONSTRAINT `berita_terbaru_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
 
 --
--- Constraints for table `event`
+-- Ketidakleluasaan untuk tabel `event`
 --
 ALTER TABLE `event`
   ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
 
 --
--- Constraints for table `penginapan`
+-- Ketidakleluasaan untuk tabel `penginapan`
 --
 ALTER TABLE `penginapan`
   ADD CONSTRAINT `penginapan_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
 
 --
--- Constraints for table `tempat_wisata`
+-- Ketidakleluasaan untuk tabel `tempat_wisata`
 --
 ALTER TABLE `tempat_wisata`
   ADD CONSTRAINT `tempat_wisata_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
