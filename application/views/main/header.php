@@ -43,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="icon-bar"></span>
 					  </button>
 						<div class="logo">
-							<h1><a class="navbar-brand" href="<?php echo base_url()?>">Wonderful <br><br>Boyolali<span>Tempat Wisata Paling Indah Sekali</span></a></h1>
+							<h1><a class="navbar-brand" href="<?php echo base_url()?>">Wonderful <br><br>Boyolali<span>Tempat Wisata Paling Indah</span></a></h1>
 						</div>
 					</div>
 
