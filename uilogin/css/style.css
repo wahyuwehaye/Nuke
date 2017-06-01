@@ -22,7 +22,7 @@ a:hover {
 }
 
 .form {
-  background: rgba(19, 35, 47, 0.9);
+  background: #990099;
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
@@ -55,11 +55,11 @@ a:hover {
   transition: .5s ease;
 }
 .tab-group li a:hover {
-  background: #179b77;
+  background: #CC66FF;
   color: #ffffff;
 }
 .tab-group .active a {
-  background: #1ab188;
+  background: #CC66FF;
   color: #ffffff;
 }
 
@@ -157,7 +157,7 @@ textarea {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .1em;
-  background: #1ab188;
+  background: #CC66FF;
   color: #ffffff;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;

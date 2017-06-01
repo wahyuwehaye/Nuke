@@ -18,12 +18,9 @@
 
       <link rel="stylesheet" href="<?php echo base_url()?>uilogin/css/style.css">
       <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>sweetalert/dist/sweetalert.css">
-
-
 </head>
 
 <body>
-
     <?php
                 	$username =["username"];
                 	$password =["password"];
@@ -44,13 +41,13 @@
   <div class="form">
 
       <ul class="tab-group">
-        <li class="tab active"><a href="#signup">Sign Up</a></li>
+        <li class="tab active"><a href="#signup">Registrasi</a></li>
         <li class="tab"><a href="#login">Log In</a></li>
       </ul>
 
       <div class="tab-content">
         <div id="signup">
-          <h1>Sign Up for Member</h1>
+          <h1>Registrasi Member</h1>
 
           <form action="<?php echo base_url()?>index.php/Dashboard/cekUser" method="post">
 
@@ -72,7 +69,7 @@
 
           <div class="field-wrap">
             <label>
-              USername<span class="req">*</span>
+              Username<span class="req">*</span>
             </label>
             <input type="text"required autocomplete="off" name="username"/>
           </div>
@@ -115,14 +112,14 @@
 
             <input type="hidden" required autocomplete="off" name="role" value="user"/>
 
-          <button type="submit" id="btnSave" onclick="save()" class="button button-block"/>Get Started</button>
+          <button type="submit" id="btnSave" onclick="save()" class="button button-block"/>Daftar</button>
 
           </form>
 
         </div>
 
         <div id="login">
-          <h1>Welcome Back!</h1>
+          <h1>Selamat Datang</h1>
 
           <form action="<?php echo base_url()?>index.php/Dashboard/cekLogin" method="post">
 
@@ -153,7 +150,7 @@
 </div> <!-- /form -->
 <div class="form">
     <form action="<?php echo base_url()?>" method="post">
-        <button type="submit" class="button button-block"/>Back to Home</button>
+        <button type="submit" class="button button-block"/>Kembali</button>
     </form>
 </div> <!-- /form -->
 
@@ -202,7 +199,7 @@
     if (isset($_SESSION['salahuseradmin'])) {
 ?>
     <body onload='swal({title: "Login Gagal!",
-                        text: "Username yang anda masukkan SALAH!!!",
+                        text: "Username yang anda masukkan salah!",
                         // timer: 3000,
                         type: "error",
                         showConfirmButton: true });'>
@@ -217,7 +214,7 @@
     if (isset($_SESSION['salahuseruser'])) {
 ?>
     <body onload='swal({title: "Login Gagal!",
-                        text: "Username yang anda masukkan SALAH!!!",
+                        text: "Username yang anda masukkan salah!",
                         // timer: 3000,
                         type: "error",
                         showConfirmButton: true });'>
@@ -232,7 +229,7 @@
     if (isset($_SESSION['salahpassadmin'])) {
 ?>
     <body onload='swal({title: "Login Gagal!",
-                        text: "Password yang anda masukkan SALAH!!!",
+                        text: "Password yang anda masukkan salah!",
                         // timer: 3000,
                         type: "error",
                         showConfirmButton: true });'>
@@ -247,7 +244,7 @@
     if (isset($_SESSION['salahpassuser'])) {
 ?>
     <body onload='swal({title: "Login Gagal!",
-                        text: "Password yang anda masukkan SALAH!!!",
+                        text: "Password yang anda masukkan salah!",
                         // timer: 3000,
                         type: "error",
                         showConfirmButton: true });'>
@@ -358,8 +355,6 @@ function save()
 
             $('#btnSave').text('save'); //change button text
 //            $('#btnSave').attr('disabled',false); //set button enable
-
-
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
@@ -368,6 +363,5 @@ function save()
     });
 }
 </script>
-
 </body>
 </html>

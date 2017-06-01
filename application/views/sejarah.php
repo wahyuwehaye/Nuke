@@ -5,7 +5,7 @@
 				<div class="blog-page-grids">
 					<div class="blog-page-grid">
 						<h3>Tentang Boyolali > Sejarah Kabupaten Boyolali</h3>
-						<p>Sumber : <a href="https://id.wikipedia.org/wiki/Kabupaten_Boyolali">Wikipedia</a></p>
+						<p>Sumber : <a href="http://www.boyolali.go.id/">Website Resmi Pemerintah Daerah Kabupaten Boyolali</a></p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -33,7 +33,7 @@ Surakarta, Kartosuro, Klaten, Boyolali, Ampel dan Sragen. (Pawarti Surakarta, 19
 			</div>
 			</br></br>
 			<div class="com">
-				<h3>Comments</h3>
+				<h3>Komentar</h3>
 				<ul class="media-list">
 				  <!-- <li class="media">
 					<div class="media-left">
@@ -80,7 +80,7 @@ Surakarta, Kartosuro, Klaten, Boyolali, Ampel dan Sragen. (Pawarti Surakarta, 19
 				</ul>
 			</div>
 			<div class="in dfg">
-				<h3>Leave a Comments Here</h3>
+				<h3>Tinggalkan Komentar Disini</h3>
 			    <form action="<?php echo base_url()?>index.php/dashboard/insertKomenTentang" method="post">
 					<!-- <input type="text" name="text" placeholder="Name" required=" "> -->
 				<?php $page = $this->uri->segment(1, 0); ?>
@@ -96,8 +96,8 @@ Surakarta, Kartosuro, Klaten, Boyolali, Ampel dan Sragen. (Pawarti Surakarta, 19
 					<input type="hidden" name="id_tentang" value="1">
 					<input type="hidden" name="page" value="<?php echo $page; ?>">
 				<?php } ?>
-					<textarea name="komentar" placeholder="Meassage" required=" "></textarea>
-					<input type="submit" value="Leave A Comment">
+					<textarea name="komentar" placeholder="Isi Komentar" required=" "></textarea>
+					<input type="submit" value="Komentar">
 					<div class="clearfix"> </div>
 				</form>
 			</div>

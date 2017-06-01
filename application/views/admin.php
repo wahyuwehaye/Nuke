@@ -6,7 +6,7 @@
                     <div class="card">
                         <div class="card-header" data-background-color="purple">
                             <h4 class="title">Tambah Admin</h4>
-                            <p class="category">Complete Admin profile</p>
+                            <p class="category">Lengkapi profil admin</p>
                         </div>
                         <div class="card-content">
                             <form action="<?php echo base_url()?>index.php/Dashboard/insertAdmin" method="post">
@@ -19,7 +19,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group label-floating">
-                                            <label class="control-label">Email address</label>
+                                            <label class="control-label">Email</label>
                                             <input type="email" class="form-control" name="email">
                                         </div>
                                     </div>

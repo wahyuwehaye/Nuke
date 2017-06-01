@@ -5,7 +5,7 @@
                 <div class="col-md-12">
                     <div class="card card-plain">
                         <div class="card-header" data-background-color="purple">
-                            <h4 class="title">Table List Member</h4>
+                            <h4 class="title">Tabel Daftar Member</h4>
                             <!-- <p class="category">Here is a subtitle for this table</p> -->
                             <button class="btn btn-xs btn-success" onclick="add_user()"><i class="material-icons">person_add</i></button>
                             <button class="btn btn-xs btn-warning" onclick="reload_table()"><i class="material-icons">refresh</i></button>
