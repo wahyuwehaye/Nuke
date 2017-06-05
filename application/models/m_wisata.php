@@ -101,6 +101,4 @@ class m_wisata extends CI_Model {
 		$this->db->where('id_wisata', $id);
 		$this->db->delete($this->table);
 	}
-
-
 }

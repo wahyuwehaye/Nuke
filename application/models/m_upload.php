@@ -101,6 +101,4 @@ class m_upload extends CI_Model {
 		$this->db->where('id_berita', $id);
 		$this->db->delete($this->table);
 	}
-
-
 }

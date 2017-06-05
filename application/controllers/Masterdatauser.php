@@ -98,5 +98,4 @@ class Masterdatauser extends CI_Controller {
 		$this->user->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
 	}
-
 }

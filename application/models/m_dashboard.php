@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_dashboard extends CI_Model{
+
     public function getData($table){
         $res=$this->db->get($table); // Kode ini berfungsi untuk memilih tabel yang akan ditampilkan
         return $res->result_array(); // Kode ini digunakan untuk mengembalikan hasil operasi $res menjadi sebuah array
@@ -127,6 +128,5 @@ class m_dashboard extends CI_Model{
             $query = $this->db->query("SELECT * FROM komentar_tentang where id_tentang='".$id."'");
             return $query;
     }
-
 }
 ?>

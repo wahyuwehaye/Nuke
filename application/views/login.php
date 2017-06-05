@@ -48,9 +48,7 @@
       <div class="tab-content">
         <div id="signup">
           <h1>Registrasi Member</h1>
-
           <form action="<?php echo base_url()?>index.php/Dashboard/cekUser" method="post">
-
           <div class="top-row">
             <div class="field-wrap">
               <label>
@@ -58,7 +56,7 @@
               </label>
               <input type="text" required autocomplete="off" name="nama_lengkap"/>
             </div>
-
+            
             <div class="field-wrap">
               <label>
                 Alamat Email<span class="req">*</span>

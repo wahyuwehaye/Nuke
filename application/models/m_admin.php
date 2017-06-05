@@ -110,6 +110,4 @@ class m_admin extends CI_Model {
 		$this->db->where('id_admin', $id);
 		$this->db->delete($this->table);
 	}
-
-
 }

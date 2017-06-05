@@ -101,6 +101,4 @@ class m_penginapan extends CI_Model {
 		$this->db->where('id_penginapan', $id);
 		$this->db->delete($this->table);
 	}
-
-
 }

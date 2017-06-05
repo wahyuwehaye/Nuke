@@ -101,6 +101,4 @@ class m_user extends CI_Model {
 		$this->db->where('id_user', $id);
 		$this->db->delete($this->table);
 	}
-
-
 }

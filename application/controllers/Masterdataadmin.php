@@ -1,4 +1,4 @@
-<?php
+	<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Masterdataadmin extends CI_Controller {
@@ -84,5 +84,4 @@ class Masterdataadmin extends CI_Controller {
 		$this->admin->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
 	}
-
 }

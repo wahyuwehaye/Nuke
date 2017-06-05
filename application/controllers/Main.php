@@ -164,6 +164,4 @@ class Main extends CI_Controller {
         $this->load->view('lokasi');
 		$this->load->view('main/footer');
 	}
-
-
 }

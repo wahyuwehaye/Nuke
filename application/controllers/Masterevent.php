@@ -96,5 +96,4 @@ class Masterevent extends CI_Controller {
 		$this->event->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
 	}
-
 }

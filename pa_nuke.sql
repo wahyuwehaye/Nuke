@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 31 Mei 2017 pada 07.44
+-- Generation Time: 05 Jun 2017 pada 11.41
 -- Versi Server: 10.1.9-MariaDB
 -- PHP Version: 5.5.30
 
@@ -110,7 +110,8 @@ CREATE TABLE `gambar_berita` (
 --
 
 INSERT INTO `gambar_berita` (`id_gambar`, `gambar`, `tgl_upload`, `id_berita`, `token`) VALUES
-(24, 'BEASISWA.jpg', '2017-05-24 01:54:49', 3, '0.3521839590539675');
+(24, 'BEASISWA.jpg', '2017-05-24 01:54:49', 3, '0.3521839590539675'),
+(25, 'BEASISWA.jpg', '2017-06-01 13:15:31', 3, '0.608694088250419');
 
 -- --------------------------------------------------------
 
@@ -133,7 +134,8 @@ CREATE TABLE `gambar_event` (
 INSERT INTO `gambar_event` (`id_gambar`, `gambar`, `tgl_upload`, `id_event`, `token`) VALUES
 (9, 'Hari-Tari-Jensud-Solo-3.jpg', '2017-05-24 01:49:12', 4, '0.15532512245143304'),
 (10, 'PERINGATI-HARI-TARI-SEDUNIA-BOYOLALI-MENARI-24-JAM-DIGELAR-2.jpg', '2017-05-24 01:49:12', 4, '0.6372971222716257'),
-(11, 'tari-massal_20160429_172727.jpg', '2017-05-24 01:49:12', 4, '0.05186641764969613');
+(11, 'tari-massal_20160429_172727.jpg', '2017-05-24 01:49:12', 4, '0.05186641764969613'),
+(12, 'tari-massal_20160429_172727.jpg', '2017-06-01 13:15:14', 4, '0.9835990279415572');
 
 -- --------------------------------------------------------
 
@@ -156,7 +158,10 @@ CREATE TABLE `gambar_penginapan` (
 INSERT INTO `gambar_penginapan` (`id_gambar`, `gambar`, `tgl_upload`, `id_penginapan`, `token`) VALUES
 (3, 'boyolaliindah.jpg', '2017-05-24 01:42:12', 1, '0.5362940711537175'),
 (4, 'hotelpondokasri.jpg', '2017-05-24 01:42:24', 2, '0.4768578053662118'),
-(5, 'pondok_indah_boyolali.jpg', '2017-05-24 01:43:45', 3, '0.41079702282243546');
+(5, 'pondok_indah_boyolali.jpg', '2017-05-24 01:43:45', 3, '0.41079702282243546'),
+(6, 'pondok_indah_boyolali.jpg', '2017-06-01 13:14:28', 3, '0.04854208355113043'),
+(7, 'hotelpondokasri.jpg', '2017-06-01 13:14:41', 2, '0.8220305154991479'),
+(8, 'boyolaliindah.jpg', '2017-06-01 13:14:51', 1, '0.6368026102495298');
 
 -- --------------------------------------------------------
 
@@ -187,7 +192,12 @@ INSERT INTO `gambar_wisata` (`id_gambar`, `gambar`, `tgl_upload`, `id_wisata`, `
 (8, '9370.jpg', '2017-05-24 01:30:34', 3, '0.01762911000863221'),
 (9, '9371.jpg', '2017-05-24 01:30:34', 3, '0.09661462442670354'),
 (10, '06_-Amigo-Sukoharjo.jpg', '2017-05-24 01:32:14', 4, '0.5070616151759396'),
-(11, '07_-Amigo-Boyolali-Lama.jpg', '2017-05-24 01:32:14', 4, '0.36787209929822884');
+(11, '07_-Amigo-Boyolali-Lama.jpg', '2017-05-24 01:32:14', 4, '0.36787209929822884'),
+(12, '11.jpg', '2017-06-01 13:12:15', 5, '0.0748239085430229'),
+(13, '41.jpg', '2017-06-01 13:12:57', 1, '0.36701532344171317'),
+(14, '9367.jpg', '2017-06-01 13:13:32', 3, '0.14973418269600824'),
+(15, '9370.jpg', '2017-06-01 13:13:32', 3, '0.6253820611682973'),
+(16, '9371.jpg', '2017-06-01 13:13:32', 3, '0.87538536551106');
 
 -- --------------------------------------------------------
 
@@ -231,20 +241,6 @@ CREATE TABLE `komentar_penginapan` (
   `komentar` text NOT NULL,
   `tgl_komentar` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_penginapan` int(5) NOT NULL,
-  `nama` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `komentar_tentang`
---
-
-CREATE TABLE `komentar_tentang` (
-  `id_komentar` int(10) NOT NULL,
-  `komentar` text NOT NULL,
-  `tgl_komentar` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `id_tentang` int(5) NOT NULL,
   `nama` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -349,8 +345,7 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `role`, `email`, `domisil
 (20, 'ajengpursita', '43317d3fd0d3344a7152250b9fd0dc2f', 'User', 'pursitasariajeng2@gmail.com', 'Bandung', 'Bekasi', '082240206708', 'Perempuan', 'Ajeng Pursitasari'),
 (21, 'ivo', '20e04899c46cd16355f0f2ca77fa83b9', 'User', 'ivo@gmail.com', 'Bandung', 'Cirebon', '081222287583', 'Perempuan', 'Ivo Auliannisa S S'),
 (22, 'sanah', '138d3ab7fedb3af29c9fa9dca7bcf8da', 'user', 'sanahsiz@gmail.com', 'Bandung', 'Jambi', '082374123515', 'Perempuan', 'Nurhasanah'),
-(23, 'dimaspp', '2d1f04d16999e6831a24401efedda1d2', 'User', 'dimaspp@gmail.com', 'Bandung', 'Bekasi', '082240207809', 'Laki-Laki', 'Dimas Putra Pamungkas'),
-(24, 'hafiya', '49ca10e1c37672a136ab1d89417fb77b', 'User', 'hafiya@gmail.com', 'Bandung', 'Bandung', '08936823632', 'Perempuan', 'Hafiya');
+(23, 'dimaspp', '2d1f04d16999e6831a24401efedda1d2', 'User', 'dimaspp@gmail.com', 'Bandung', 'Bekasi', '082240207809', 'Laki-Laki', 'Dimas Putra Pamungkas');
 
 --
 -- Indexes for dumped tables
@@ -428,12 +423,6 @@ ALTER TABLE `komentar_penginapan`
   ADD KEY `id_penginapan` (`id_penginapan`);
 
 --
--- Indexes for table `komentar_tentang`
---
-ALTER TABLE `komentar_tentang`
-  ADD PRIMARY KEY (`id_komentar`);
-
---
 -- Indexes for table `komentar_wisata`
 --
 ALTER TABLE `komentar_wisata`
@@ -485,22 +474,22 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT for table `gambar_berita`
 --
 ALTER TABLE `gambar_berita`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `gambar_event`
 --
 ALTER TABLE `gambar_event`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `gambar_penginapan`
 --
 ALTER TABLE `gambar_penginapan`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `gambar_wisata`
 --
 ALTER TABLE `gambar_wisata`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `komentar_berita`
 --
@@ -515,11 +504,6 @@ ALTER TABLE `komentar_event`
 -- AUTO_INCREMENT for table `komentar_penginapan`
 --
 ALTER TABLE `komentar_penginapan`
-  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `komentar_tentang`
---
-ALTER TABLE `komentar_tentang`
   MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `komentar_wisata`
@@ -540,7 +524,7 @@ ALTER TABLE `tempat_wisata`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
@@ -556,6 +540,54 @@ ALTER TABLE `berita_terbaru`
 --
 ALTER TABLE `event`
   ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
+
+--
+-- Ketidakleluasaan untuk tabel `gambar_berita`
+--
+ALTER TABLE `gambar_berita`
+  ADD CONSTRAINT `gambar_berita_ibfk_1` FOREIGN KEY (`id_berita`) REFERENCES `berita_terbaru` (`id_berita`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ketidakleluasaan untuk tabel `gambar_event`
+--
+ALTER TABLE `gambar_event`
+  ADD CONSTRAINT `gambar_event_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `event` (`id_event`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ketidakleluasaan untuk tabel `gambar_penginapan`
+--
+ALTER TABLE `gambar_penginapan`
+  ADD CONSTRAINT `gambar_penginapan_ibfk_1` FOREIGN KEY (`id_penginapan`) REFERENCES `penginapan` (`id_penginapan`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ketidakleluasaan untuk tabel `gambar_wisata`
+--
+ALTER TABLE `gambar_wisata`
+  ADD CONSTRAINT `gambar_wisata_ibfk_1` FOREIGN KEY (`id_wisata`) REFERENCES `tempat_wisata` (`id_wisata`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ketidakleluasaan untuk tabel `komentar_berita`
+--
+ALTER TABLE `komentar_berita`
+  ADD CONSTRAINT `komentar_berita_ibfk_1` FOREIGN KEY (`id_berita`) REFERENCES `berita_terbaru` (`id_berita`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ketidakleluasaan untuk tabel `komentar_event`
+--
+ALTER TABLE `komentar_event`
+  ADD CONSTRAINT `komentar_event_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `event` (`id_event`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ketidakleluasaan untuk tabel `komentar_penginapan`
+--
+ALTER TABLE `komentar_penginapan`
+  ADD CONSTRAINT `komentar_penginapan_ibfk_1` FOREIGN KEY (`id_penginapan`) REFERENCES `penginapan` (`id_penginapan`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ketidakleluasaan untuk tabel `komentar_wisata`
+--
+ALTER TABLE `komentar_wisata`
+  ADD CONSTRAINT `komentar_wisata_ibfk_1` FOREIGN KEY (`id_wisata`) REFERENCES `tempat_wisata` (`id_wisata`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ketidakleluasaan untuk tabel `penginapan`

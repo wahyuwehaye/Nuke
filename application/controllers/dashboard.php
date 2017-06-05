@@ -245,21 +245,13 @@ class Dashboard extends CI_Controller {
         	// $upd = $this->db->update('berita_terbaru',array('gambar'=>$nama,'token'=>$token),$id_berita);
         	// return $upd;
         }
-
-
 	}
-
-
 
 	//Untuk menghapus foto
 	function remove_fotoBerita(){
-
 		//Ambil token foto
 		$token=$this->input->post('token');
-
-		
 		$foto=$this->db->get_where('gambar_berita',array('token'=>$token));
-
 
 		if($foto->num_rows()>0){
 			$hasil=$foto->row();
@@ -268,10 +260,7 @@ class Dashboard extends CI_Controller {
 				unlink($file);
 			}
 			$this->db->delete('gambar_berita',array('token'=>$token));
-
 		}
-
-
 		echo "{}";
 	}
 
@@ -287,21 +276,14 @@ class Dashboard extends CI_Controller {
         	$nama=$this->upload->data('file_name');
         	$this->db->insert('gambar_event',array('gambar'=>$nama,'token'=>$token,'id_event'=>$id_event));
         }
-
-
 	}
-
-
 
 	//Untuk menghapus foto
 	function remove_fotoEvent(){
 
 		//Ambil token foto
-		$token=$this->input->post('token');
-
-		
+		$token=$this->input->post('token');		
 		$foto=$this->db->get_where('gambar_event',array('token'=>$token));
-
 
 		if($foto->num_rows()>0){
 			$hasil=$foto->row();
@@ -310,10 +292,7 @@ class Dashboard extends CI_Controller {
 				unlink($file);
 			}
 			$this->db->delete('gambar_event',array('token'=>$token));
-
 		}
-
-
 		echo "{}";
 	}
 
@@ -329,21 +308,14 @@ class Dashboard extends CI_Controller {
         	$nama=$this->upload->data('file_name');
         	$this->db->insert('gambar_penginapan',array('gambar'=>$nama,'token'=>$token,'id_penginapan'=>$id_penginapan));
         }
-
-
 	}
-
-
 
 	//Untuk menghapus foto
 	function remove_fotoPenginapan(){
 
 		//Ambil token foto
-		$token=$this->input->post('token');
-
-		
+		$token=$this->input->post('token');	
 		$foto=$this->db->get_where('gambar_penginapan',array('token'=>$token));
-
 
 		if($foto->num_rows()>0){
 			$hasil=$foto->row();
@@ -352,10 +324,7 @@ class Dashboard extends CI_Controller {
 				unlink($file);
 			}
 			$this->db->delete('gambar_penginapan',array('token'=>$token));
-
 		}
-
-
 		echo "{}";
 	}
 
@@ -371,21 +340,14 @@ class Dashboard extends CI_Controller {
         	$nama=$this->upload->data('file_name');
         	$this->db->insert('gambar_wisata',array('gambar'=>$nama,'token'=>$token,'id_wisata'=>$id_wisata));
         }
-
-
 	}
-
-
 
 	//Untuk menghapus foto
 	function remove_fotoWisata(){
 
 		//Ambil token foto
 		$token=$this->input->post('token');
-
-		
 		$foto=$this->db->get_where('gambar_wisata',array('token'=>$token));
-
 
 		if($foto->num_rows()>0){
 			$hasil=$foto->row();
@@ -394,14 +356,9 @@ class Dashboard extends CI_Controller {
 				unlink($file);
 			}
 			$this->db->delete('gambar_wisata',array('token'=>$token));
-
 		}
-
-
 		echo "{}";
 	}
-
-
 
 	public function insertKomen(){
 	    $this->load->model('m_dashboard');
@@ -459,7 +416,7 @@ class Dashboard extends CI_Controller {
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
 	}
 
-	public function insertKomenTentang(){
+	/*public function insertKomenTentang(){
 	    $this->load->model('m_dashboard');
 	    $page = $this->input->post('page');
 	    $data = array(
@@ -471,7 +428,7 @@ class Dashboard extends CI_Controller {
 	    redirect($page);
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
-	}
+	}*/
 
     public function login()
 	{
@@ -533,7 +490,7 @@ class Dashboard extends CI_Controller {
 				}
     }
 
-	public function logOut() {
+	public function logOut(){
 /*
         $this->session->unset_userdata('id_user');
         $this->session->unset_userdata('username');
@@ -625,6 +582,4 @@ class Dashboard extends CI_Controller {
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';
 	}
-
-
 }

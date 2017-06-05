@@ -113,5 +113,4 @@ class Masterwisata extends CI_Controller {
 		$this->wisata->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
 	}
-
 }

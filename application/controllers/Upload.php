@@ -44,8 +44,6 @@ class Upload extends CI_Controller
 		// $this->load->database();
 		// $this->load->helper(array('url','file'));
 	}
-
-
 	//Untuk proses upload foto
 	function proses_upload(){
 
@@ -58,21 +56,14 @@ class Upload extends CI_Controller
         	$nama=$this->upload->data('file_name');
         	$this->db->insert('gambar_berita',array('gambar'=>$nama,'token'=>$token));
         }
-
-
 	}
-
-
 
 	//Untuk menghapus foto
 	function remove_foto(){
 
 		//Ambil token foto
 		$token=$this->input->post('token');
-
-		
 		$foto=$this->db->get_where('gambar_berita',array('token'=>$token));
-
 
 		if($foto->num_rows()>0){
 			$hasil=$foto->row();
@@ -81,11 +72,7 @@ class Upload extends CI_Controller
 				unlink($file);
 			}
 			$this->db->delete('gambar_berita',array('token'=>$token));
-
 		}
-
-
 		echo "{}";
 	}
-
 }
