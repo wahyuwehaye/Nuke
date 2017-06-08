@@ -178,6 +178,14 @@ function save()
                 $('#modal_form').modal('hide');
                 reload_table();
             }
+            else
+            {
+                for (var i = 0; i < data.inputerror.length; i++) 
+                {
+                    $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
+                    $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
+                }
+            }
 
             $('#btnSave').text('save'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable
@@ -276,7 +284,7 @@ function delete_penginapan(id)
                             </div>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Longitude penginapan</label>
@@ -292,7 +300,11 @@ function delete_penginapan(id)
                                     <input type="text" class="form-control" name="lat_penginapan">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+
+                        <input type="hidden" name="long_penginapan">
+
+                        <input type="hidden" name="lat_penginapan">
 
                         <!-- <div class="row">
                             <div class="col-md-12">

@@ -13,7 +13,7 @@
 						<p>Published on<span> <?php echo $row['tgl_event'];?></span></p>
 					</div>
 					<div class="blog-page-grid1">
-						<p><a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><?php echo $row['jenis_event'];?></a></p>
+						<!-- <p><a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><?php echo $row['jenis_event'];?></a></p> -->
 					</div>
 					<div class="clearfix"> </div>
 				</div>

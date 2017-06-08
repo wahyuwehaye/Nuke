@@ -11,9 +11,13 @@
 								<div class="card-header" data-background-color="orange">
 									<i class="material-icons"> supervisor_account </i>
 								</div>
-								<div class="card-content">
+								<div class="card-content"><a href="<?php base_url()?>listadmin">
 									<p class="category">Data Admin</p>
-									<h3 class="title">4<small>Orang</small></h3>
+									<h3 class="title"><?php
+										                  $this->db->select('id');
+										                  $this->db->from('admin');
+										                  echo $this->db->count_all_results();
+										                ?><small>Orang</small></h3></a>
 								</div>
 								<div class="card-footer">
 									<div class="stats">
@@ -27,9 +31,13 @@
 								<div class="card-header" data-background-color="green">
 									<i class="material-icons">people_outline</i>
 								</div>
-								<div class="card-content">
+								<div class="card-content"><a href="<?php base_url()?>listuser"
 									<p class="category">Data Member</p>
-									<h3 class="title">12<small>Orang</small></h3>
+									<h3 class="title"><?php
+										                  $this->db->select('id_user');
+										                  $this->db->from('user');
+										                  echo $this->db->count_all_results();
+										                ?><small>Orang</small></h3></a>
 								</div>
 								<div class="card-footer">
 									<div class="stats">
@@ -43,9 +51,13 @@
 								<div class="card-header" data-background-color="red">
 									<i class="material-icons">pool</i>
 								</div>
-								<div class="card-content">
+								<div class="card-content"><a href="<?php base_url()?>wisata"
 									<p class="category">Tempat Wisata</p>
-									<h3 class="title">2<small>Tempat</small></h3>
+									<h3 class="title"><?php
+										                  $this->db->select('id_wisata');
+										                  $this->db->from('tempat_wisata');
+										                  echo $this->db->count_all_results();
+										                ?><small>Tempat</small></h3></a>
 								</div>
 								<div class="card-footer">
 									<div class="stats">
@@ -61,9 +73,13 @@
 							<div class="card-header" data-background-color="blue">
 								<i class="material-icons">local_hotel</i>
 							</div>
-							<div class="card-content">
+							<div class="card-content"><a href="<?php base_url()?>dpenginapan"
 								<p class="category">Hotel</p>
-								<h3 class="title">2<small>Tempat</small></h3>
+								<h3 class="title"><?php
+									                  $this->db->select('id_penginapan');
+									                  $this->db->from('penginapan');
+									                  echo $this->db->count_all_results();
+									                ?><small>Tempat</small></h3></a>
 							</div>
 							<div class="card-footer">
 								<div class="stats">
@@ -78,9 +94,13 @@
 						<div class="card-header" data-background-color="red">
 							<i class="material-icons">event_note</i>
 						</div>
-						<div class="card-content">
+						<div class="card-content"><a href="<?php base_url()?>event"
 							<p class="category">Event</p>
-							<h3 class="title">2<small>Tempat</small></h3>
+							<h3 class="title"><?php
+								                  $this->db->select('id_event');
+								                  $this->db->from('event');
+								                  echo $this->db->count_all_results();
+								                ?><small>Tempat</small></h3></a>
 						</div>
 						<div class="card-footer">
 							<div class="stats">
@@ -95,9 +115,13 @@
 					<div class="card-header" data-background-color="blue">
 						<i class="material-icons">assignment</i>
 					</div>
-					<div class="card-content">
+					<div class="card-content"><a href="<?php base_url()?>berita"
 						<p class="category">Berita</p>
-						<h3 class="title">2<small>Berita</small></h3>
+						<h3 class="title"><?php
+							                  $this->db->select('id_berita');
+							                  $this->db->from('berita_terbaru');
+							                  echo $this->db->count_all_results();
+							                ?><small>Berita</small></h3></a>
 					</div>
 					<div class="card-footer">
 						<div class="stats">

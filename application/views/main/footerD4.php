@@ -131,7 +131,7 @@ function edit_event(id)
             // $('[name="gambar_event"]').val(data.gambar_event);
             $('[name="ket_event"]').val(data.ket_event);
             $('[name="waktu_event"]').val(data.waktu_event);
-            $('[name="jenis_event"]').val(data.jenis_event);
+            // $('[name="jenis_event"]').val(data.jenis_event);
             $('[name="cp_event"]').val(data.cp_event);
             $('[name="daerah_event"]').val(data.daerah_event);
             $('[name="id_admin"]').val(data.id_admin);
@@ -176,6 +176,14 @@ function save()
             {
                 $('#modal_form').modal('hide');
                 reload_table();
+            }
+            else
+            {
+                for (var i = 0; i < data.inputerror.length; i++) 
+                {
+                    $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
+                    $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
+                }
             }
 
             $('#btnSave').text('save'); //change button text
@@ -284,14 +292,14 @@ function delete_event(id)
                             </div>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Jenis event</label>
                                     <input type="text" class="form-control" name="jenis_event">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row">
                             <div class="col-md-12">

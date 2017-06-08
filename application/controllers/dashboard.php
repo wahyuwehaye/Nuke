@@ -33,6 +33,7 @@ class Dashboard extends CI_Controller {
         if(isset($_SESSION['logged_in']))
 		{
 			$data['active_menu']='dashboard';
+			$data['notif'] = $this->m_dashboard->tampil_notif()->result();
 			$this->load->view('main/headerD',$data);
 			$data['count'] = $this->m_dashboard->countAdmin()->result();
         	$this->load->view('v_dashboard',$data);
@@ -44,6 +45,7 @@ class Dashboard extends CI_Controller {
 
 	public function admin(){
 		$data['active_menu']='admin';
+		$data['notif'] = $this->m_dashboard->tampil_notif()->result();
 		$this->load->view('main/headerD',$data);
 		$this->load->view('admin');
 		$this->load->view('main/footerD');
@@ -51,6 +53,7 @@ class Dashboard extends CI_Controller {
 
 	public function listadmin(){
 		$data['active_menu']='listadmin';
+		$data['notif'] = $this->m_dashboard->tampil_notif()->result();
 		$this->load->view('main/headerD',$data);
 		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
 		// $this->load->view('listadmin',$data);
@@ -60,6 +63,7 @@ class Dashboard extends CI_Controller {
 
 	public function listuser(){
 		$data['active_menu']='listuser';
+		$data['notif'] = $this->m_dashboard->tampil_notif()->result();
 		$this->load->view('main/headerD',$data);
 		// $data['user'] = $this->m_dashboard->tampil_dataUser()->result();
 		// $this->load->view('listuser',$data);
@@ -69,6 +73,7 @@ class Dashboard extends CI_Controller {
 
 	public function user(){
 		$data['active_menu']='dashboard';
+		$data['notif'] = $this->m_dashboard->tampil_notif()->result();
 		$this->load->view('main/headerD',$data);
 		$data['user'] = $this->m_dashboard->tampil_dataAdmin1()->result();
 		$this->load->view('user',$data);
@@ -77,6 +82,7 @@ class Dashboard extends CI_Controller {
 
 	public function wisata(){
 		$data['active_menu']='wisata';
+		$data['notif'] = $this->m_dashboard->tampil_notif()->result();
 		$this->load->view('main/headerD',$data);
 		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
 		// $this->load->view('listadmin',$data);
@@ -102,6 +108,7 @@ class Dashboard extends CI_Controller {
 
 	public function penginapan(){
 		$data['active_menu']='penginapan';
+		$data['notif'] = $this->m_dashboard->tampil_notif()->result();
 		$this->load->view('main/headerD',$data);
 		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
 		// $this->load->view('listadmin',$data);
@@ -127,6 +134,7 @@ class Dashboard extends CI_Controller {
 
 	public function event(){
 		$data['active_menu']='event';
+		$data['notif'] = $this->m_dashboard->tampil_notif()->result();
 		$this->load->view('main/headerD',$data);
 		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
 		// $this->load->view('listadmin',$data);
@@ -145,6 +153,7 @@ class Dashboard extends CI_Controller {
 
 	public function berita(){
 		$data['active_menu']='berita';
+		$data['notif'] = $this->m_dashboard->tampil_notif()->result();
 		$this->load->view('main/headerD',$data);
 		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
 		// $this->load->view('listadmin',$data);
@@ -163,6 +172,7 @@ class Dashboard extends CI_Controller {
 
 	public function notifikasi(){
 		$data['active_menu']='notifikasi';
+		$data['notif'] = $this->m_dashboard->tampil_notif()->result();
 		$this->load->view('main/headerD',$data);
 		// $data['admin'] = $this->m_dashboard->tampil_dataAdmin()->result();
 		// $this->load->view('listadmin',$data);
@@ -368,6 +378,12 @@ class Dashboard extends CI_Controller {
 	        'id_berita' => $this->input->post('id_berita'),
 			'komentar' => $this->input->post('komentar')
 	         );
+	    $nama = $this->input->post('nama');
+	    $notif = array(
+	    	'nama_notif' => '"'.$nama.'" memberi komentar Berita',
+	    	'tanggal' => date('Y-m-d H:i:s')
+	    	);
+	    $notif = $this->m_dashboard->Insert('notifikasi',$notif);
 	    $data = $this->m_dashboard->insertKomen('komentar_berita', $data);
 	    redirect('detailberita/'.$page);
 		echo json_encode(array("status" => TRUE));
@@ -382,6 +398,12 @@ class Dashboard extends CI_Controller {
 	        'id_event' => $this->input->post('id_event'),
 			'komentar' => $this->input->post('komentar')
 	         );
+	    $nama = $this->input->post('nama');
+	    $notif = array(
+	    	'nama_notif' => '"'.$nama.'" memberi komentar Event',
+	    	'tanggal' => date('Y-m-d H:i:s')
+	    	);
+	    $notif = $this->m_dashboard->Insert('notifikasi',$notif);
 	    $data = $this->m_dashboard->insertKomen('komentar_event', $data);
 	    redirect('detailevent/'.$page);
 		echo json_encode(array("status" => TRUE));
@@ -396,6 +418,12 @@ class Dashboard extends CI_Controller {
 	        'id_wisata' => $this->input->post('id_wisata'),
 			'komentar' => $this->input->post('komentar')
 	         );
+	    $nama = $this->input->post('nama');
+	    $notif = array(
+	    	'nama_notif' => '"'.$nama.'" memberi komentar Wisata',
+	    	'tanggal' => date('Y-m-d H:i:s')
+	    	);
+	    $notif = $this->m_dashboard->Insert('notifikasi',$notif);
 	    $data = $this->m_dashboard->insertKomen('komentar_wisata', $data);
 	    redirect('detailwisata/'.$page);
 		echo json_encode(array("status" => TRUE));
@@ -410,6 +438,12 @@ class Dashboard extends CI_Controller {
 	        'id_penginapan' => $this->input->post('id_penginapan'),
 			'komentar' => $this->input->post('komentar')
 	         );
+	    $nama = $this->input->post('nama');
+	    $notif = array(
+	    	'nama_notif' => '"'.$nama.'" memberi komentar Penginapan',
+	    	'tanggal' => date('Y-m-d H:i:s')
+	    	);
+	    $notif = $this->m_dashboard->Insert('notifikasi',$notif);
 	    $data = $this->m_dashboard->insertKomen('komentar_penginapan', $data);
 	    redirect('detailpenginapan/'.$page);
 		echo json_encode(array("status" => TRUE));
@@ -554,7 +588,7 @@ class Dashboard extends CI_Controller {
 	    $data = array(
 	        'username' => $this->input->post('username'),
 	        'password' => md5($this->input->post("password")),
-			'role' => $this->input->post('role'),
+			// 'role' => $this->input->post('role'),
 			'email' => $this->input->post('email'),
 			'domisili' => $this->input->post('domisili'),
 			'asal_daerah' => $this->input->post('asal_daerah'),
@@ -562,6 +596,12 @@ class Dashboard extends CI_Controller {
 			'jk' => $this->input->post('jk'),
 	        'nama_lengkap' => $this->input->post('nama_lengkap')
 	         );
+	    $nama = $this->input->post('nama_lengkap');
+	    $notif = array(
+	    	'nama_notif' => 'Ada member baru dengan nama : "'.$nama.'"',
+	    	'tanggal' => date('Y-m-d H:i:s')
+	    	);
+	    $notif = $this->m_dashboard->Insert('notifikasi',$notif);
 	    $data = $this->m_dashboard->Insert('user', $data);
 	    $_SESSION['suksesinput'] = '';
 	    redirect('dashboard/login');
@@ -577,7 +617,9 @@ class Dashboard extends CI_Controller {
 			'email' => $this->input->post('email'),
 			'no_hp_admin' => $this->input->post('no_hp_admin')
 	         );
+	    
 	    $data = $this->m_dashboard->Insert('admin', $data);
+	    
 	    redirect('dashboard/listadmin');
 		echo json_encode(array("status" => TRUE));
 		echo '<script type="text/javascript">alert("Data has been submitted");</script>';

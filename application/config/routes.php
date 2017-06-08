@@ -62,6 +62,7 @@ $route['belanja'] = 'main/belanja';
 $route['penginapan'] = 'main/penginapan';
 $route['detailpenginapan/:num'] = 'main/detailpenginapan';
 $route['lokasi'] = 'main/lokasi';
+$route['direction'] = 'main/direction';
 $route['allberita'] = 'main/allberita';
 $route['detailberita/:num'] = 'main/detailberita';
 $route['allevent'] = 'main/allevent';

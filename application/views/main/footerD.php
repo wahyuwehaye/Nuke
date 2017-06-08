@@ -228,13 +228,13 @@ function delete_admin(id)
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Username</label>
-                                    <input type="text" class="form-control" name="username">
+                                    <input type="text" class="form-control" name="username" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Email address</label>
-                                    <input type="email" class="form-control" name="email">
+                                    <input type="email" class="form-control" name="email" required>
                                 </div>
                             </div>
                         </div>
@@ -243,13 +243,13 @@ function delete_admin(id)
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Password</label>
-                                    <input type="password" class="form-control" name="password">
+                                    <input type="password" class="form-control" name="password" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nomor Handphone</label>
-                                    <input type="text" class="form-control" name="no_hp_admin">
+                                    <input type="text" class="form-control" name="no_hp_admin" required>
                                 </div>
                             </div>
                         </div>

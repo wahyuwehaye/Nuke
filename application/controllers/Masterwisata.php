@@ -62,6 +62,7 @@ class Masterwisata extends CI_Controller {
 
 	public function ajax_add()
 	{
+		$this->validate();
 		$data = array(
 				'nama_wisata' => $this->input->post('nama_wisata'),
 				'alamat_wisata' => $this->input->post("alamat_wisata"),
@@ -80,6 +81,7 @@ class Masterwisata extends CI_Controller {
 
 	public function ajax_update()
 	{
+		$this->validate();
 		$data = array(
             'nama_wisata' => $this->input->post('nama_wisata'),
             'alamat_wisata' => $this->input->post("alamat_wisata"),
@@ -112,5 +114,68 @@ class Masterwisata extends CI_Controller {
 	{
 		$this->wisata->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
+	}
+
+	private function validate()
+	{
+		$data = array();
+		$data['error_string'] = array();
+		$data['inputerror'] = array();
+		$data['status'] = TRUE;
+
+		if($this->input->post('nama_wisata') == '')
+		{
+			$data['inputerror'][] = 'nama_wisata';
+			$data['error_string'][] = 'Nama Wisata is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('alamat_wisata') == '')
+		{
+			$data['inputerror'][] = 'alamat_wisata';
+			$data['error_string'][] = 'Alamat is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('kategori_wisata') == '')
+		{
+			$data['inputerror'][] = 'kategori_wisata';
+			$data['error_string'][] = 'Kategori is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('ket_wisata') == '')
+		{
+			$data['inputerror'][] = 'ket_wisata';
+			$data['error_string'][] = 'Keterangan Wisata is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('harga_wisata') == '')
+		{
+			$data['inputerror'][] = 'harga_wisata';
+			$data['error_string'][] = 'Harga is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('notelp_wisata') == '')
+		{
+			$data['inputerror'][] = 'notelp_wisata';
+			$data['error_string'][] = 'Nomor Telepon is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('tanggal_post') == '')
+		{
+			$data['inputerror'][] = 'tanggal_post';
+			$data['error_string'][] = 'Tanggal Post is required';
+			$data['status'] = FALSE;
+		}
+
+		if($data['status'] === FALSE)
+		{
+			echo json_encode($data);
+			exit();
+		}
 	}
 }

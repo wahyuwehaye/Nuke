@@ -16,21 +16,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
+<?php echo $map['js']; ?></head>
 <link href="<?php echo base_url()?>assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<?php echo base_url()?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
 <!-- js -->
 <script src="<?php echo base_url()?>assets/js/jquery-1.11.1.min.js"></script>
-<link href="<?php echo base_url()?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
 <!-- //js -->
 <!-- /fonts -->
 <link href='<?php echo base_url()?>assets/fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href="<?php echo base_url()?>assets/fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 <!-- //fonts -->
+
+<!--
+Yang Baru
+-->
+
 </head>
 
 <body>
 <!-- banner -->
-	<div class="banner">
+	<div class="banner1">
 		<div class="container">
 			<div class="header-nav">
 				<nav class="navbar navbar-default">
@@ -42,10 +48,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					  </button>
-						<div class="logo">
-							<h1><a class="navbar-brand" href="<?php echo base_url()?>">Wonderful <br><br>Boyolali<span>
-							Tempat Wisata Paling Indah</span></a></h1>
-						</div>
+					  <div class="logo">
+  						<h1><a class="navbar-brand" href="<?php echo base_url()?>">Wonderful <br><br>Boyolali<span>Tempat Wisata Paling Indah</span></a></h1>
+  					  </div>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -78,11 +83,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="<?php echo base_url()?>index.php/login">Register</a></li>
 							<?php } ?>
 						</ul>
-
 					</div><!-- /.navbar-collapse -->
 				</nav>
 			</div>
-
 		</div>
 	</div>
 <!-- //banner -->

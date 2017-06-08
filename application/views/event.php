@@ -16,7 +16,9 @@
                                     <th>No</th>
                                     <th>Nama Event</th>
                                     <th>Tanggal Event</th>
+                                    <th>Waktu Event</th>
                                     <th>Lokasi Event</th>
+                                    <th>Daerah Event</th>
                                     <th>Contact Person Event</th>
                                     <th>Aksi</th>
                                     <!-- <?php if (($_SESSION['username'])=='admin') {

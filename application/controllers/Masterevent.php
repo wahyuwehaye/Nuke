@@ -25,7 +25,9 @@ class Masterevent extends CI_Controller {
             $row[] = $no;
 			$row[] = $event->nama_event;
             $row[] = $event->tgl_event;
+            $row[] = $event->waktu_event;
 			$row[] = $event->lokasi_event;
+			$row[] = $event->daerah_event;
             $row[] = $event->cp_event;
 
 			//add html for action
@@ -59,13 +61,14 @@ class Masterevent extends CI_Controller {
 
 	public function ajax_add()
 	{
+		$this->validate();
 		$data = array(
 				'nama_event' => $this->input->post('nama_event'),
 				'tgl_event' => $this->input->post("tgl_event"),
                 'lokasi_event' => $this->input->post('lokasi_event'),
                 'ket_event' => $this->input->post('ket_event'),
                 'waktu_event' => $this->input->post('waktu_event'),
-                'jenis_event' => $this->input->post('jenis_event'),
+                // 'jenis_event' => $this->input->post('jenis_event'),
                 'cp_event' => $this->input->post('cp_event'),
                 'daerah_event' => $this->input->post('daerah_event'),
                 'id_admin' => $this->input->post('id_admin'),
@@ -76,13 +79,14 @@ class Masterevent extends CI_Controller {
 
 	public function ajax_update()
 	{
+		$this->validate();
 		$data = array(
             'nama_event' => $this->input->post('nama_event'),
             'tgl_event' => $this->input->post("tgl_event"),
             'lokasi_event' => $this->input->post('lokasi_event'),
             'ket_event' => $this->input->post('ket_event'),
             'waktu_event' => $this->input->post('waktu_event'),
-            'jenis_event' => $this->input->post('jenis_event'),
+            // 'jenis_event' => $this->input->post('jenis_event'),
             'cp_event' => $this->input->post('cp_event'),
             'daerah_event' => $this->input->post('daerah_event'),
             'id_admin' => $this->input->post('id_admin'),
@@ -95,5 +99,75 @@ class Masterevent extends CI_Controller {
 	{
 		$this->event->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
+	}
+
+	private function validate()
+	{
+		$data = array();
+		$data['error_string'] = array();
+		$data['inputerror'] = array();
+		$data['status'] = TRUE;
+
+		if($this->input->post('nama_event') == '')
+		{
+			$data['inputerror'][] = 'nama_event';
+			$data['error_string'][] = 'Nama Event is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('tgl_event') == '')
+		{
+			$data['inputerror'][] = 'tgl_event';
+			$data['error_string'][] = 'Tanggal is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('lokasi_event') == '')
+		{
+			$data['inputerror'][] = 'lokasi_event';
+			$data['error_string'][] = 'Lokasi is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('ket_event') == '')
+		{
+			$data['inputerror'][] = 'ket_event';
+			$data['error_string'][] = 'Keterangan is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('waktu_event') == '')
+		{
+			$data['inputerror'][] = 'waktu_event';
+			$data['error_string'][] = 'Waktu is required';
+			$data['status'] = FALSE;
+		}
+
+		// if($this->input->post('jenis_event') == '')
+		// {
+		// 	$data['inputerror'][] = 'jenis_event';
+		// 	$data['error_string'][] = 'Please select gender';
+		// 	$data['status'] = FALSE;
+		// }
+
+		if($this->input->post('cp_event') == '')
+		{
+			$data['inputerror'][] = 'cp_event';
+			$data['error_string'][] = 'Contact Person is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('daerah_event') == '')
+		{
+			$data['inputerror'][] = 'daerah_event';
+			$data['error_string'][] = 'Daerah is required';
+			$data['status'] = FALSE;
+		}
+
+		if($data['status'] === FALSE)
+		{
+			echo json_encode($data);
+			exit();
+		}
 	}
 }

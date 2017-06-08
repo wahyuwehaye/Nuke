@@ -45,6 +45,13 @@ class m_dashboard extends CI_Model{
         return $query;
     }
 
+    public function tampil_notif(){
+        // return $this->db->get('berita_terbaru');
+        // return $this->db->get('berita_terbaru')->order_by('id_berita', 'desc');
+        $query = $this->db->query("SELECT * FROM notifikasi order by id desc");
+            return $query;
+    }
+
     public function tampil_berita(){
         // return $this->db->get('berita_terbaru');
         // return $this->db->get('berita_terbaru')->order_by('id_berita', 'desc');

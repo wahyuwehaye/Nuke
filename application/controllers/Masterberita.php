@@ -74,6 +74,7 @@ class Masterberita extends CI_Controller {
 		// 	$this->load->view('notification_view', $data);
 		// //if upload success
 		// }else{
+		$this->validate();
 			$data = array(
 					'judul_berita' => $this->input->post('judul_berita'),
 					'tgl_berita' => $this->input->post("tgl_berita"),
@@ -90,6 +91,7 @@ class Masterberita extends CI_Controller {
 
 	public function ajax_update()
 	{
+		$this->validate();
 		$data = array(
             'judul_berita' => $this->input->post('judul_berita'),
             'tgl_berita' => $this->input->post("tgl_berita"),
@@ -107,6 +109,55 @@ class Masterberita extends CI_Controller {
 	{
 		$this->berita->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
+	}
+
+	private function validate()
+	{
+		$data = array();
+		$data['error_string'] = array();
+		$data['inputerror'] = array();
+		$data['status'] = TRUE;
+
+		if($this->input->post('judul_berita') == '')
+		{
+			$data['inputerror'][] = 'judul_berita';
+			$data['error_string'][] = 'Judul Berita is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('tgl_berita') == '')
+		{
+			$data['inputerror'][] = 'tgl_berita';
+			$data['error_string'][] = 'Tanggal is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('jenis_berita') == '')
+		{
+			$data['inputerror'][] = 'jenis_berita';
+			$data['error_string'][] = 'Jenis Berita is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('ket_berita') == '')
+		{
+			$data['inputerror'][] = 'ket_berita';
+			$data['error_string'][] = 'Asal Daerah is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('cp_berita') == '')
+		{
+			$data['inputerror'][] = 'cp_berita';
+			$data['error_string'][] = 'Nomor HP is required';
+			$data['status'] = FALSE;
+		}
+
+		if($data['status'] === FALSE)
+		{
+			echo json_encode($data);
+			exit();
+		}
 	}
 
 }

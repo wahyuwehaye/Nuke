@@ -55,8 +55,16 @@
 						</ul>
 					</div>
 				</div>
+				<div class="about-grids-bottom">
+				<div class="col-md-12 about-us">
+					<?php echo $map['html']; ?>
+					<div id="directionsDiv"></div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
 			<?php $no++; } ?>
 			</div>
+			</br>
 			<div class="com">
 				<h3>Komentar</h3>
 				<ul class="media-list">

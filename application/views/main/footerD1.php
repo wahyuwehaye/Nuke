@@ -129,7 +129,7 @@ function edit_user(id)
             $('[name="domisili"]').val(data.domisili);
             $('[name="asal_daerah"]').val(data.asal_daerah);
             $('[name="no_hp_user"]').val(data.no_hp_user);
-            $('[name="role"]').val(data.role);
+            // $('[name="role"]').val(data.role);
             $('[name="username"]').val(data.username);
             $('[name="password"]').val(data.password);
             $('[name="jk"]').val(data.jk);
@@ -174,6 +174,14 @@ function save()
             {
                 $('#modal_form').modal('hide');
                 reload_table();
+            }
+            else
+            {
+                for (var i = 0; i < data.inputerror.length; i++) 
+                {
+                    $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
+                    $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
+                }
             }
 
             $('#btnSave').text('save'); //change button text
@@ -232,13 +240,13 @@ function delete_user(id)
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control" name="nama_lengkap">
+                                    <input type="text" class="form-control" name="nama_lengkap" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Email address</label>
-                                    <input type="email" class="form-control" name="email">
+                                    <input type="email" class="form-control" name="email" required>
                                 </div>
                             </div>
                         </div>
@@ -247,13 +255,13 @@ function delete_user(id)
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Domisili</label>
-                                    <input type="text" class="form-control" name="domisili">
+                                    <input type="text" class="form-control" name="domisili" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Asal Daerah</label>
-                                    <input type="text" class="form-control" name="asal_daerah">
+                                    <input type="text" class="form-control" name="asal_daerah" required>
                                 </div>
                             </div>
                         </div>
@@ -262,13 +270,21 @@ function delete_user(id)
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nomor Handphone</label>
-                                    <input type="text" class="form-control" name="no_hp_user">
+                                    <input type="text" class="form-control" name="no_hp_user" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group label-floating">
+                                <!-- <div class="form-group label-floating">
                                     <label class="control-label">Role</label>
                                     <input type="text" class="form-control" name="role">
+                                </div> -->
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Jenis Kelamin</label>
+                                  <select name="jk" id="jk" class="form-control" required>
+                                                          <option value="">----</option>
+                                                          <option value="Laki-Laki">Laki-Laki</option>
+                                                          <option value="Perempuan">Perempuan</option>
+                                                      </select>
                                 </div>
                             </div>
                         </div>
@@ -277,17 +293,17 @@ function delete_user(id)
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Username</label>
-                                    <input type="text" class="form-control" name="username">
+                                    <input type="text" class="form-control" name="username" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Password</label>
-                                    <input type="password" class="form-control" name="password">
+                                    <input type="password" class="form-control" name="password" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Jenis Kelamin</label>
@@ -298,7 +314,7 @@ function delete_user(id)
                                                       </select>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </form>
             </div>

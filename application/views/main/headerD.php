@@ -150,24 +150,30 @@
 		            </div>
 		            <div class="collapse navbar-collapse">
 		                <ul class="nav navbar-nav navbar-right">
-		                    <li>
+		                    <!-- <li>
 		                        <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
 		                            <i class="material-icons">dashboard</i>
 		                            <p class="hidden-lg hidden-md">Dashboard</p>
 		                        </a>
-		                    </li>
+		                    </li> -->
 		                    <li class="dropdown">
 		                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		                            <i class="material-icons">notifications</i>
-		                            <span class="notification">5</span>
+		                            <span class="notification"><?php
+											                  $this->db->select('id');
+											                  $this->db->from('notifikasi');
+											                  echo $this->db->count_all_results();
+											                ?></span>
 		                            <p class="hidden-lg hidden-md">Notifications</p>
 		                        </a>
 		                        <ul class="dropdown-menu">
-		                            <li><a href="#">Mike John responded to your email</a></li>
-		                            <li><a href="#">You have 5 new tasks</a></li>
-		                            <li><a href="#">You're now friend with Andrew</a></li>
-		                            <li><a href="#">Another Notification</a></li>
-		                            <li><a href="#">Another One</a></li>
+		                        <?php $no=1; foreach($notif as $a){ ?>
+		                            <li><a href="#"><?php echo $a->nama_notif; ?> pada tanggal <?php echo $a->tanggal; ?></a></li>
+		                        <?php $no++;
+								if ($no>10) {
+									break;
+								}
+							 	} ?>
 		                        </ul>
 		                    </li>
 		                    <li>
@@ -181,7 +187,7 @@
 		                    </li>
 		                </ul>
 
-		                <form class="navbar-form navbar-right" role="search">
+		                <!-- <form class="navbar-form navbar-right" role="search">
 		                    <div class="form-group  is-empty">
 		                        <input type="text" class="form-control" placeholder="Search">
 		                        <span class="material-input"></span>
@@ -189,7 +195,7 @@
 		                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
 		                        <i class="material-icons">search</i><div class="ripple-container"></div>
 		                    </button>
-		                </form>
+		                </form> -->
 		            </div>
 		        </div>
 		    </nav>

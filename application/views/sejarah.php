@@ -1,4 +1,3 @@
-<!-- single -->
 	<div class="single w3l-agileits">
 		<div class="container">
 			<div class="blog-pag page">
@@ -11,9 +10,9 @@
 				</div>
 				<div class="blog-page-grids-bottom">
 					<!-- <div class="blog-page-grids-bot">
-						<img src="<?php echo base_url()?>assets/images/boyolali.jpg" alt=" " class="img-responsive" />
+						<img src="<?php echo base_url()?>assets/images/boyolali.jpg" alt=" "  width="350" height="560" class="img-responsive" />
 					</div> -->
-					<div class="blog-page-grids-bot1">
+					<div class="blog-page-grids-bot1" style="text-align: justify;">
                         <h4>Kabupaten Boyolali</h4>
 						<p>Cerita Rakyat Ki Ageng Pandan Arang, mulanya adalah sebuah legenda. Tentang terciptanya sebuah daerah di lereng gunung Merapi.
 Sebuah cerita tentang Ki Ageng Pandan Arang, Bupati Semarang pada Abad XVI. Pada masanya, mendapat tugas dari Sunan Kalijaga untuk pergi ke Gunung Jabalakat di Tembayat (Klaten) guna menyebarkan agama Islam. Ki Ageng Pandan Arang yang juga disebut dengan Tumenggung Notoprojo ini banyak menemui rintangan dan ujian selama perjalanan. Ki Ageng Pandan Arang berjalan cukup jauh meninggalkan anak dan istri ketika di sebuah hutan belantara. Tiga orang perampok mencegatnya. Mengira harta benda dibawanya. Tempat
@@ -31,76 +30,7 @@ Surakarta, Kartosuro, Klaten, Boyolali, Ampel dan Sragen. (Pawarti Surakarta, 19
 					</div>
 				</div>
 			</div>
-			</br></br>
-			<div class="com">
-				<h3>Komentar</h3>
-				<ul class="media-list">
-				  <!-- <li class="media">
-					<div class="media-left">
-					  <a href="#">
-						<img class="media-object img-responsive" src="<?php echo base_url()?>assets/images/3.png" alt="" />
-					  </a>
-					</div>
-					<div class="media-body">
-					  <h4 class="media-heading">Simmy</h4>
-					  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus 
-					  scelerisque ante sollicitudin commodo. Cras purus odio, 
-					  vestibulum in vulputate at, tempus viverra turpis. 
-					  <a href="#">Reply</a>
-					</div>
-				  </li> -->
-				  <?php $no=1; foreach($komen->result_array() as $row){ ?>
-				  <li class="media">
-					<div class="media-left">
-					  <a href="#">
-						<img class="media-object img-responsive" src="<?php echo base_url()?>assets/images/4.png" alt="" />
-					  </a>
-					</div>
-					<div class="media-body">
-					  <h4 class="media-heading"><?php echo $row['nama'];?></h4>
-					  <?php echo $row['komentar'];?>
-					  <a href="#"><?php echo $row['tgl_komentar'];?></a>
-					</div>
-				  </li>
-				  <?php $no++; } ?>
-				  <!-- <li class="media">
-					<div class="media-left">
-					  <a href="#">
-						<img class="media-object img-responsive" src="<?php echo base_url()?>assets/images/5.png" alt="" />
-					  </a>
-					</div>
-					<div class="media-body">
-					  <h4 class="media-heading">Jhon Willium</h4>
-					  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus 
-					  scelerisque ante sollicitudin commodo. Cras purus odio, 
-					  vestibulum in vulputate at, tempus viverra turpis. 
-					  <a href="#">Reply</a>
-					</div>
-				  </li> -->
-				</ul>
-			</div>
-			<div class="in dfg">
-				<h3>Tinggalkan Komentar Disini</h3>
-			    <form action="<?php echo base_url()?>index.php/dashboard/insertKomenTentang" method="post">
-					<!-- <input type="text" name="text" placeholder="Name" required=" "> -->
-				<?php $page = $this->uri->segment(1, 0); ?>
-				<?php if(isset($_SESSION['logged_in']))
-					{ ?>
-					<input type="hidden" name="id_tentang" value="1">
-					<input type="hidden" name="page" value="<?php echo $page; ?>">
-					<input type="hidden" name="nama" value="<?php echo ($_SESSION['username']); ?>" required=" ">
-				<?php }else{ ?>
-					<input type="text" name="nama" placeholder="Name" required=" ">
-					<input type="text" name="email" placeholder="Email" required=" ">
-					<input type="text" name="website" placeholder="Website" required=" ">
-					<input type="hidden" name="id_tentang" value="1">
-					<input type="hidden" name="page" value="<?php echo $page; ?>">
-				<?php } ?>
-					<textarea name="komentar" placeholder="Isi Komentar" required=" "></textarea>
-					<input type="submit" value="Komentar">
-					<div class="clearfix"> </div>
-				</form>
-			</div>
+			
 		</div>
 	</div>
-<!-- //single -->
+<!-- //single

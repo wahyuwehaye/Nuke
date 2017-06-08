@@ -8,7 +8,7 @@
 		<?php $no=1; foreach($wisata->result_array() as $row){ ?>
 			<h3><?php echo $row['kategori_wisata'];?></h3>
 			<div class="about-grids">
-				<div class="col-md-12 about-grid">
+				<div class="col-md-6 about-grid">
 					<?php
 						$dapetgambarwisata = "";
 						$getgambar =$CI->db->query('select gambar from gambar_wisata where id_wisata="'.$row['id_wisata'].'"');
@@ -33,6 +33,12 @@
 						<p><?php echo $row['nama_wisata'];?></p>
 					</div>
 				</div>
+				<div class="col-md-6 about-grid">
+						<p>Alamat Wisata : <?php echo $row['alamat_wisata'];?></p></br>
+						<p>Kategori Wisata : <?php echo $row['kategori_wisata'];?></p></br>
+						<p>Harga Tiket Masuk : Rp. <?php echo number_format($row['harga_wisata'], 2, ",", ".");?> per Orang</p></br>
+						<p>Contact Wisata : <?php echo $row['notelp_wisata'];?></p></br>
+				</div>
 				<!-- <div class="col-md-4 about-grid">
 					<img src="images/3.jpg" alt=" " class="img-responsive" />
 					<div class="img-bottom">
@@ -48,7 +54,7 @@
 				<div class="clearfix"> </div>
 			</div>
 			<div class="about-grids-bottom">
-				<div class="col-md-12 about-us">
+				<div class="col-md-12 about-us" style="text-align: justify;">
 					<h4>Keterangan</h4>
 					<p><?php echo $row['ket_wisata'];?></p>
 				</div>
@@ -63,6 +69,13 @@
 					nisl tempus convallis quis ac lactusnisl tempus convallis quis ac 
 					lactus.Sed porttitor lactus nibhSed porttitor lactus nibh.</p>
 				</div> -->
+				<div class="clearfix"> </div>
+			</div>
+			<div class="about-grids-bottom">
+				<div class="col-md-12 about-us">
+					<?php echo $map['html']; ?>
+					<div id="directionsDiv"></div>
+				</div>
 				<div class="clearfix"> </div>
 			</div>
 		<?php $no++; } ?>

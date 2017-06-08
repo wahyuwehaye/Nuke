@@ -36,7 +36,7 @@
 							<h3><?php echo $a->nama_event; ?></h3>
 						</div>
 						<div class="clearfix"> </div>
-						<p class="vel">Jenis Event : <?php echo $a->jenis_event; ?></p>
+						<!-- <p class="vel">Jenis Event : <?php echo $a->jenis_event; ?></p> -->
 							<div class="more">
 								<a href="<?php echo base_url()?>index.php/detailevent/<?php echo $a->id_event; ?>">Learn More</a>
 							</div>

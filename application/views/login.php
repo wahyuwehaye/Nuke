@@ -108,7 +108,7 @@
             <input type="text" pattern="[a-zA-Z]+" required autocomplete="off" name="domisili"/>
           </div>
 
-            <input type="hidden" required autocomplete="off" name="role" value="user"/>
+            <!-- <input type="hidden" required autocomplete="off" name="role" value="user"/> -->
 
           <button type="submit" id="btnSave" onclick="save()" class="button button-block"/>Daftar</button>
 

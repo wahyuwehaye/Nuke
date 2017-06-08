@@ -61,13 +61,14 @@ class Masterdatauser extends CI_Controller {
 
 	public function ajax_add()
 	{
+		$this->validate();
 		$data = array(
             'nama_lengkap' => $this->input->post('nama_lengkap'),
             'email' => $this->input->post('email'),
             'domisili' => $this->input->post('domisili'),
             'asal_daerah' => $this->input->post('asal_daerah'),
             'no_hp_user' => $this->input->post('no_hp_user'),
-            'role' => $this->input->post('role'),
+            // 'role' => $this->input->post('role'),
             'username' => $this->input->post('username'),
             'password' => md5($this->input->post("password")),
             'jk' => $this->input->post('jk'),
@@ -78,13 +79,14 @@ class Masterdatauser extends CI_Controller {
 
 	public function ajax_update()
 	{
+		$this->validate();
 		$data = array(
             'nama_lengkap' => $this->input->post('nama_lengkap'),
             'email' => $this->input->post('email'),
             'domisili' => $this->input->post('domisili'),
             'asal_daerah' => $this->input->post('asal_daerah'),
             'no_hp_user' => $this->input->post('no_hp_user'),
-            'role' => $this->input->post('role'),
+            // 'role' => $this->input->post('role'),
             'username' => $this->input->post('username'),
             'password' => md5($this->input->post("password")),
             'jk' => $this->input->post('jk'),
@@ -97,5 +99,75 @@ class Masterdatauser extends CI_Controller {
 	{
 		$this->user->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
+	}
+
+	private function validate()
+	{
+		$data = array();
+		$data['error_string'] = array();
+		$data['inputerror'] = array();
+		$data['status'] = TRUE;
+
+		if($this->input->post('nama_lengkap') == '')
+		{
+			$data['inputerror'][] = 'nama_lengkap';
+			$data['error_string'][] = 'Nama Lengkap is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('email') == '')
+		{
+			$data['inputerror'][] = 'email';
+			$data['error_string'][] = 'Email is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('domisili') == '')
+		{
+			$data['inputerror'][] = 'domisili';
+			$data['error_string'][] = 'Domisili is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('asal_daerah') == '')
+		{
+			$data['inputerror'][] = 'asal_daerah';
+			$data['error_string'][] = 'Asal Daerah is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('no_hp_user') == '')
+		{
+			$data['inputerror'][] = 'no_hp_user';
+			$data['error_string'][] = 'Nomor HP is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('jk') == '')
+		{
+			$data['inputerror'][] = 'jk';
+			$data['error_string'][] = 'Please select gender';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('username') == '')
+		{
+			$data['inputerror'][] = 'username';
+			$data['error_string'][] = 'Username is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('password') == '')
+		{
+			$data['inputerror'][] = 'password';
+			$data['error_string'][] = 'Password is required';
+			$data['status'] = FALSE;
+		}
+
+		if($data['status'] === FALSE)
+		{
+			echo json_encode($data);
+			exit();
+		}
 	}
 }

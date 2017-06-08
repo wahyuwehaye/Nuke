@@ -62,6 +62,7 @@ class Masterpenginapan extends CI_Controller {
 
 	public function ajax_add()
 	{
+		$this->validate();
 		$data = array(
 				'nama_penginapan' => $this->input->post('nama_penginapan'),
 				'alamat_penginapan' => $this->input->post("alamat_penginapan"),
@@ -80,6 +81,7 @@ class Masterpenginapan extends CI_Controller {
 
 	public function ajax_update()
 	{
+		$this->validate();
 		$data = array(
             'nama_penginapan' => $this->input->post('nama_penginapan'),
             'alamat_penginapan' => $this->input->post("alamat_penginapan"),
@@ -112,5 +114,54 @@ class Masterpenginapan extends CI_Controller {
 	{
 		$this->penginapan->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
+	}
+
+	private function validate()
+	{
+		$data = array();
+		$data['error_string'] = array();
+		$data['inputerror'] = array();
+		$data['status'] = TRUE;
+
+		if($this->input->post('nama_penginapan') == '')
+		{
+			$data['inputerror'][] = 'nama_penginapan';
+			$data['error_string'][] = 'Nama Penginapan is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('alamat_penginapan') == '')
+		{
+			$data['inputerror'][] = 'alamat_penginapan';
+			$data['error_string'][] = 'Alamat Penginapan is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('daerah_penginapan') == '')
+		{
+			$data['inputerror'][] = 'daerah_penginapan';
+			$data['error_string'][] = 'Daerah is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('ket_penginapan') == '')
+		{
+			$data['inputerror'][] = 'ket_penginapan';
+			$data['error_string'][] = 'Keterangan is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('harga_penginapan') == '')
+		{
+			$data['inputerror'][] = 'harga_penginapan';
+			$data['error_string'][] = 'Harga is required';
+			$data['status'] = FALSE;
+		}
+
+		if($data['status'] === FALSE)
+		{
+			echo json_encode($data);
+			exit();
+		}
 	}
 }
