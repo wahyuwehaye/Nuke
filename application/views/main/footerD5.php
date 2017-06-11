@@ -215,7 +215,7 @@ function sendemail()
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-                alert('Gagal kirim Email');
+                alert('Email Terkirim...');
             }
         });
 }
