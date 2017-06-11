@@ -79,7 +79,34 @@
 				<div class="clearfix"> </div>
 			</div>
 		<?php $no++; } ?>
-		</br></br></br></br>
+		<!--gallery-->
+						<h3>Photo Lainnya</h3>
+						<div class="top-gallery">
+						<?php $no=1; foreach($gambarnya->result_array() as $gam){ ?>
+							<div class="col-md-3 gallery-grid gallery1">
+								<a href="<?php echo base_url()?>upload-foto/<?php echo $gam['gambar'];?>" class="swipebox">
+									<img src="<?php echo base_url()?>upload-foto/<?php echo $gam['gambar'];?>" class="img-responsive" alt="/">
+									<div class="textbox">
+										<h4>Lihat Detail</h4>
+										<!-- <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit.</p> -->
+									</div>
+								</a>
+							</div>
+						<?php $no++; } ?>
+							<div class="clearfix"> </div>
+						</div>
+						
+						<link rel="stylesheet" href="<?php echo base_url()?>assets/css/swipebox.css">
+								<!-- swipe box js -->
+						<script src="<?php echo base_url()?>assets/js/jquery.swipebox.min.js"></script> 
+							<script type="text/javascript">
+								jQuery(function($) {
+									$(".swipebox").swipebox();
+								});
+						</script>
+						<!-- //swipe box js -->
+			<!--//gallery-->
+			</br></br></br>
 
 		<div class="com">
 				<h3>Komentar</h3>

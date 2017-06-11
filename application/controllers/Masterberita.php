@@ -84,7 +84,9 @@ class Masterberita extends CI_Controller {
 	                'id_admin' => $this->input->post('id_admin'),
 				);
 			// $this->db->insert('berita_terbaru', $data);
+			// $this->sendemail();
 			$insert = $this->berita->save($data);
+		
 			echo json_encode(array("status" => TRUE));
 		// }
 	}
@@ -110,6 +112,60 @@ class Masterberita extends CI_Controller {
 		$this->berita->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
 	}
+
+	function sendemail(){
+        $this->load->model('m_dashboard', 'emails');
+        $datetidtrans = "";
+  //       $getidtrans = $this->db->query('SELECT * FROM berita_terbaru ORDER BY id_berita DESC LIMIT 1');
+		// foreach ($getidtrans->result() as $cari) {
+		//     $datetidtrans = $cari->id_booking;
+		//     break;
+		// }
+		// $idtransbaru = $datetidtrans+1;
+		// $judul = $this->input->post('judul_berita');
+
+		$getdata=$this->emails->datanyanih();
+		foreach ($getdata as $key) {
+			$datetidtrans = $key['id_berita'];
+			$judul = $key['judul_berita'];
+		}
+
+        $emails=$this->emails->selectemail();
+        foreach($emails as $row){
+            if($row['email']){
+            $config = Array(
+              'protocol' => 'smtp',
+              'smtp_host' => 'ssl://smtp.googlemail.com',
+              'smtp_port' => 465,
+              'smtp_user' => 'wonderfulboyolali@gmail.com', // change it to yours
+              'smtp_pass' => 'boyolali123', // change it to yours
+              'mailtype' => 'html',
+              'charset' => 'iso-8859-1',
+              'wordwrap' => TRUE
+            );
+
+                  $message = 'Hii '.$row['nama_lengkap'].', ada berita terbaru dengan judul "'.$judul.'" pada website Wonderful Boyolali. Silakan cek pada website di menu Berita atau klik pada link berikut ini : http://localhost/Nuke/index.php/detailberita/'.$datetidtrans.'';
+                  $this->load->library('email', $config);
+                  $this->email->set_newline("\r\n");
+                  $this->email->from('wonderfulboyolali@gmail.com', 'Admin Boyolali'); // change it to yours
+                  // $list = $this->m_dashboard->selectemail()->result_array();
+                  $this->email->to($row['email']);// change it to yours
+                  $this->email->subject($judul);
+                  $this->email->message($message);
+                  if($this->email->send())
+                 {
+                  // echo 'Email sent.';
+                  $this->email->clear();
+                  echo json_encode(array("status" => TRUE));
+                 }
+                 else
+                {
+                 show_error($this->email->print_debugger());
+                }
+        }
+    }
+
+    }
 
 	private function validate()
 	{

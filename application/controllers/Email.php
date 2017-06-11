@@ -6,6 +6,7 @@
 class Email extends CI_Controller{
     function __construct(){
         parent::__construct();
+        $this->load->model(array('m_dashboard'));
         // $this->load->library('MyPHPMailerr'); // load library
     }
  
@@ -34,35 +35,42 @@ class Email extends CI_Controller{
     //     }
     // }
 
-    function index()
-{
-    $config = Array(
-  'protocol' => 'smtp',
-  'smtp_host' => 'ssl://smtp.googlemail.com',
-  'smtp_port' => 465,
-  'smtp_user' => 'wonderfulboyolali@gmail.com', // change it to yours
-  'smtp_pass' => 'boyolali123', // change it to yours
-  'mailtype' => 'html',
-  'charset' => 'iso-8859-1',
-  'wordwrap' => TRUE
-);
+    function index(){
+        $this->load->model('m_dashboard', 'emails');
+        $emails=$this->emails->selectemail();
+        foreach($emails as $row){
+            if($row['email']){
+            $config = Array(
+              'protocol' => 'smtp',
+              'smtp_host' => 'ssl://smtp.googlemail.com',
+              'smtp_port' => 465,
+              'smtp_user' => 'wonderfulboyolali@gmail.com', // change it to yours
+              'smtp_pass' => 'boyolali123', // change it to yours
+              'mailtype' => 'html',
+              'charset' => 'iso-8859-1',
+              'wordwrap' => TRUE
+            );
 
-        $message = 'say hay buat kamu yang disana';
-        $this->load->library('email', $config);
-      $this->email->set_newline("\r\n");
-      $this->email->from('wonderfulboyolali@gmail.com'); // change it to yours
-      $this->email->to('wehaye94@gmail.com','wmtrendmanagement@gmail.com');// change it to yours
-      $this->email->subject('Dibaca Aja');
-      $this->email->message($message);
-      if($this->email->send())
-     {
-      echo 'Email sent.';
-     }
-     else
-    {
-     show_error($this->email->print_debugger());
+                    $message = 'Selamat, Anda Terdaftar dalam database user boyolali :)';
+                    $this->load->library('email', $config);
+                  $this->email->set_newline("\r\n");
+                  $this->email->from('wonderfulboyolali@gmail.com'); // change it to yours
+                  // $list = $this->m_dashboard->selectemail()->result_array();
+                  $this->email->to($row['email']);// change it to yours
+                  $this->email->subject('URGENT!!!');
+                  $this->email->message($message);
+                  if($this->email->send())
+                 {
+                  echo 'Email sent.';
+                  $this->email->clear();
+                 }
+                 else
+                {
+                 show_error($this->email->print_debugger());
+                }
+        }
     }
 
-}
+    }
 }
 ?>

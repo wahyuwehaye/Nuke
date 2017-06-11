@@ -52,6 +52,25 @@ class m_dashboard extends CI_Model{
             return $query;
     }
 
+    public function selectemail(){
+        // $query = $this->db->query("SELECT email FROM user order by id_user desc");
+        //     return $query;
+        $this->db->select('nama_lengkap, email');
+        $this->db->from('user');
+        $this->db->order_by('id_user', 'desc');
+        return $this->db->get()->result_array();
+    }
+
+    public function datanyanih(){
+        // $query = $this->db->query("SELECT email FROM user order by id_user desc");
+        //     return $query;
+        // query('SELECT * FROM berita_terbaru ORDER BY id_berita DESC LIMIT 1');
+        $this->db->select('*');
+        $this->db->from('berita_terbaru');
+        $this->db->order_by('id_berita', 'DESC LIMIT 1');
+        return $this->db->get()->result_array();
+    }
+
     public function tampil_berita(){
         // return $this->db->get('berita_terbaru');
         // return $this->db->get('berita_terbaru')->order_by('id_berita', 'desc');
@@ -133,6 +152,30 @@ class m_dashboard extends CI_Model{
     function viewDetailKomenTentang($id){
             // $query = $this->db->query("SELECT * FROM komentar_berita JOIN user USING ( id_user ) where id_berita='".$id."'");
             $query = $this->db->query("SELECT * FROM komentar_tentang where id_tentang='".$id."'");
+            return $query;
+    }
+
+    function viewGambarBerita($id){
+            // $query = $this->db->query("SELECT * FROM komentar_berita JOIN user USING ( id_user ) where id_berita='".$id."'");
+            $query = $this->db->query("SELECT * FROM gambar_berita where id_berita='".$id."'");
+            return $query;
+    }
+
+    function viewGambarEvent($id){
+            // $query = $this->db->query("SELECT * FROM komentar_berita JOIN user USING ( id_user ) where id_berita='".$id."'");
+            $query = $this->db->query("SELECT * FROM gambar_event where id_event='".$id."'");
+            return $query;
+    }
+
+    function viewGambarPenginapan($id){
+            // $query = $this->db->query("SELECT * FROM komentar_berita JOIN user USING ( id_user ) where id_berita='".$id."'");
+            $query = $this->db->query("SELECT * FROM gambar_penginapan where id_penginapan='".$id."'");
+            return $query;
+    }
+
+    function viewGambarWisata($id){
+            // $query = $this->db->query("SELECT * FROM komentar_berita JOIN user USING ( id_user ) where id_berita='".$id."'");
+            $query = $this->db->query("SELECT * FROM gambar_wisata where id_wisata='".$id."'");
             return $query;
     }
 }

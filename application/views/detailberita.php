@@ -13,7 +13,7 @@
 						<p>Published on<span> <?php echo $row['tgl_berita'];?></span></p>
 					</div>
 					<div class="blog-page-grid1">
-						<p><a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><?php echo $row['jenis_berita'];?></a></p>
+						<p><a href="#"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span><?php echo $row['cp_berita'];?></a></p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -53,6 +53,34 @@
 				</div>
 			<?php $no++; } ?>
 			</div>
+			<!--gallery-->
+						<h3>Photo Lainnya</h3>
+						<div class="top-gallery">
+						<?php $no=1; foreach($gambarnya->result_array() as $gam){ ?>
+							<div class="col-md-3 gallery-grid gallery1">
+								<a href="<?php echo base_url()?>upload-foto/<?php echo $gam['gambar'];?>" class="swipebox">
+									<img src="<?php echo base_url()?>upload-foto/<?php echo $gam['gambar'];?>" class="img-responsive" alt="/">
+									<div class="textbox">
+										<h4>Lihat Detail</h4>
+										<!-- <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit.</p> -->
+									</div>
+								</a>
+							</div>
+						<?php $no++; } ?>
+							<div class="clearfix"> </div>
+						</div>
+						
+						<link rel="stylesheet" href="<?php echo base_url()?>assets/css/swipebox.css">
+								<!-- swipe box js -->
+						<script src="<?php echo base_url()?>assets/js/jquery.swipebox.min.js"></script> 
+							<script type="text/javascript">
+								jQuery(function($) {
+									$(".swipebox").swipebox();
+								});
+						</script>
+						<!-- //swipe box js -->
+			<!--//gallery-->
+			</br>
 			<div class="com">
 				<h3>Komentar</h3>
 				<ul class="media-list">

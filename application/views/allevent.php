@@ -29,9 +29,9 @@
 					?>
 					<!-- <img src="<?php echo base_url()?>assets/images/1.jpg" alt=" " class="img-responsive" /> -->
 					<div class="banner-bottom-grid-info">
-						<div class="col-xs-4 banner-bottom-grid-infol">
+						<!-- <div class="col-xs-4 banner-bottom-grid-infol">
 							<p>NEW</p>
-						</div>
+						</div> -->
 						<div class="col-xs-8 banner-bottom-grid-infor">
 							<h3><?php echo $a->nama_event; ?></h3>
 						</div>

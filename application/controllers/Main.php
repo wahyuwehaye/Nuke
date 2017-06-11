@@ -48,6 +48,7 @@ class Main extends CI_Controller {
         $id=$this->uri->segment(2, 0);
 		$data['berita'] = $this->m_dashboard->viewDetailBerita($id);
 		$data['komen'] = $this->m_dashboard->viewDetailKomenBerita($id);
+		$data['gambarnya'] = $this->m_dashboard->viewGambarBerita($id);
         $this->load->view('detailberita',$data);
 		$this->load->view('main/footer');
 	}
@@ -66,6 +67,7 @@ class Main extends CI_Controller {
         $id=$this->uri->segment(2, 0);
 		$data['event'] = $this->m_dashboard->viewDetailEvent($id);
 		$data['komen'] = $this->m_dashboard->viewDetailKomenEvent($id);
+		$data['gambarnya'] = $this->m_dashboard->viewGambarEvent($id);
         $this->load->view('detailevent',$data);
 		$this->load->view('main/footer');
 	}
@@ -142,7 +144,7 @@ class Main extends CI_Controller {
         $id=$this->uri->segment(2, 0);
 		$data['wisata'] = $this->m_dashboard->viewDetailWisata($id);
 		$data['komen'] = $this->m_dashboard->viewDetailKomenWisata($id);
-		
+		$data['gambarnya'] = $this->m_dashboard->viewGambarWisata($id);
         $this->load->view('detailwisata',$data);
 		$this->load->view('main/footer');
 	}
@@ -206,6 +208,7 @@ class Main extends CI_Controller {
         $id=$this->uri->segment(2, 0);
 		$data['penginapan'] = $this->m_dashboard->viewDetailPenginapan($id);
 		$data['komen'] = $this->m_dashboard->viewDetailKomenPenginapan($id);
+		$data['gambarnya'] = $this->m_dashboard->viewGambarPenginapan($id);
         $this->load->view('detailpenginapan',$data);
 		$this->load->view('main/footer');
 	}

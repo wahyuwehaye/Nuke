@@ -153,9 +153,11 @@ function save()
     $('#btnSave').text('saving...'); //change button text
     $('#btnSave').attr('disabled',true); //set button disable
     var url;
+    var url1;
 
     if(save_method == 'add') {
         url = "<?php echo site_url('Masterberita/ajax_add')?>";
+        url1 = "<?php echo site_url('Masterberita/sendemail')?>";
     } else {
         url = "<?php echo site_url('Masterberita/ajax_update')?>";
     }
@@ -171,8 +173,10 @@ function save()
 
             if(data.status) //if success close modal and reload ajax table
             {
+                
                 $('#modal_form').modal('hide');
                 reload_table();
+                sendemail();
             }
             else
             {
@@ -195,6 +199,25 @@ function save()
 
         }
     });
+}
+
+function sendemail()
+{
+        // ajax delete data to database
+        $.ajax({
+            url : "<?php echo site_url('Masterberita/sendemail')?>",
+            type: "POST",
+            dataType: "JSON",
+            success: function(data)
+            {
+                //if success reload ajax table
+                alert('Email Send...');
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert('Gagal kirim Email');
+            }
+        });
 }
 
 function delete_berita(id)
