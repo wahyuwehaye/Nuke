@@ -36,7 +36,7 @@
 							<h3><?php echo $a->judul_berita; ?></h3>
 						</div>
 						<div class="clearfix"> </div>
-						<p class="vel">Jenis Berita : <?php echo $a->jenis_berita; ?></p>
+						<p class="vel">CP Berita : <?php echo $a->cp_berita; ?></p>
 							<div class="more">
 								<a href="<?php echo base_url()?>index.php/detailberita/<?php echo $a->id_berita; ?>">Learn More</a>
 							</div>

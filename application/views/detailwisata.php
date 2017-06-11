@@ -33,7 +33,7 @@
 						<p><?php echo $row['nama_wisata'];?></p>
 					</div>
 				</div>
-				<div class="col-md-6 about-grid">
+				<div class="col-md-6 about-grid" style="text-align: justify;">
 						<p>Alamat Wisata : <?php echo $row['alamat_wisata'];?></p></br>
 						<p>Kategori Wisata : <?php echo $row['kategori_wisata'];?></p></br>
 						<p>Harga Tiket Masuk : Rp. <?php echo number_format($row['harga_wisata'], 2, ",", ".");?> per Orang</p></br>

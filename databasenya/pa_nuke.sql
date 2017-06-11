@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2017 at 01:53 AM
+-- Generation Time: Jun 11, 2017 at 04:55 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -52,7 +52,6 @@ CREATE TABLE `berita_terbaru` (
   `id_berita` int(5) NOT NULL,
   `judul_berita` varchar(100) NOT NULL,
   `tgl_berita` date NOT NULL,
-  `jenis_berita` varchar(50) NOT NULL,
   `ket_berita` text NOT NULL,
   `cp_berita` varchar(15) NOT NULL,
   `id_admin` int(5) NOT NULL
@@ -62,8 +61,9 @@ CREATE TABLE `berita_terbaru` (
 -- Dumping data for table `berita_terbaru`
 --
 
-INSERT INTO `berita_terbaru` (`id_berita`, `judul_berita`, `tgl_berita`, `jenis_berita`, `ket_berita`, `cp_berita`, `id_admin`) VALUES
-(3, 'Tahun Ini Boyolali Kuliahkan 30 Pelajar Ke Luar Negeri', '2017-05-23', 'berita Politik', 'Sebanyak 30 pelajar Boyolali akan dibiayai kuliahnya ke luar negeri tahun ini oleh Pemkab Boyolali. Mereka terdiri dari 20 pelajar dengan jenjang pendidikan S1 dan 10 orang dengan jenjang pendidikan S2. Proses seleksi untuk pelajar yang akan dikirimkan untuk kuliah S1 di Nanjing University, Tiongkok, tahun ini sudah selesai dilakukan oleh panitia seleksi. Saat ini menurut Kepala Dinas Pendidikan dan Kebudayaan (Disdikbud) Boyolali, Darmanto, para pelajar yang terpilih tinggal menunggu teknis pemberangkatan. Disebutkan Darmanto, animo pelajar Boyolali untuk kuliah ke luar negeri cukup tinggi. Setidaknya terdapat 60 pelajar yang ikut seleksi. Mereka kemudian diuji, mulai dari seleksi administrative, akademik, hingga wawasan kebangsaan. Pengiriman mahasiswa ke Tiongkok tersebut menurut Darmanto, menyusul pengiriman 10 siswa ke universitas yang sama tahun kemarin. “Dari 60 peserta, sudah terseleksi 20 orang yang saat ini tinggal teknis pemberangkatan,” ungkap Darmanto, Selasa (23/5). Selain beasiswa jenjang pendidikan S1, tahun ini Pemkab Boyolali menurut Darmanto juga memberikan beasiswa untuk jenjang pendidikan S2 dengan tujuan Universitas di London, Inggris. Beasiswa ini diberikan bagi warga Boyolali yang sudah menyandang gelar pendidikan S1. Sedangkan jurusan yang dipilih yakni jurusan Akuntansi dan Manajemen. Untuk seleksi beasiswa S2 ini, menurut Darmanto saat ini tengah proses persiapan. Menurut dia, beasiswa ini diperuntukkan secara bebas bagi warga Boyolali, baik PNS maupun umum. Sementara itu untuk alokasi anggaran beasiswa kuliah ke luar negeri tahun ini, menurut Darmanto dialokasikan anggaran senilai Rp 10,6 miliar. Nantinya meski mereka tidak ada ikatan apapun dengan Pemkab Boyolali, namun mereka diminta untuk serius dalam menimba ilmu di luar negeri. “Tidak ada ikatan dinas, hanya saja mereka wajib membuat laporan pertanggungjawaban setelah lulus,” imbuh Darmanto.', '23232', 1);
+INSERT INTO `berita_terbaru` (`id_berita`, `judul_berita`, `tgl_berita`, `ket_berita`, `cp_berita`, `id_admin`) VALUES
+(3, 'Tahun Ini Boyolali Kuliahkan 30 Pelajar Ke Luar Negeri', '2017-05-23', 'Sebanyak 30 pelajar Boyolali akan dibiayai kuliahnya ke luar negeri tahun ini oleh Pemkab Boyolali. Mereka terdiri dari 20 pelajar dengan jenjang pendidikan S1 dan 10 orang dengan jenjang pendidikan S2. Proses seleksi untuk pelajar yang akan dikirimkan untuk kuliah S1 di Nanjing University, Tiongkok, tahun ini sudah selesai dilakukan oleh panitia seleksi. Saat ini menurut Kepala Dinas Pendidikan dan Kebudayaan (Disdikbud) Boyolali, Darmanto, para pelajar yang terpilih tinggal menunggu teknis pemberangkatan. Disebutkan Darmanto, animo pelajar Boyolali untuk kuliah ke luar negeri cukup tinggi. Setidaknya terdapat 60 pelajar yang ikut seleksi. Mereka kemudian diuji, mulai dari seleksi administrative, akademik, hingga wawasan kebangsaan. Pengiriman mahasiswa ke Tiongkok tersebut menurut Darmanto, menyusul pengiriman 10 siswa ke universitas yang sama tahun kemarin. “Dari 60 peserta, sudah terseleksi 20 orang yang saat ini tinggal teknis pemberangkatan,” ungkap Darmanto, Selasa (23/5). Selain beasiswa jenjang pendidikan S1, tahun ini Pemkab Boyolali menurut Darmanto juga memberikan beasiswa untuk jenjang pendidikan S2 dengan tujuan Universitas di London, Inggris. Beasiswa ini diberikan bagi warga Boyolali yang sudah menyandang gelar pendidikan S1. Sedangkan jurusan yang dipilih yakni jurusan Akuntansi dan Manajemen. Untuk seleksi beasiswa S2 ini, menurut Darmanto saat ini tengah proses persiapan. Menurut dia, beasiswa ini diperuntukkan secara bebas bagi warga Boyolali, baik PNS maupun umum. Sementara itu untuk alokasi anggaran beasiswa kuliah ke luar negeri tahun ini, menurut Darmanto dialokasikan anggaran senilai Rp 10,6 miliar. Nantinya meski mereka tidak ada ikatan apapun dengan Pemkab Boyolali, namun mereka diminta untuk serius dalam menimba ilmu di luar negeri. “Tidak ada ikatan dinas, hanya saja mereka wajib membuat laporan pertanggungjawaban setelah lulus,” imbuh Darmanto.', '23232', 1),
+(5, 'asas', '2017-06-11', 'dada', '234', 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +89,7 @@ CREATE TABLE `event` (
 
 INSERT INTO `event` (`id_event`, `nama_event`, `tgl_event`, `lokasi_event`, `ket_event`, `waktu_event`, `cp_event`, `daerah_event`, `id_admin`) VALUES
 (4, 'Peringati Hari Tari Sedunia', '2017-05-28', 'Alun-alun Kabupaten Boyolali', ' Sebanyak 1.728 penari ikut meramaikan event bertemakan “Bojalali Ekspresi Gerak Boyolali” itu. Tak hanya penari lokal, dalam kegiatan tersebut juga terdapat sejumlah penari mancanegara yang turut ambil bagian. Mereka di antaranya dari China, Jerman, Timor Leste, Singapura, serta sejumlah penari dari kota-kota sekitar Boyolali. Kegiatan Boyolali menari 24 jam nonstop tersebut diselenggarakan Disdikbud bekerjasama dengan Ketholeng Institute dan Ireng Putih Production. Kegiatan menari tersebut diawali dengan tari kolosal jaran kepang, yang dipentaskan oleh 500 pelajar SMP dan SMA Boyolali dengan lokasi Pendapa Alit rumah dinas (Rumdin) bupati mulai pukul 07.00 WIB. Kegiatan menari tersebut berlangsung hingga pukul 12.00 WIB dengan disambung tari-tarian yang dipentaskan siswa PAUD, TK, dan SD. Selepas itu, kegiatan menari dilanjutkan ke Gelanggang Anuraga, yang dipentaskan oleh para pelajar SMP dan SMA di Boyolali. Petang harinya, kegiatan menari itu kembali bergeser ke kawasan Simpang Lima Siaga yang berlangsung hingga tengah malam.', '00:12:00', '22222222', 'Kabupaten Boyolali', 1),
-(7, 'asa', '2017-06-03', 'asas', 'asas', '14:03:00', '242', '2424', 1);
+(7, 'asa', '2017-06-03', 'asas', 'asas', '14:10:00', '242', '2424', 1);
 
 -- --------------------------------------------------------
 
@@ -328,7 +328,7 @@ CREATE TABLE `penginapan` (
 
 INSERT INTO `penginapan` (`id_penginapan`, `nama_penginapan`, `alamat_penginapan`, `daerah_penginapan`, `ket_penginapan`, `harga_penginapan`, `long_penginapan`, `lat_penginapan`, `cp_penginapan`, `id_admin`, `id_user`) VALUES
 (1, 'Hotel Boyolali Indah', 'Jl. Solo - Boyolali RT01/RW09', 'Kabupaten Boyolali', 'Hotel yang menyediakan 12 kamar dengan kisaran harga antara Rp. 110.000 sampai dengan Rp. 500.000', 110000, '', '', '0276325660', 1, 1),
-(2, 'Penginapan Pondok Asri', 'Jl. Perintis Kemerdekaan No. 9', 'Kabupaten Boyolali', 'Hotel yang menyediakan 16 kamar dengan tarif Rp 60.000 sampai dengan Rp 250.000', 150000, '', '', '0276323760', 1, 1),
+(2, 'Penginapan Pondok Asri', 'Jl. Perintis Kemerdekaan No. 9', 'Kabupaten Boyolali', 'Hotel yang menyediakan 16 kamar dengan tarif Rp 60.000 sampai dengan Rp 250.000', 150000, '110.60279846191406', '-7.529276408744877', '0276323760', 1, 1),
 (3, 'Penginapan Pondok Indah', 'Jl. Merapi No.27, Pulisen, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah', 'Pulisen', 'Menyediakan 26 jumlah kamar dengan fasilitas sesuai dengan harga yang tersedia. Nyaman, bersih dan juga dekat dengan jalur transportasi umum.', 165000, '', '', '0276321497', 1, 1);
 
 -- --------------------------------------------------------
@@ -508,17 +508,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_admin` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `berita_terbaru`
 --
 ALTER TABLE `berita_terbaru`
-  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id_event` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_event` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `gambar_berita`
 --
@@ -578,7 +578,7 @@ ALTER TABLE `tempat_wisata`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- Constraints for dumped tables
 --

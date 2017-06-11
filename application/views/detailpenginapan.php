@@ -40,7 +40,7 @@
 					?>
 						<!-- <img src="<?php echo base_url()?>assets/images/banner1.jpg" alt=" " class="img-responsive" /> -->
 					</div>
-					<div class="blog-page-grids-bot1">
+					<div class="blog-page-grids-bot1" style="text-align: justify;">
 						<p>Nama Hotel : <?php echo $row['nama_penginapan'];?></p></br>
 						<p>Alamat Hotel : <?php echo $row['alamat_penginapan'];?></p></br>
 						<p>Daerah Hotel : <?php echo $row['daerah_penginapan'];?></p></br>

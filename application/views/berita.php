@@ -16,7 +16,7 @@
                                     <th>No</th>
                                     <th>Judul Berita</th>
                                     <th>Tanggal Berita</th>
-                                    <th>Jenis Berita</th>
+                                    <!-- <th>Jenis Berita</th> -->
                                     <th>Contact Person Berita</th>
                                     <th>Aksi</th>
                                     <!-- <?php if (($_SESSION['username'])=='admin') {

@@ -107,7 +107,7 @@
         </div> -->
         <div class="clearfix"> </div>
       </div>
-      <div class="about-grids-bottom col-md-6">
+      <div class="about-grids-bottom col-md-6" style="text-align: justify;">
         <div class="about-us">
           <h4>Keterangan</h4>
           <p><?php echo $a->ket_wisata; ?></p>

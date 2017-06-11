@@ -36,7 +36,7 @@
 					?>
 						<!-- <img src="<?php echo base_url()?>assets/images/banner1.jpg" alt=" " class="img-responsive" /> -->
 					</div>
-					<div class="blog-page-grids-bot1">
+					<div class="blog-page-grids-bot1" style="text-align: justify;">
 						<p><?php echo $a->ket_penginapan; ?></p></br>
 				<a href="<?php echo base_url()?>index.php/detailpenginapan/<?php echo $a->id_penginapan; ?>">Lanjutkan Membaca...</a>
 					</div>

@@ -41,7 +41,7 @@
 					?>
 						<!-- <img src="<?php echo base_url()?>assets/images/banner1.jpg" alt=" " class="img-responsive" /> -->
 					</div>
-					<div class="blog-page-grids-bot1">
+					<div class="blog-page-grids-bot1"  style="text-align: justify;">
 						<p><?php echo $row['ket_berita'];?></p>
 						<ul>
 							<li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i>User</a></li>

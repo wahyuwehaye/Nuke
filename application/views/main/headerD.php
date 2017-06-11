@@ -103,7 +103,7 @@
 	                        <p>Kelola Berita</p>
 	                    </a>
 	                </li>
-					<li class="<?php echo ($active_menu=="notifikasi") ? "active" :""; ?> treeview">
+					<!-- <li class="<?php echo ($active_menu=="notifikasi") ? "active" :""; ?> treeview">
 	                    <a href="<?php echo base_url()?>index.php/notifikasi">
 	                        <i class="material-icons">notifications</i>
 	                        <p>Notifikasi</p>
@@ -114,7 +114,7 @@
 	                        <i class="material-icons">location_on</i>
 	                        <p>Input Lokasi</p>
 	                    </a>
-	                </li>
+	                </li> -->
 	            </ul>
 	    	</div>
 	    </div>

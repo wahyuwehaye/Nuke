@@ -127,7 +127,7 @@ function edit_berita(id)
             $('[name="id_berita"]').val(data.id_berita);
             $('[name="judul_berita"]').val(data.judul_berita);
             $('[name="tgl_berita"]').val(data.tgl_berita);
-            $('[name="jenis_berita"]').val(data.jenis_berita);
+            // $('[name="jenis_berita"]').val(data.jenis_berita);
             $('[name="ket_berita"]').val(data.ket_berita);
             // $('[name="gambar_berita"]').val(data.gambar_berita);
             $('[name="cp_berita"]').val(data.cp_berita);
@@ -252,7 +252,7 @@ function delete_berita(id)
                             </div>
                         </div>
 
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Kategori berita</label>
@@ -264,7 +264,7 @@ function delete_berita(id)
                                                       </select>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row">
                             <div class="col-md-12">

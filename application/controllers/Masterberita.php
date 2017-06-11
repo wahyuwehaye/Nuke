@@ -25,7 +25,7 @@ class Masterberita extends CI_Controller {
             $row[] = $no;
 			$row[] = $berita->judul_berita;
 			$row[] = $berita->tgl_berita;
-            $row[] = $berita->jenis_berita;
+            // $row[] = $berita->jenis_berita;
             $row[] = $berita->cp_berita;
 
 			//add html for action
@@ -78,7 +78,7 @@ class Masterberita extends CI_Controller {
 			$data = array(
 					'judul_berita' => $this->input->post('judul_berita'),
 					'tgl_berita' => $this->input->post("tgl_berita"),
-	                'jenis_berita' => $this->input->post('jenis_berita'),
+	                // 'jenis_berita' => $this->input->post('jenis_berita'),
 	                'ket_berita' => $this->input->post('ket_berita'),
 	                'cp_berita' => $this->input->post('cp_berita'),
 	                'id_admin' => $this->input->post('id_admin'),
@@ -95,7 +95,7 @@ class Masterberita extends CI_Controller {
 		$data = array(
             'judul_berita' => $this->input->post('judul_berita'),
             'tgl_berita' => $this->input->post("tgl_berita"),
-            'jenis_berita' => $this->input->post('jenis_berita'),
+            // 'jenis_berita' => $this->input->post('jenis_berita'),
             'ket_berita' => $this->input->post('ket_berita'),
             'cp_berita' => $this->input->post('cp_berita'),
             'id_admin' => $this->input->post('id_admin'),
@@ -132,12 +132,12 @@ class Masterberita extends CI_Controller {
 			$data['status'] = FALSE;
 		}
 
-		if($this->input->post('jenis_berita') == '')
-		{
-			$data['inputerror'][] = 'jenis_berita';
-			$data['error_string'][] = 'Jenis Berita is required';
-			$data['status'] = FALSE;
-		}
+		// if($this->input->post('jenis_berita') == '')
+		// {
+		// 	$data['inputerror'][] = 'jenis_berita';
+		// 	$data['error_string'][] = 'Jenis Berita is required';
+		// 	$data['status'] = FALSE;
+		// }
 
 		if($this->input->post('ket_berita') == '')
 		{
