@@ -53,7 +53,7 @@
 			<?php $no++; } ?>
 			</div>
 			<div class="com">
-				<h3>Comments</h3>
+				<h3>Komentar</h3>
 				<ul class="media-list">
 				  <!-- <li class="media">
 					<div class="media-left">
@@ -100,7 +100,7 @@
 				</ul>
 			</div>
 			<div class="in dfg">
-				<h3>Leave a Comments Here</h3>
+				<h3>Tinggalkan Komentar Disini</h3>
 			    <form action="<?php echo base_url()?>index.php/dashboard/insertKomenEvent" method="post">
 					<!-- <input type="text" name="text" placeholder="Name" required=" "> -->
 				<?php $id_event = $this->uri->segment(2, 0); ?>
@@ -114,8 +114,8 @@
 					<input type="text" name="website" placeholder="Website" required=" ">
 					<input type="hidden" name="id_event" value="<?php echo $id_event; ?>">
 				<?php } ?>
-					<textarea name="komentar" placeholder="Meassage" required=" "></textarea>
-					<input type="submit" value="Leave A Comment">
+					<textarea name="komentar" placeholder="Isi Komentar" required=" "></textarea>
+					<input type="submit" value="Komentar">
 					<div class="clearfix"> </div>
 				</form>
 			</div>

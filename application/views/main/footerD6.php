@@ -104,11 +104,7 @@ foto_upload.on("removedfile",function(a){
         }
     });
 });
-
-
 </script>
-
-
 
 </body>
 </html>
