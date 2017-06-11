@@ -54,7 +54,7 @@
 			<?php $no++; } ?>
 			</div>
 			<div class="com">
-				<h3>Comments</h3>
+				<h3>Komentar</h3>
 				<ul class="media-list">
 				<?php $no=1; foreach($komen->result_array() as $row){ ?>
 				  <li class="media">
@@ -101,7 +101,7 @@
 				</ul>
 			</div>
 			<div class="in dfg">
-				<h3>Leave a Comments Here</h3>
+				<h3>Tinggalkan Komentar Disini</h3>
 			    <form action="<?php echo base_url()?>index.php/dashboard/insertKomen" method="post">
 			    <?php $id_berita = $this->uri->segment(2, 0); ?>
 			    <?php if(isset($_SESSION['logged_in']))
@@ -115,8 +115,8 @@
 					<input type="text" name="website" placeholder="Website" required=" ">
 					<input type="hidden" name="id_berita" value="<?php echo $id_berita; ?>">
 				<?php } ?>
-					<textarea name="komentar" placeholder="Meassage" required=" "></textarea>
-					<input type="submit" value="Leave A Comment">
+					<textarea name="komentar" placeholder="Isi Komentar" required=" "></textarea>
+					<input type="submit" value="Komentar">
 					<div class="clearfix"> </div>
 				</form>
 			</div>
