@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2017 at 04:55 PM
+-- Generation Time: Jun 12, 2017 at 02:27 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -63,7 +63,13 @@ CREATE TABLE `berita_terbaru` (
 
 INSERT INTO `berita_terbaru` (`id_berita`, `judul_berita`, `tgl_berita`, `ket_berita`, `cp_berita`, `id_admin`) VALUES
 (3, 'Tahun Ini Boyolali Kuliahkan 30 Pelajar Ke Luar Negeri', '2017-05-23', 'Sebanyak 30 pelajar Boyolali akan dibiayai kuliahnya ke luar negeri tahun ini oleh Pemkab Boyolali. Mereka terdiri dari 20 pelajar dengan jenjang pendidikan S1 dan 10 orang dengan jenjang pendidikan S2. Proses seleksi untuk pelajar yang akan dikirimkan untuk kuliah S1 di Nanjing University, Tiongkok, tahun ini sudah selesai dilakukan oleh panitia seleksi. Saat ini menurut Kepala Dinas Pendidikan dan Kebudayaan (Disdikbud) Boyolali, Darmanto, para pelajar yang terpilih tinggal menunggu teknis pemberangkatan. Disebutkan Darmanto, animo pelajar Boyolali untuk kuliah ke luar negeri cukup tinggi. Setidaknya terdapat 60 pelajar yang ikut seleksi. Mereka kemudian diuji, mulai dari seleksi administrative, akademik, hingga wawasan kebangsaan. Pengiriman mahasiswa ke Tiongkok tersebut menurut Darmanto, menyusul pengiriman 10 siswa ke universitas yang sama tahun kemarin. “Dari 60 peserta, sudah terseleksi 20 orang yang saat ini tinggal teknis pemberangkatan,” ungkap Darmanto, Selasa (23/5). Selain beasiswa jenjang pendidikan S1, tahun ini Pemkab Boyolali menurut Darmanto juga memberikan beasiswa untuk jenjang pendidikan S2 dengan tujuan Universitas di London, Inggris. Beasiswa ini diberikan bagi warga Boyolali yang sudah menyandang gelar pendidikan S1. Sedangkan jurusan yang dipilih yakni jurusan Akuntansi dan Manajemen. Untuk seleksi beasiswa S2 ini, menurut Darmanto saat ini tengah proses persiapan. Menurut dia, beasiswa ini diperuntukkan secara bebas bagi warga Boyolali, baik PNS maupun umum. Sementara itu untuk alokasi anggaran beasiswa kuliah ke luar negeri tahun ini, menurut Darmanto dialokasikan anggaran senilai Rp 10,6 miliar. Nantinya meski mereka tidak ada ikatan apapun dengan Pemkab Boyolali, namun mereka diminta untuk serius dalam menimba ilmu di luar negeri. “Tidak ada ikatan dinas, hanya saja mereka wajib membuat laporan pertanggungjawaban setelah lulus,” imbuh Darmanto.', '23232', 1),
-(5, 'asas', '2017-06-11', 'dada', '234', 1);
+(7, 'motogp barcelona 2017', '2017-06-12', 'pemenangnya adalah Dovizioso, Marques dan Pedrosa', '3456789345', 1),
+(11, 'raisa patah hati', '2017-06-12', 'asdfghjkl', '234567', 1),
+(12, 'fatin shidqia lagi kasmaran', '2017-06-12', 'dfghjkl', '456789', 1),
+(13, 'Telkom University Akreditasi A', '2017-06-12', 'asdfghhjk', '2345678', 1),
+(17, 'akankah ini terjadi padaku?', '2017-06-12', 'asdfghjkl', '2345678', 1),
+(18, 'akhirnya datang juga kamu', '2017-06-12', 'asdfhgjkjk', '345678', 1),
+(19, 'sahurnya tuh disini', '2017-06-12', 'asdfghjk', '3456', 1);
 
 -- --------------------------------------------------------
 
@@ -111,7 +117,11 @@ CREATE TABLE `gambar_berita` (
 
 INSERT INTO `gambar_berita` (`id_gambar`, `gambar`, `tgl_upload`, `id_berita`, `token`) VALUES
 (24, 'BEASISWA.jpg', '2017-05-24 01:54:49', 3, '0.3521839590539675'),
-(25, 'BEASISWA.jpg', '2017-06-01 13:15:31', 3, '0.608694088250419');
+(25, 'BEASISWA.jpg', '2017-06-01 13:15:31', 3, '0.608694088250419'),
+(26, 'logo-koperasi-png.png', '2017-06-11 19:37:29', 19, '0.7921696220352885'),
+(27, 'pin3.png', '2017-06-11 19:37:31', 19, '0.0013453491244277416'),
+(28, 'DALuRFeVYAEcSMk.jpg', '2017-06-11 19:37:36', 19, '0.2733271181302599'),
+(29, 'DBx-qzYUMAAoUA1.jpg', '2017-06-11 19:37:39', 19, '0.45396784885317576');
 
 -- --------------------------------------------------------
 
@@ -388,7 +398,9 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `email`, `domisili`, `asa
 (21, 'ivo', '20e04899c46cd16355f0f2ca77fa83b9', 'ivo@gmail.com', 'Bandung', 'Cirebon', '081222287583', 'Perempuan', 'Ivo Auliannisa S S'),
 (22, 'sanah', '138d3ab7fedb3af29c9fa9dca7bcf8da', 'sanahsiz@gmail.com', 'Bandung', 'Jambi', '082374123515', 'Perempuan', 'Nurhasanah'),
 (23, 'dimaspp', '2d1f04d16999e6831a24401efedda1d2', 'dimaspp@gmail.com', 'Bandung', 'Bekasi', '082240207809', 'Laki-Laki', 'Dimas Putra Pamungkas'),
-(29, 'wahyu', '32c9e71e866ecdbc93e497482aa6779f', 'wahyu@gmail.com', 'asasas', 'sasasas', '123', 'Laki-Laki', 'wahyu');
+(29, 'wahyu', '5c5a3ad8a0d8be85698eae02c457a133', 'wehaye94@gmail.com', 'asasas', 'sasasas', '123', 'Laki-Laki', 'wahyu'),
+(31, 'nuk', '5eae959afafa1da32db30f0b73fa7454', 'nukepangestu14@gmall.com', 'Bandung', 'boyolali', '0813137773737', 'Perempuan', 'nukenuke'),
+(32, 'wmtm', '96f61d1f306d52f2d3dcc44ba52c5f42', 'wmtrendmanagement@gmail.com', 'Bandung', 'bandung utara', '081312555467', 'Laki-Laki', 'WMTManagement');
 
 --
 -- Indexes for dumped tables
@@ -513,7 +525,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `berita_terbaru`
 --
 ALTER TABLE `berita_terbaru`
-  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `event`
 --
@@ -523,7 +535,7 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT for table `gambar_berita`
 --
 ALTER TABLE `gambar_berita`
-  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_gambar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `gambar_event`
 --
@@ -578,7 +590,7 @@ ALTER TABLE `tempat_wisata`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- Constraints for dumped tables
 --
