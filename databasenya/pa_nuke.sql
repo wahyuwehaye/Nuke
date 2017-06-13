@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2017 at 02:27 AM
+-- Generation Time: Jun 13, 2017 at 04:12 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -63,13 +63,7 @@ CREATE TABLE `berita_terbaru` (
 
 INSERT INTO `berita_terbaru` (`id_berita`, `judul_berita`, `tgl_berita`, `ket_berita`, `cp_berita`, `id_admin`) VALUES
 (3, 'Tahun Ini Boyolali Kuliahkan 30 Pelajar Ke Luar Negeri', '2017-05-23', 'Sebanyak 30 pelajar Boyolali akan dibiayai kuliahnya ke luar negeri tahun ini oleh Pemkab Boyolali. Mereka terdiri dari 20 pelajar dengan jenjang pendidikan S1 dan 10 orang dengan jenjang pendidikan S2. Proses seleksi untuk pelajar yang akan dikirimkan untuk kuliah S1 di Nanjing University, Tiongkok, tahun ini sudah selesai dilakukan oleh panitia seleksi. Saat ini menurut Kepala Dinas Pendidikan dan Kebudayaan (Disdikbud) Boyolali, Darmanto, para pelajar yang terpilih tinggal menunggu teknis pemberangkatan. Disebutkan Darmanto, animo pelajar Boyolali untuk kuliah ke luar negeri cukup tinggi. Setidaknya terdapat 60 pelajar yang ikut seleksi. Mereka kemudian diuji, mulai dari seleksi administrative, akademik, hingga wawasan kebangsaan. Pengiriman mahasiswa ke Tiongkok tersebut menurut Darmanto, menyusul pengiriman 10 siswa ke universitas yang sama tahun kemarin. “Dari 60 peserta, sudah terseleksi 20 orang yang saat ini tinggal teknis pemberangkatan,” ungkap Darmanto, Selasa (23/5). Selain beasiswa jenjang pendidikan S1, tahun ini Pemkab Boyolali menurut Darmanto juga memberikan beasiswa untuk jenjang pendidikan S2 dengan tujuan Universitas di London, Inggris. Beasiswa ini diberikan bagi warga Boyolali yang sudah menyandang gelar pendidikan S1. Sedangkan jurusan yang dipilih yakni jurusan Akuntansi dan Manajemen. Untuk seleksi beasiswa S2 ini, menurut Darmanto saat ini tengah proses persiapan. Menurut dia, beasiswa ini diperuntukkan secara bebas bagi warga Boyolali, baik PNS maupun umum. Sementara itu untuk alokasi anggaran beasiswa kuliah ke luar negeri tahun ini, menurut Darmanto dialokasikan anggaran senilai Rp 10,6 miliar. Nantinya meski mereka tidak ada ikatan apapun dengan Pemkab Boyolali, namun mereka diminta untuk serius dalam menimba ilmu di luar negeri. “Tidak ada ikatan dinas, hanya saja mereka wajib membuat laporan pertanggungjawaban setelah lulus,” imbuh Darmanto.', '23232', 1),
-(7, 'motogp barcelona 2017', '2017-06-12', 'pemenangnya adalah Dovizioso, Marques dan Pedrosa', '3456789345', 1),
-(11, 'raisa patah hati', '2017-06-12', 'asdfghjkl', '234567', 1),
-(12, 'fatin shidqia lagi kasmaran', '2017-06-12', 'dfghjkl', '456789', 1),
-(13, 'Telkom University Akreditasi A', '2017-06-12', 'asdfghhjk', '2345678', 1),
-(17, 'akankah ini terjadi padaku?', '2017-06-12', 'asdfghjkl', '2345678', 1),
-(18, 'akhirnya datang juga kamu', '2017-06-12', 'asdfhgjkjk', '345678', 1),
-(19, 'sahurnya tuh disini', '2017-06-12', 'asdfghjk', '3456', 1);
+(20, '2345678', '2017-06-13', '1234567', '23456789', 1);
 
 -- --------------------------------------------------------
 
@@ -94,8 +88,7 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`id_event`, `nama_event`, `tgl_event`, `lokasi_event`, `ket_event`, `waktu_event`, `cp_event`, `daerah_event`, `id_admin`) VALUES
-(4, 'Peringati Hari Tari Sedunia', '2017-05-28', 'Alun-alun Kabupaten Boyolali', ' Sebanyak 1.728 penari ikut meramaikan event bertemakan “Bojalali Ekspresi Gerak Boyolali” itu. Tak hanya penari lokal, dalam kegiatan tersebut juga terdapat sejumlah penari mancanegara yang turut ambil bagian. Mereka di antaranya dari China, Jerman, Timor Leste, Singapura, serta sejumlah penari dari kota-kota sekitar Boyolali. Kegiatan Boyolali menari 24 jam nonstop tersebut diselenggarakan Disdikbud bekerjasama dengan Ketholeng Institute dan Ireng Putih Production. Kegiatan menari tersebut diawali dengan tari kolosal jaran kepang, yang dipentaskan oleh 500 pelajar SMP dan SMA Boyolali dengan lokasi Pendapa Alit rumah dinas (Rumdin) bupati mulai pukul 07.00 WIB. Kegiatan menari tersebut berlangsung hingga pukul 12.00 WIB dengan disambung tari-tarian yang dipentaskan siswa PAUD, TK, dan SD. Selepas itu, kegiatan menari dilanjutkan ke Gelanggang Anuraga, yang dipentaskan oleh para pelajar SMP dan SMA di Boyolali. Petang harinya, kegiatan menari itu kembali bergeser ke kawasan Simpang Lima Siaga yang berlangsung hingga tengah malam.', '00:12:00', '22222222', 'Kabupaten Boyolali', 1),
-(7, 'asa', '2017-06-03', 'asas', 'asas', '14:10:00', '242', '2424', 1);
+(4, 'Peringati Hari Tari Sedunia', '2017-05-28', 'Alun-alun Kabupaten Boyolali', ' Sebanyak 1.728 penari ikut meramaikan event bertemakan “Bojalali Ekspresi Gerak Boyolali” itu. Tak hanya penari lokal, dalam kegiatan tersebut juga terdapat sejumlah penari mancanegara yang turut ambil bagian. Mereka di antaranya dari China, Jerman, Timor Leste, Singapura, serta sejumlah penari dari kota-kota sekitar Boyolali. Kegiatan Boyolali menari 24 jam nonstop tersebut diselenggarakan Disdikbud bekerjasama dengan Ketholeng Institute dan Ireng Putih Production. Kegiatan menari tersebut diawali dengan tari kolosal jaran kepang, yang dipentaskan oleh 500 pelajar SMP dan SMA Boyolali dengan lokasi Pendapa Alit rumah dinas (Rumdin) bupati mulai pukul 07.00 WIB. Kegiatan menari tersebut berlangsung hingga pukul 12.00 WIB dengan disambung tari-tarian yang dipentaskan siswa PAUD, TK, dan SD. Selepas itu, kegiatan menari dilanjutkan ke Gelanggang Anuraga, yang dipentaskan oleh para pelajar SMP dan SMA di Boyolali. Petang harinya, kegiatan menari itu kembali bergeser ke kawasan Simpang Lima Siaga yang berlangsung hingga tengah malam.', '00:12:00', '22222222', 'Kabupaten Boyolali', 1);
 
 -- --------------------------------------------------------
 
@@ -339,7 +332,7 @@ CREATE TABLE `penginapan` (
 INSERT INTO `penginapan` (`id_penginapan`, `nama_penginapan`, `alamat_penginapan`, `daerah_penginapan`, `ket_penginapan`, `harga_penginapan`, `long_penginapan`, `lat_penginapan`, `cp_penginapan`, `id_admin`, `id_user`) VALUES
 (1, 'Hotel Boyolali Indah', 'Jl. Solo - Boyolali RT01/RW09', 'Kabupaten Boyolali', 'Hotel yang menyediakan 12 kamar dengan kisaran harga antara Rp. 110.000 sampai dengan Rp. 500.000', 110000, '', '', '0276325660', 1, 1),
 (2, 'Penginapan Pondok Asri', 'Jl. Perintis Kemerdekaan No. 9', 'Kabupaten Boyolali', 'Hotel yang menyediakan 16 kamar dengan tarif Rp 60.000 sampai dengan Rp 250.000', 150000, '110.60279846191406', '-7.529276408744877', '0276323760', 1, 1),
-(3, 'Penginapan Pondok Indah', 'Jl. Merapi No.27, Pulisen, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah', 'Pulisen', 'Menyediakan 26 jumlah kamar dengan fasilitas sesuai dengan harga yang tersedia. Nyaman, bersih dan juga dekat dengan jalur transportasi umum.', 165000, '', '', '0276321497', 1, 1);
+(3, 'Penginapan Pondok Indah mall', 'Jl. Merapi No.27, Pulisen, Kec. Boyolali, Kabupaten Boyolali, Jawa Tengah', 'Pulisen', 'Menyediakan 26 jumlah kamar dengan fasilitas sesuai dengan harga yang tersedia. Nyaman, bersih dan juga dekat dengan jalur transportasi umum.', 165000, '', '', '0276321497', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -368,8 +361,7 @@ CREATE TABLE `tempat_wisata` (
 INSERT INTO `tempat_wisata` (`id_wisata`, `nama_wisata`, `alamat_wisata`, `kategori_wisata`, `lat_wisata`, `long_wisata`, `ket_wisata`, `harga_wisata`, `notelp_wisata`, `tanggal_post`, `id_admin`) VALUES
 (1, 'Gunung Merbabu', 'Jl. Merbabu No.136 Kabupaten Boyolali, Jawa Tengah', 'Wisata Alam', '', '', 'Gunung Merbabu adalah gunung api yang bertipe Strato (lihat Gunung Berapi) yang terletak secara geografis pada 7,5° LS dan 110,4° BT. Secara administratif gunung ini berada di wilayah Kabupaten Magelang di lereng sebelah barat dan Kabupaten Boyolali di lereng sebelah timur dan selatan, Kabupaten Semarang di lereng sebelah utara, Provinsi Jawa Tengah.  Gunung Merbabu dikenal melalui naskah-naskah masa pra-Islam sebagai Gunung Damalung atau Gunung Pam(a)rihan. Di lerengnya pernah terdapat pertapaan terkenal dan pernah disinggahi oleh Bujangga Manik pada abad ke-15. Menurut etimologi, "merbabu" berasal dari gabungan kata "meru" (gunung) dan "abu" (abu). Nama ini baru muncul pada catatan-catatan Belanda.  Gunung ini pernah meletus pada tahun 1560 dan 1797. Dilaporkan juga pada tahun 1570 pernah meletus, akan tetapi belum dilakukan konfirmasi dan penelitian lebih lanjut. Puncak gunung Merbabu berada pada ketinggian 3.145 meter di atas permukaan air laut.  Gunung Merbabu mempunyai kawasan Hutan Dipterokarp Bukit, Hutan Dipterokarp Atas, Hutan Montane, dan hutan Ericaceous atau hutan gunung.', 10000, '02763293341', '0000-00-00', 1),
 (3, 'Ini Baru Steak', 'Jl. Pandanaran No. 301, Banaran, Kabupaten Boyolali', 'Wisata Kuliner', '', '', 'Merupakan tempat wisata kuliner yang menyediakan berbagai menu steak dan dessert.', 2000, '02763280035', '0000-00-00', 1),
-(4, 'Amigo Boyolali', 'Jl. Pandanaran No. 105A, Kabupaten Boyoalali', 'Wisata Belanja', '', '', 'Amigo Group adalah toko retail fashion and shoes yang terletak di karesidenan Surakarta dan DIY. Ada 9 toko yang tersebar di kabupaten Klaten, Sukoharjo, Boyolali, Gunung Kidul dan Karanganyar.', 2000, ' 087834888324', '0000-00-00', 1),
-(5, 'Gunung Merapi', 'Selo Boyolali', 'Wisata Alam', '-63829.2321', '3297313', 'wisata gunung merapi', 100000, '08939244', '2017-05-23', 1);
+(4, 'Amigo Boyolali', 'Jl. Pandanaran No. 105A, Kabupaten Boyoalali', 'Wisata Belanja', '', '', 'Amigo Group adalah toko retail fashion and shoes yang terletak di karesidenan Surakarta dan DIY. Ada 9 toko yang tersebar di kabupaten Klaten, Sukoharjo, Boyolali, Gunung Kidul dan Karanganyar.', 2000, ' 087834888324', '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
@@ -395,12 +387,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `email`, `domisili`, `asal_daerah`, `no_hp_user`, `jk`, `nama_lengkap`) VALUES
 (20, 'ajengpursita', '43317d3fd0d3344a7152250b9fd0dc2f', 'pursitasariajeng2@gmail.com', 'Bandung', 'Bekasi', '082240206708', 'Perempuan', 'Ajeng Pursitasari'),
-(21, 'ivo', '20e04899c46cd16355f0f2ca77fa83b9', 'ivo@gmail.com', 'Bandung', 'Cirebon', '081222287583', 'Perempuan', 'Ivo Auliannisa S S'),
 (22, 'sanah', '138d3ab7fedb3af29c9fa9dca7bcf8da', 'sanahsiz@gmail.com', 'Bandung', 'Jambi', '082374123515', 'Perempuan', 'Nurhasanah'),
 (23, 'dimaspp', '2d1f04d16999e6831a24401efedda1d2', 'dimaspp@gmail.com', 'Bandung', 'Bekasi', '082240207809', 'Laki-Laki', 'Dimas Putra Pamungkas'),
 (29, 'wahyu', '5c5a3ad8a0d8be85698eae02c457a133', 'wehaye94@gmail.com', 'asasas', 'sasasas', '123', 'Laki-Laki', 'wahyu'),
-(31, 'nuk', '5eae959afafa1da32db30f0b73fa7454', 'nukepangestu14@gmall.com', 'Bandung', 'boyolali', '0813137773737', 'Perempuan', 'nukenuke'),
-(32, 'wmtm', '96f61d1f306d52f2d3dcc44ba52c5f42', 'wmtrendmanagement@gmail.com', 'Bandung', 'bandung utara', '081312555467', 'Laki-Laki', 'WMTManagement');
+(31, 'nuk', '5eae959afafa1da32db30f0b73fa7454', 'nukepangestu14@gmall.com', 'Bandung', 'boyolali', '0813137773737', 'Perempuan', 'nukenuke');
 
 --
 -- Indexes for dumped tables
@@ -525,7 +515,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `berita_terbaru`
 --
 ALTER TABLE `berita_terbaru`
-  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `event`
 --
@@ -580,12 +570,12 @@ ALTER TABLE `notifikasi`
 -- AUTO_INCREMENT for table `penginapan`
 --
 ALTER TABLE `penginapan`
-  MODIFY `id_penginapan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_penginapan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tempat_wisata`
 --
 ALTER TABLE `tempat_wisata`
-  MODIFY `id_wisata` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_wisata` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `user`
 --
@@ -606,54 +596,6 @@ ALTER TABLE `berita_terbaru`
 --
 ALTER TABLE `event`
   ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`);
-
---
--- Constraints for table `gambar_berita`
---
-ALTER TABLE `gambar_berita`
-  ADD CONSTRAINT `gambar_berita_ibfk_1` FOREIGN KEY (`id_berita`) REFERENCES `berita_terbaru` (`id_berita`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `gambar_event`
---
-ALTER TABLE `gambar_event`
-  ADD CONSTRAINT `gambar_event_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `event` (`id_event`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `gambar_penginapan`
---
-ALTER TABLE `gambar_penginapan`
-  ADD CONSTRAINT `gambar_penginapan_ibfk_1` FOREIGN KEY (`id_penginapan`) REFERENCES `penginapan` (`id_penginapan`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `gambar_wisata`
---
-ALTER TABLE `gambar_wisata`
-  ADD CONSTRAINT `gambar_wisata_ibfk_1` FOREIGN KEY (`id_wisata`) REFERENCES `tempat_wisata` (`id_wisata`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `komentar_berita`
---
-ALTER TABLE `komentar_berita`
-  ADD CONSTRAINT `komentar_berita_ibfk_1` FOREIGN KEY (`id_berita`) REFERENCES `berita_terbaru` (`id_berita`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `komentar_event`
---
-ALTER TABLE `komentar_event`
-  ADD CONSTRAINT `komentar_event_ibfk_1` FOREIGN KEY (`id_event`) REFERENCES `event` (`id_event`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `komentar_penginapan`
---
-ALTER TABLE `komentar_penginapan`
-  ADD CONSTRAINT `komentar_penginapan_ibfk_1` FOREIGN KEY (`id_penginapan`) REFERENCES `penginapan` (`id_penginapan`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `komentar_wisata`
---
-ALTER TABLE `komentar_wisata`
-  ADD CONSTRAINT `komentar_wisata_ibfk_1` FOREIGN KEY (`id_wisata`) REFERENCES `tempat_wisata` (`id_wisata`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `penginapan`
