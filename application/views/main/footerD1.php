@@ -109,6 +109,16 @@ function add_user()
     $('.modal-title').text('Tambah Member'); // Set Title to Bootstrap modal title
 }
 
+function invite_user()
+{
+    save_method = 'invite';
+    $('#forminvite')[0].reset(); // reset form on modals
+    $('.form-group').removeClass('has-error'); // clear error class
+    $('.help-block').empty(); // clear error string
+    $('#modal_forminvite').modal('show'); // show bootstrap modal
+    $('.modal-title').text('Invite Member'); // Set Title to Bootstrap modal title
+}
+
 function edit_user(id)
 {
     save_method = 'update';
@@ -157,7 +167,7 @@ function save()
 
     if(save_method == 'add') {
         url = "<?php echo site_url('Masterdatauser/ajax_add')?>";
-    } else {
+    }else {
         url = "<?php echo site_url('Masterdatauser/ajax_update')?>";
     }
 
@@ -194,6 +204,54 @@ function save()
             alert('Error adding / update data');
             $('#btnSave').text('save'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable
+
+        }
+    });
+}
+
+function invite()
+{
+    $('#btnInvite').text('sending...'); //change button text
+    $('#btnInvite').attr('disabled',true); //set button disable
+    var url;
+
+    url = "<?php echo site_url('Masterdatauser/cekUser')?>";
+    
+
+    // ajax adding data to database
+    $.ajax({
+        url : url,
+        type: "POST",
+        data: $('#forminvite').serialize(),
+        dataType: "JSON",
+        success: function(data)
+        {
+
+            if(data.status) //if success close modal and reload ajax table
+            {
+                $('#modal_forminvite').modal('hide');
+                reload_table();
+                alert('Email Sent...');
+            }
+            else
+            {
+                for (var i = 0; i < data.inputerror.length; i++) 
+                {
+                    $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
+                    $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
+                }
+            }
+
+            $('#btnInvite').text('save'); //change button text
+            $('#btnInvite').attr('disabled',false); //set button enable
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error sending / Email Sudah Terdaftar');
+            $('#btnInvite').text('save'); //change button text
+            $('#btnInvite').attr('disabled',false); //set button enable
 
         }
     });
@@ -326,5 +384,35 @@ function delete_user(id)
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- End Bootstrap modal-->
+
+<!-- Bootstrap modal -->
+<div class="modal fade" id="modal_forminvite" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="modal-title">Form Kelola Member</h3>
+            </div>
+            <div class="modal-body form">
+                <form action="#" id="forminvite" class="form-horizontal">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Email address</label>
+                                    <input type="email" class="form-control" name="email" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnInvite" onclick="invite()" class="btn btn-primary">Kirim Invitation</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Batalkan</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </body>
 </html>

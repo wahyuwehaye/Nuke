@@ -162,18 +162,31 @@
 		                            <span class="notification"><?php
 											                  $this->db->select('id');
 											                  $this->db->from('notifikasi');
+											                  $this->db->where('status','new');
 											                  echo $this->db->count_all_results();
 											                ?></span>
 		                            <p class="hidden-lg hidden-md">Notifications</p>
 		                        </a>
 		                        <ul class="dropdown-menu">
-		                        <?php $no=1; foreach($notif as $a){ ?>
-		                            <li><a href="#"><?php echo $a->nama_notif; ?> pada tanggal <?php echo $a->tanggal; ?></a></li>
-		                        <?php $no++;
-								if ($no>10) {
-									break;
-								}
-							 	} ?>
+		                        <?php
+		                        $this->db->select('id');
+								$this->db->from('notifikasi');
+								$this->db->where('status','new');
+								$jumnot = $this->db->count_all_results();
+		                        if ($jumnot<1) {
+		                        	?>
+		                        		<li><a href="#">You Have no Notification</a></li>
+		                        	<?php
+		                        }else{
+		                        	$no=1; foreach($notif as $a){ ?>
+		                            <li onclick="hapusnotif(<?php echo $a->id; ?>)"><a target="_blank" href="<?php echo base_url()?>index.php/<?php echo $a->link_page; ?>"><?php echo $a->nama_notif; ?> pada tanggal <?php echo $a->tanggal; ?></a></li>
+			                        <?php $no++;
+									if ($no>10) {
+										break;
+									}
+								 	}
+		                        }
+		                        ?>
 		                        </ul>
 		                    </li>
 		                    <li>
@@ -199,3 +212,12 @@
 		            </div>
 		        </div>
 		    </nav>
+
+
+<script type="text/javascript">
+	function hapusnotif(id) {
+		// alert(id);
+		var delete_url = "<?php echo base_url(); ?>index.php/dashboard/deletenotif/"+id;
+		window.location.href = delete_url;
+	}
+</script>

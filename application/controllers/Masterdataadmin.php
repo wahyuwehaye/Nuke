@@ -57,6 +57,7 @@ class Masterdataadmin extends CI_Controller {
 
 	public function ajax_add()
 	{
+		$this->validate();
 		$data = array(
 				'username' => $this->input->post('username'),
 				'password' =>md5($this->input->post("password")),
@@ -69,6 +70,7 @@ class Masterdataadmin extends CI_Controller {
 
 	public function ajax_update()
 	{
+		$this->validate();
 		$data = array(
             'username' => $this->input->post('username'),
             'password' => md5($this->input->post("password")),
@@ -83,5 +85,47 @@ class Masterdataadmin extends CI_Controller {
 	{
 		$this->admin->delete_by_id($id);
 		echo json_encode(array("status" => TRUE));
+	}
+
+	private function validate()
+	{
+		$data = array();
+		$data['error_string'] = array();
+		$data['inputerror'] = array();
+		$data['status'] = TRUE;
+
+		if($this->input->post('username') == '')
+		{
+			$data['inputerror'][] = 'username';
+			$data['error_string'][] = 'Username is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('email') == '')
+		{
+			$data['inputerror'][] = 'email';
+			$data['error_string'][] = 'Email is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('password') == '')
+		{
+			$data['inputerror'][] = 'password';
+			$data['error_string'][] = 'Password is required';
+			$data['status'] = FALSE;
+		}
+
+		if($this->input->post('no_hp_admin') == '')
+		{
+			$data['inputerror'][] = 'no_hp_admin';
+			$data['error_string'][] = 'Nomor HP is required';
+			$data['status'] = FALSE;
+		}
+
+		if($data['status'] === FALSE)
+		{
+			echo json_encode($data);
+			exit();
+		}
 	}
 }

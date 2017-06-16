@@ -48,7 +48,7 @@ class m_dashboard extends CI_Model{
     public function tampil_notif(){
         // return $this->db->get('berita_terbaru');
         // return $this->db->get('berita_terbaru')->order_by('id_berita', 'desc');
-        $query = $this->db->query("SELECT * FROM notifikasi order by id desc");
+        $query = $this->db->query("SELECT * FROM notifikasi where status='new' order by id desc");
             return $query;
     }
 
@@ -70,6 +70,12 @@ class m_dashboard extends CI_Model{
         $this->db->order_by('id_berita', 'DESC LIMIT 1');
         return $this->db->get()->result_array();
     }
+
+    public function deletenotif($column,$id){
+            $this->db->delete('notifikasi', array($column => $id));
+            $this->db->query('ALTER TABLE notifikasi AUTO_INCREMENT 1');
+            return $this->db->affected_rows();
+        }
 
     public function tampil_berita(){
         // return $this->db->get('berita_terbaru');

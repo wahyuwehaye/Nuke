@@ -59,6 +59,19 @@ class Masterdatauser extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function cekUser(){
+		$this->load->library('session');
+		$this->load->model('m_login');
+				$data=$this->m_login->cekEmailUser();
+				if ($data>0) {
+					// $_SESSION['adaemailuser'] = '';
+					// redirect('dashboard/login');
+					alert('Email Sudah Terdaftar');
+				}else{
+					$this->ajax_invite();
+				}
+	}
+
 	public function ajax_add()
 	{
 		$this->validate();
@@ -75,6 +88,39 @@ class Masterdatauser extends CI_Controller {
 			);
 		$insert = $this->user->save($data);
 		echo json_encode(array("status" => TRUE));
+	}
+
+	public function ajax_invite(){
+		$this->validateinvite();
+		$emailnya = $this->input->post('email');
+		$config = Array(
+		  	'protocol' => 'smtp',
+              'smtp_host' => 'ssl://smtp.googlemail.com',
+              'smtp_port' => 465,
+              'smtp_user' => 'wonderfulboyolali@gmail.com', // change it to yours
+              'smtp_pass' => 'boyolali123', // change it to yours
+              'mailtype' => 'html',
+              'charset' => 'iso-8859-1',
+              'wordwrap' => TRUE
+		);
+
+		        $message = 'Hi.. Saya sebagai admin dari Wonderful Boyolali ingin sekali mengajak anda untuk menjadi member kami, jika berkenan silakan registrasi pada link berikut ini : http://localhost/Nuke/index.php/login';
+		        $this->load->library('email', $config);
+		      $this->email->set_newline("\r\n");
+		       $this->email->from('wonderfulboyolali@gmail.com', 'Admin Boyolali'); // change it to yours
+		      $this->email->to($emailnya);// change it to yours
+		      $this->email->subject('Member Invitation');
+		      $this->email->message($message);
+		      if($this->email->send())
+		     {
+		      // echo 'Email sent.';
+		     	// alert('Email Sent...');
+		     	echo json_encode(array("status" => TRUE));
+		     }
+		     else
+		    {
+		     show_error($this->email->print_debugger());
+		    }
 	}
 
 	public function ajax_update()
@@ -161,6 +207,27 @@ class Masterdatauser extends CI_Controller {
 		{
 			$data['inputerror'][] = 'password';
 			$data['error_string'][] = 'Password is required';
+			$data['status'] = FALSE;
+		}
+
+		if($data['status'] === FALSE)
+		{
+			echo json_encode($data);
+			exit();
+		}
+	}
+
+	private function validateinvite()
+	{
+		$data = array();
+		$data['error_string'] = array();
+		$data['inputerror'] = array();
+		$data['status'] = TRUE;
+
+		if($this->input->post('email') == '')
+		{
+			$data['inputerror'][] = 'email';
+			$data['error_string'][] = 'Email is required';
 			$data['status'] = FALSE;
 		}
 

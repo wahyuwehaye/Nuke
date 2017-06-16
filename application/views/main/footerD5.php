@@ -261,7 +261,7 @@ function delete_berita(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Judul berita</label>
-                                    <input type="text" class="form-control" name="judul_berita">
+                                    <input type="text" required class="form-control" name="judul_berita">
                                 </div>
                             </div>
                         </div>
@@ -270,7 +270,7 @@ function delete_berita(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Tanggal berita</label>
-                                    <input type="date" class="form-control" name="tgl_berita">
+                                    <input type="date" required class="form-control" name="tgl_berita">
                                 </div>
                             </div>
                         </div>
@@ -293,7 +293,7 @@ function delete_berita(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Keterangan berita</label>
-                                    <input type="text" class="form-control" name="ket_berita">
+                                    <input type="text" required class="form-control" name="ket_berita">
                                 </div>
                             </div>
                         </div>
@@ -311,7 +311,7 @@ function delete_berita(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nomor Telepon berita</label>
-                                    <input type="text" class="form-control" name="cp_berita">
+                                    <input type="number" required class="form-control" name="cp_berita">
                                 </div>
                             </div>
                         </div>

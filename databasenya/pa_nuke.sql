@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2017 at 04:12 AM
+-- Generation Time: Jun 16, 2017 at 09:23 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -39,8 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`, `email`, `no_hp_admin`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@gmail.com', '089601651519'),
-(2, 'nukepangestu', '8ce3e75e79222e60310d2161a78b6471', 'nukepangestu14@gmall.com', '089601651519');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@gmail.com', '089601651519');
 
 -- --------------------------------------------------------
 
@@ -222,7 +221,10 @@ CREATE TABLE `komentar_berita` (
 --
 
 INSERT INTO `komentar_berita` (`id_komentar`, `id_user`, `komentar`, `tgl_komentar`, `id_berita`, `nama`) VALUES
-(1, 0, 'berita yang sangat bagus', '2017-06-08 23:40:35', 3, 'admin');
+(1, 0, 'berita yang sangat bagus', '2017-06-08 23:40:35', 3, 'admin'),
+(2, 0, 'ini baru namanya berita', '2017-06-16 04:05:45', 20, 'saputro'),
+(3, 0, 'baru baru ini deh', '2017-06-16 04:08:51', 20, 'gilang dirga'),
+(4, 0, 'coba komentarin kamu', '2017-06-16 06:06:02', 20, 'ayu diah');
 
 -- --------------------------------------------------------
 
@@ -244,7 +246,9 @@ CREATE TABLE `komentar_event` (
 --
 
 INSERT INTO `komentar_event` (`id_komentar`, `id_user`, `komentar`, `tgl_komentar`, `id_event`, `nama`) VALUES
-(1, 0, 'majukan terus budaya indonesia', '2017-06-08 23:41:24', 4, 'wahyu');
+(1, 0, 'majukan terus budaya indonesia', '2017-06-08 23:41:24', 4, 'wahyu'),
+(2, 0, 'ini mah keren sih', '2017-06-16 06:13:04', 4, 'nuke '),
+(3, 0, 'hsadbsakhdbka', '2017-06-16 06:13:58', 4, 'ajeng');
 
 -- --------------------------------------------------------
 
@@ -266,7 +270,8 @@ CREATE TABLE `komentar_penginapan` (
 --
 
 INSERT INTO `komentar_penginapan` (`id_komentar`, `id_user`, `komentar`, `tgl_komentar`, `id_penginapan`, `nama`) VALUES
-(1, 0, 'luar biasa sekali yah', '2017-06-08 23:37:18', 1, 'admin');
+(1, 0, 'luar biasa sekali yah', '2017-06-08 23:37:18', 1, 'admin'),
+(2, 0, 'sesuai dengan namanya asri banget', '2017-06-16 06:15:10', 2, 'asri');
 
 -- --------------------------------------------------------
 
@@ -283,6 +288,13 @@ CREATE TABLE `komentar_wisata` (
   `nama` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `komentar_wisata`
+--
+
+INSERT INTO `komentar_wisata` (`id_komentar`, `id_user`, `komentar`, `tgl_komentar`, `id_wisata`, `nama`) VALUES
+(1, 0, 'keren banget yah', '2017-06-16 06:14:31', 1, 'kirana');
+
 -- --------------------------------------------------------
 
 --
@@ -292,18 +304,18 @@ CREATE TABLE `komentar_wisata` (
 CREATE TABLE `notifikasi` (
   `id` int(10) NOT NULL,
   `nama_notif` varchar(100) NOT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status` varchar(10) NOT NULL,
+  `link_page` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `notifikasi`
 --
 
-INSERT INTO `notifikasi` (`id`, `nama_notif`, `tanggal`) VALUES
-(1, 'Ada member baru dengan nama : "wahyu"', '2017-06-08 18:24:11'),
-(2, '"admin" memberi komentar pada penginapan', '2017-06-08 18:37:18'),
-(3, '"admin" memberi komentar Berita', '2017-06-08 18:40:35'),
-(4, '"wahyu" memberi komentar Event', '2017-06-08 18:41:24');
+INSERT INTO `notifikasi` (`id`, `nama_notif`, `tanggal`, `status`, `link_page`) VALUES
+(1, '"ajeng" memberi komentar Event', '2017-06-16 01:13:58', 'new', 'detailevent/4'),
+(3, '"asri" memberi komentar Penginapan', '2017-06-16 01:15:10', 'new', 'detailpenginapan/2');
 
 -- --------------------------------------------------------
 
@@ -510,17 +522,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_admin` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `berita_terbaru`
 --
 ALTER TABLE `berita_terbaru`
-  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_berita` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id_event` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_event` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `gambar_berita`
 --
@@ -545,42 +557,42 @@ ALTER TABLE `gambar_wisata`
 -- AUTO_INCREMENT for table `komentar_berita`
 --
 ALTER TABLE `komentar_berita`
-  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `komentar_event`
 --
 ALTER TABLE `komentar_event`
-  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `komentar_penginapan`
 --
 ALTER TABLE `komentar_penginapan`
-  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `komentar_wisata`
 --
 ALTER TABLE `komentar_wisata`
-  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_komentar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `penginapan`
 --
 ALTER TABLE `penginapan`
-  MODIFY `id_penginapan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_penginapan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tempat_wisata`
 --
 ALTER TABLE `tempat_wisata`
-  MODIFY `id_wisata` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_wisata` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_user` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- Constraints for dumped tables
 --

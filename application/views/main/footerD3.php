@@ -243,7 +243,7 @@ function delete_penginapan(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nama Penginapan</label>
-                                    <input type="text" class="form-control" name="nama_penginapan">
+                                    <input type="text" required class="form-control" name="nama_penginapan">
                                 </div>
                             </div>
                         </div>
@@ -252,7 +252,7 @@ function delete_penginapan(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Alamat Penginapan</label>
-                                    <input type="text" class="form-control" name="alamat_penginapan">
+                                    <input type="text" required class="form-control" name="alamat_penginapan">
                                 </div>
                             </div>
                         </div>
@@ -261,7 +261,7 @@ function delete_penginapan(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Daerah Penginapan</label>
-                                    <input type="text" class="form-control" name="daerah_penginapan">
+                                    <input type="text" required class="form-control" name="daerah_penginapan">
                                 </div>
                             </div>
                         </div>
@@ -270,7 +270,7 @@ function delete_penginapan(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Keterangan Penginapan</label>
-                                    <input type="text" class="form-control" name="ket_penginapan">
+                                    <input type="text" required class="form-control" name="ket_penginapan">
                                 </div>
                             </div>
                         </div>
@@ -279,7 +279,7 @@ function delete_penginapan(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Harga Penginapan</label>
-                                    <input type="text" class="form-control" name="harga_penginapan">
+                                    <input type="number" required class="form-control" name="harga_penginapan">
                                 </div>
                             </div>
                         </div>
@@ -319,7 +319,7 @@ function delete_penginapan(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nomor Telepon penginapan</label>
-                                    <input type="text" class="form-control" name="cp_penginapan">
+                                    <input type="number" required class="form-control" name="cp_penginapan">
                                 </div>
                             </div>
                         </div>

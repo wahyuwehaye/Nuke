@@ -36,7 +36,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group label-floating">
                                             <label class="control-label">Nomor Handphone</label>
-                                            <input type="text" class="form-control" name="no_hp_admin" required>
+                                            <input type="number" class="form-control" name="no_hp_admin" required>
                                         </div>
                                     </div>
                                 </div>

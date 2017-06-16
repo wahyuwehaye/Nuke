@@ -270,7 +270,7 @@ function delete_wisata(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nama Wisata</label>
-                                    <input type="text" class="form-control" name="nama_wisata">
+                                    <input type="text" class="form-control" required name="nama_wisata">
                                 </div>
                             </div>
                         </div>
@@ -279,7 +279,7 @@ function delete_wisata(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Alamat Wisata</label>
-                                    <input type="text" class="form-control" name="alamat_wisata" id="alamat_wisata">
+                                    <input type="text" class="form-control" required name="alamat_wisata" id="alamat_wisata">
                                 </div>
                             </div>
                         </div>
@@ -288,7 +288,7 @@ function delete_wisata(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Kategori Wisata</label>
-                                  <select name="kategori_wisata" id="kategori_wisata" class="form-control">
+                                  <select name="kategori_wisata" id="kategori_wisata" required class="form-control">
                                                           <option value="">----</option>
                                                           <option value="Wisata Alam">Wisata Alam</option>
                                                           <option value="Wisata Kuliner">Wisata Kuliner</option>
@@ -329,7 +329,7 @@ function delete_wisata(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Keterangan Wisata</label>
-                                    <input type="text" class="form-control" name="ket_wisata">
+                                    <input type="text" class="form-control" required name="ket_wisata">
                                 </div>
                             </div>
                         </div>
@@ -338,7 +338,7 @@ function delete_wisata(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Harga Tiket Masuk</label>
-                                    <input type="text" class="form-control" name="harga_wisata">
+                                    <input type="number" class="form-control" required name="harga_wisata">
                                 </div>
                             </div>
                         </div>
@@ -347,7 +347,7 @@ function delete_wisata(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nomor Telepon Wisata</label>
-                                    <input type="text" class="form-control" name="notelp_wisata">
+                                    <input type="number" required class="form-control" name="notelp_wisata">
                                 </div>
                             </div>
                         </div>

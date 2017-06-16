@@ -381,6 +381,8 @@ class Dashboard extends CI_Controller {
 	    $nama = $this->input->post('nama');
 	    $notif = array(
 	    	'nama_notif' => '"'.$nama.'" memberi komentar Berita',
+	    	'status' => 'new',
+	    	'link_page' => 'detailberita/'.$page.'',
 	    	'tanggal' => date('Y-m-d H:i:s')
 	    	);
 	    $notif = $this->m_dashboard->Insert('notifikasi',$notif);
@@ -401,6 +403,8 @@ class Dashboard extends CI_Controller {
 	    $nama = $this->input->post('nama');
 	    $notif = array(
 	    	'nama_notif' => '"'.$nama.'" memberi komentar Event',
+	    	'status' => 'new',
+	    	'link_page' => 'detailevent/'.$page.'',
 	    	'tanggal' => date('Y-m-d H:i:s')
 	    	);
 	    $notif = $this->m_dashboard->Insert('notifikasi',$notif);
@@ -421,6 +425,8 @@ class Dashboard extends CI_Controller {
 	    $nama = $this->input->post('nama');
 	    $notif = array(
 	    	'nama_notif' => '"'.$nama.'" memberi komentar Wisata',
+	    	'status' => 'new',
+	    	'link_page' => 'detailwisata/'.$page.'',
 	    	'tanggal' => date('Y-m-d H:i:s')
 	    	);
 	    $notif = $this->m_dashboard->Insert('notifikasi',$notif);
@@ -441,6 +447,8 @@ class Dashboard extends CI_Controller {
 	    $nama = $this->input->post('nama');
 	    $notif = array(
 	    	'nama_notif' => '"'.$nama.'" memberi komentar Penginapan',
+	    	'status' => 'new',
+	    	'link_page' => 'detailpenginapan/'.$page.'',
 	    	'tanggal' => date('Y-m-d H:i:s')
 	    	);
 	    $notif = $this->m_dashboard->Insert('notifikasi',$notif);
@@ -541,6 +549,17 @@ class Dashboard extends CI_Controller {
 		$this->load->view('lockscreen');
 	}
 
+	public function deletenotif($id){
+		$this->load->model('m_dashboard');
+		$result=$this->m_dashboard->deletenotif('id',$id);
+		if($result > 0){
+			echo json_encode('success');
+		}else{
+			echo json_encode('failed');
+		}
+        redirect('dashboard/');
+	}
+
 	public function cekUser(){
 		$this->load->library('session');
 		$this->load->model('m_login');
@@ -599,6 +618,8 @@ class Dashboard extends CI_Controller {
 	    $nama = $this->input->post('nama_lengkap');
 	    $notif = array(
 	    	'nama_notif' => 'Ada member baru dengan nama : "'.$nama.'"',
+	    	'status' => 'new',
+	    	'link_page' => 'listuser',
 	    	'tanggal' => date('Y-m-d H:i:s')
 	    	);
 	    $notif = $this->m_dashboard->Insert('notifikasi',$notif);

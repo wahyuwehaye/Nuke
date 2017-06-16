@@ -242,7 +242,7 @@ function delete_event(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nama Event</label>
-                                    <input type="text" class="form-control" name="nama_event">
+                                    <input type="text" required class="form-control" name="nama_event">
                                 </div>
                             </div>
                         </div>
@@ -251,7 +251,7 @@ function delete_event(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Tanggal Event</label>
-                                    <input type="date" class="form-control" name="tgl_event">
+                                    <input type="date" required class="form-control" name="tgl_event">
                                 </div>
                             </div>
                         </div>
@@ -260,7 +260,7 @@ function delete_event(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Lokasi Event</label>
-                                    <input type="text" class="form-control" name="lokasi_event">
+                                    <input type="text" required class="form-control" name="lokasi_event">
                                 </div>
                             </div>
                         </div>
@@ -278,7 +278,7 @@ function delete_event(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Keterangan event</label>
-                                    <input type="text" class="form-control" name="ket_event">
+                                    <input type="text" required class="form-control" name="ket_event">
                                 </div>
                             </div>
                         </div>
@@ -305,7 +305,7 @@ function delete_event(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Nomor Telepon event</label>
-                                    <input type="text" class="form-control" name="cp_event">
+                                    <input type="number" required class="form-control" name="cp_event">
                                 </div>
                             </div>
                         </div>
@@ -314,7 +314,7 @@ function delete_event(id)
                             <div class="col-md-12">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Daerah Event</label>
-                                    <input type="text" class="form-control" name="daerah_event">
+                                    <input type="text" required class="form-control" name="daerah_event">
                                 </div>
                             </div>
                         </div>
