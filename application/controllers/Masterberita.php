@@ -207,6 +207,11 @@ class Masterberita extends CI_Controller {
 			$data['inputerror'][] = 'cp_berita';
 			$data['error_string'][] = 'Nomor HP is required';
 			$data['status'] = FALSE;
+		}else if(is_numeric($this->input->post('cp_berita'))==FALSE)
+		{
+			$data['inputerror'][] = 'cp_berita';
+			$data['error_string'][] = 'Nomor HP is WRONG';
+			$data['status'] = FALSE;
 		}
 
 		if($data['status'] === FALSE)

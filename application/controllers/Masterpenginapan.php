@@ -156,6 +156,16 @@ class Masterpenginapan extends CI_Controller {
 			$data['inputerror'][] = 'harga_penginapan';
 			$data['error_string'][] = 'Harga is required';
 			$data['status'] = FALSE;
+		}else if($this->input->post('harga_penginapan') < 0)
+		{
+			$data['inputerror'][] = 'harga_penginapan';
+			$data['error_string'][] = 'Harga Tidak boleh Minus';
+			$data['status'] = FALSE;
+		}else if(is_numeric($this->input->post('harga_penginapan')) == FALSE)
+		{
+			$data['inputerror'][] = 'harga_penginapan';
+			$data['error_string'][] = 'Harga is WRONG';
+			$data['status'] = FALSE;
 		}
 
 		if($data['status'] === FALSE)

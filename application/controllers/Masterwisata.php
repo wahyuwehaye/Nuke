@@ -156,6 +156,16 @@ class Masterwisata extends CI_Controller {
 			$data['inputerror'][] = 'harga_wisata';
 			$data['error_string'][] = 'Harga is required';
 			$data['status'] = FALSE;
+		}else if(is_numeric($this->input->post('harga_wisata')) == FALSE)
+		{
+			$data['inputerror'][] = 'harga_wisata';
+			$data['error_string'][] = 'Harga is required';
+			$data['status'] = FALSE;
+		} else if($this->input->post('harga_wisata') < 0)
+		{
+			$data['inputerror'][] = 'harga_wisata';
+			$data['error_string'][] = 'Harga tidak boleh Munus';
+			$data['status'] = FALSE;
 		}
 
 		if($this->input->post('notelp_wisata') == '')

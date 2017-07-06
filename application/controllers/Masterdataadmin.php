@@ -120,6 +120,11 @@ class Masterdataadmin extends CI_Controller {
 			$data['inputerror'][] = 'no_hp_admin';
 			$data['error_string'][] = 'Nomor HP is required';
 			$data['status'] = FALSE;
+		}else if(is_numeric($this->input->post('no_hp_admin')) == FALSE)
+		{
+			$data['inputerror'][] = 'no_hp_admin';
+			$data['error_string'][] = 'Nomor HP is WRONG';
+			$data['status'] = FALSE;
 		}
 
 		if($data['status'] === FALSE)

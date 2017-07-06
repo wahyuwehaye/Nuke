@@ -313,13 +313,13 @@ function delete_user(id)
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Domisili</label>
-                                    <input type="text" class="form-control" name="domisili" required>
+                                    <input type="text" pattern="[a-zA-Z]+" class="form-control" name="domisili" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
                                     <label class="control-label">Asal Daerah</label>
-                                    <input type="text" class="form-control" name="asal_daerah" required>
+                                    <input type="text" pattern="[a-zA-Z]+" class="form-control" name="asal_daerah" required>
                                 </div>
                             </div>
                         </div>

@@ -173,6 +173,11 @@ class Masterdatauser extends CI_Controller {
 			$data['inputerror'][] = 'domisili';
 			$data['error_string'][] = 'Domisili is required';
 			$data['status'] = FALSE;
+		}else if(!preg_match("/^[a-zA-Z .]*$/",($this->input->post('domisili'))))
+		{
+			$data['inputerror'][] = 'domisili';
+			$data['error_string'][] = 'Domisili is WRONG';
+			$data['status'] = FALSE;
 		}
 
 		if($this->input->post('asal_daerah') == '')
@@ -180,12 +185,22 @@ class Masterdatauser extends CI_Controller {
 			$data['inputerror'][] = 'asal_daerah';
 			$data['error_string'][] = 'Asal Daerah is required';
 			$data['status'] = FALSE;
+		}else if(!preg_match("/^[a-zA-Z .]*$/",($this->input->post('asal_daerah'))))
+		{
+			$data['inputerror'][] = 'asal_daerah';
+			$data['error_string'][] = 'Asal Daerah is WRONG';
+			$data['status'] = FALSE;
 		}
 
 		if($this->input->post('no_hp_user') == '')
 		{
 			$data['inputerror'][] = 'no_hp_user';
 			$data['error_string'][] = 'Nomor HP is required';
+			$data['status'] = FALSE;
+		}else if(is_numeric($this->input->post('no_hp_user')) == FALSE)
+		{
+			$data['inputerror'][] = 'no_hp_user';
+			$data['error_string'][] = 'Nomor HP is WRONG';
 			$data['status'] = FALSE;
 		}
 
