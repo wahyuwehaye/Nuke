@@ -164,7 +164,7 @@ class Masterwisata extends CI_Controller {
 		} else if($this->input->post('harga_wisata') < 0)
 		{
 			$data['inputerror'][] = 'harga_wisata';
-			$data['error_string'][] = 'Harga tidak boleh Munus';
+			$data['error_string'][] = 'Harga tidak boleh Minus';
 			$data['status'] = FALSE;
 		}
 
