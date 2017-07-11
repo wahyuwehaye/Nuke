@@ -22,6 +22,7 @@ class Main extends CI_Controller {
      public function __construct()
 	{
 	 parent::__construct();
+	 $this->load->model('m_dashboard');
 	}
 
 	public function index()
@@ -216,7 +217,9 @@ class Main extends CI_Controller {
     public function lokasi()
 	{
         $this->load->view('main/header1');
-        $this->load->view('lokasi');
+        $data['wisata'] = $this->m_dashboard->tampil_wisata()->result();
+        $data['penginapan'] = $this->m_dashboard->tampil_penginapan()->result();
+        $this->load->view('lokasi', $data);
 		$this->load->view('main/footer');
 	}
 }

@@ -94,6 +94,10 @@ class m_dashboard extends CI_Model{
         return $this->db->get('penginapan');
     }
 
+    public function tampil_wisata(){
+        return $this->db->get('tempat_wisata');
+    }
+
     public function tampil_alam(){
 		return $this->db->get_where('tempat_wisata',array('kategori_wisata'=>'Wisata Alam'));
 	}
